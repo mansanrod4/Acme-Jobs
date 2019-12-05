@@ -1,0 +1,117 @@
+/* acme.java
+ *
+ * Copyright (c) 2019 Rafael Corchuelo.
+ *
+ * In keeping with the traditional purpose of furthering science, education 
+ * and research, it is the policy of the copyright owner to permit non-commercial 
+ * use and redistribution of this software. It has been tested carefully, but 
+ * it is not guaranteed for any particular purposes.  The copyright owner does 
+ * not offer any warranties or representations, nor do they accept any liabilities
+ * with respect to them.
+ * 
+ */
+
+/* Patches to Bootstrap ---------------------------------------------------- */
+
+label {
+	margin-bottom: 0px;
+	font-weight: bold;
+}
+
+.form-control:disabled, 
+.form-control[readonly] {
+	border: 0px;
+	/* background-color: #fafffb; */  	
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: White;
+}
+
+.navbar-brand {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	font-size: 1rem;
+}
+
+div.dropdown-menu {
+	background-color: #343a40 !important;
+}
+
+a.dropdown-item {
+	color: #fff !important;
+}
+
+a.dropdown-item:hover {
+	color: #343a40 !important;
+}		
+
+.panel-body a, .panel-body a:hover {
+	color: #343a40 !important;
+}
+
+footer a, footer a:hover {
+	color: #fff !important;
+}
+
+footer {
+	padding: 15px;
+}
+
+.form-control::-webkit-input-placeholder { /* Webkit friends */
+  	color: #c5cbd4;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+	color: #c5cbd4;
+}
+
+@media screen and (max-width: 767px) {
+	body.container-fluid {
+		width: 100%;
+	}
+}
+
+@media ( min-width : 992px) {
+	body.container-fluid {
+		width: 90%;
+	}
+}
+
+@media ( min-width : 1200px) {
+	body.container-fluid {
+		width: 80%;
+	}
+}
+
+/* Patches to datatables --------------------------------------------------- */
+
+table.dataTable tbody tr.selected {
+	background-color: LightYellow !important;
+	color: Black;
+}
+
+.dataTables_filter {
+   float: left;
+}
+
+.dataTables_info {
+   vertical-align: middle !important;
+   font-size: small;
+   text-align: right;
+}
+
+@media screen and (max-width: 767px) {
+	div.dataTables_wrapper div.dataTables_paginate, div.dataTables_wrapper div.dataTables_filter {
+		text-align: right;
+		vertical-align: middle;
+	}
+	div.dataTables_wrapper div.dataTables_length, div.dataTables_wrapper div.dataTables_info {
+		text-align: left;
+		vertical-align: middle;
+	}
+	div.dataTables_info {
+		font-size: small;
+		text-align: right;
+	}
+}

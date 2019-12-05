@@ -1,0 +1,23 @@
+# messages_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+datatables.language = /libraries/datatables/1.10.18/config/i18n.json
+
+default.format.moment = yyyy/MM/dd HH:mm
+
+default.placeholder.moment = yyyy/mm/dd hh:mm
+default.placeholder.money = EUR 123,456.78
+default.placeholder.double = 123,456.78
+default.placeholder.integer = 123,456
+default.placeholder.url = http://www.acme.com
+
+default.error.conversion = Invalid value
+default.error.endpoint-unavailable = End-point not available
+default.error.not-authorised = Access is not authorised

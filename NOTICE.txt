@@ -1,0 +1,29 @@
+# NOTICE.txt
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+The following tools and components are required:
+
+- Oracle Java 1.8.0_191
+- Oracle MySQL Workbench 8.0.13
+- Oracle MySQL Community Server 8.0.13
+	
+- Apache Maven 3.6.1
+- Apache Tomcat 9.0.22
+	
+- Eclipse IDE for Java Developers 2019-06
+	- Eclipse Java EE Developer Tools 3.14
+	- Eclipse Web Developer Tools 3.14
+	- Eclipse JST Server Adapters (Apache Tomcat, JOnAS, J2EE)
+	- EGit - Git Integration for Eclipse 5.4.2
+	- SQL Editor 1.0.0
+	- UMLet - UML Tool for Fast UML Diagrams 14.3
+	- Lombok 1.18.8
+
+

@@ -1,0 +1,26 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+anonymous.user-account.form.title.create = Registrarse
+
+anonymous.user-account.label.username = Apodo:
+anonymous.user-account.label.password = Contraseña:
+anonymous.user-account.label.confirmation = Confirmación:
+anonymous.user-account.label.name = Nombre:
+anonymous.user-account.label.surname = Apellidos:
+anonymous.user-account.label.email = E-mail:
+anonymous.user-account.label.accept = Acepto la licencia
+
+anonymous.user-account.button.create = Registrar
+anonymous.user-account.button.return = Volver
+
+anonymous.user-account.error.duplicated = Este apodo ya está siendo usado
+anonymous.user-account.error.must-accept = Debe aceptar la licencia
+anonymous.user-account.error.confirmation-no-match = La confirmación no cuadra

@@ -1,0 +1,115 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+﻿# master.welcome ##############################################################
+
+master.welcome.title = ¡Bienvenidos!
+master.welcome.text = \
+	Bienvenidos a Acme Jobs, tu compañero de trabajo!  Da igual que seas un \
+	empleador o un trabajador: nuestro sistema de dará las opotunidades que \
+	necesitas.  ¡Te deseamos los mayores logros profesionales!
+
+# master.menu #################################################################
+
+master.menu.home = Inicio
+master.menu.sign-up = Registrarse
+master.menu.sign-in = Entrar
+master.menu.sign-out = Salir
+
+# master.menu.anonymous #######################################################
+
+master.menu.anonymous = Anónimo
+master.menu.anonymous.all-jobs = Ver todos los trabajos
+
+# master.menu.administrator ###################################################
+
+master.menu.administrator = Administrador
+master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.shutdown = Parar el sistema
+
+# master.menu.provider ########################################################
+
+master.menu.provider = Empleador
+master.menu.provider.create-job = Crear un trabajo
+master.menu.provider.all-jobs = Ver todos los trabajos
+master.menu.provider.my-jobs = Ver mis trabajos
+master.menu.provider.my-applications = Ver mis solicitudes
+
+# master.menu.consumer ##########################################################
+
+master.menu.consumer = Trabajador
+master.menu.consumer.all-jobs = Ver todos los trabajos
+master.menu.consumer.my-applications = Ver mis solicitudes
+
+# master.menu.user-account ####################################################
+
+master.menu.user-account = Cuenta
+master.menu.user-account.general-data = Datos generales
+master.menu.user-account.provider = Datos de empleado
+master.menu.user-account.become-provider = Hazte empleador
+master.menu.user-account.consumer = Datos de trabajador
+master.menu.user-account.become-consumer = Hazte trabajador
+
+﻿# master.sign-in ##############################################################
+
+master.sign-in.label.username = Apodo:
+master.sign-in.label.password = Contraseña:
+master.sign-in.label.remember-me = Recuerdame
+master.sign-in.button.sign-in = Entrar
+master.sign-in.button.return = Volver
+master.sign-in.error.text = Fallo de autentificación
+
+
+# master.footer ###############################################################
+
+master.footer.title.about = Nosotros
+master.footer.label.company = La empresa
+master.footer.label.license = Licencia
+master.footer.title.social = Social
+master.footer.label.linked-in = Linked-In
+master.footer.label.twitter = Twitter
+master.footer.title.languages = Lenguages
+master.footer.label.english = Inglés
+master.footer.label.spanish = Español
+
+# master.company ##############################################################
+
+master.company.title = La compañía
+master.company.text = \
+	Acme, Inc. hace referencia a un holding de empresas ficticias que se usan \
+	en la asignatura Diseño y Pruebas de los estudios de Ingeniería Inforática \
+	de la Universidad de Sevilla.
+
+# master.license ##############################################################
+
+master.license.title = Licencia
+master.license.text = \
+	Puede usar este sistema de forma completamente gratuita respetando las leyes \
+	que sean aplicables.  No compartimos ninguna información sobre Ud. con ninguna \
+	otra empresa.  Tan sólo usamos tres cookies, a saber: "JSESSIONID" para identificar \
+	su sesión de trabajo, "remember" para mantener su información de autentificación \
+	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
+	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
+	local de su navegador para saber dónde tienen que ir algunos botones.
+	
+# master.panic ################################################################
+
+master.panic.title = Error inesperado
+master.panic.text = \
+	¡Lo sentimos! Se ha producido un error inesperado.  Si impide que pueda \
+	trabajar con nuestro sistema, por favor, póngase en contacto con nosotros \
+	y haremos lo posible por resolverlo cuanto antes.
+	the following information to them.
+master.panic.label.request = Petición:
+master.panic.label.status = Estado:
+master.panic.label.exceptions = Excepciones:
+master.panic.text.consult-log = Por favor, consulte el log para ver más detalles.
+

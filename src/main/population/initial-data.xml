@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+- initial-data.xml
+-
+- Copyright (c) 2019 Rafael Corchuelo.
+-
+- In keeping with the traditional purpose of furthering education and research, it is
+- the policy of the copyright owner to permit non-commercial use and redistribution of
+- this software. It has been tested carefully, but it is not guaranteed for any particular
+- purposes.  The copyright owner does not offer any warranties or representations, nor do
+- they accept any liabilities with respect to them.
+-->
+
+<beans 
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+	<import resource="conversion-service.xml"/>
+	
+	<!-- Anonymous user -->
+
+	<bean name="anonymousUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="anonymous" />
+		<property name="password" value="anonymous" />
+		<property name="enabled" value="false" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="John" />
+				<property name="surname" value="Doe" />
+				<property name="email" value="john.doe@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="anonymousAnonymous" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="anonymousAnonymous" class="acme.framework.entities.Anonymous">
+		<property name="userAccount" ref="anonymousUserAccount" />
+	</bean>
+
+	<!-- Administrators -->
+	
+	<bean name="administratorUserAccount" class="acme.framework.entities.UserAccount">
+		<property name="username" value="administrator" />
+		<property name="password" value="administrator" />
+		<property name="enabled" value="true" />
+		<property name="identity">
+			<bean class="acme.datatypes.UserIdentity">
+				<property name="name" value="Administrator" />
+				<property name="surname" value="Acme.com" />
+				<property name="email" value="administrator@acme.com" />
+			</bean>
+		</property>
+		<property name="roles">
+			<list>
+				<ref bean="administratorAdministrator" />
+				<ref bean="administratorAuthenticated" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="administratorAdministrator" class="acme.framework.entities.Administrator">
+		<property name="userAccount" ref="administratorUserAccount" />
+	</bean>
+	
+	<bean name="administratorAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="administratorUserAccount" />
+	</bean>
+	
+</beans>
