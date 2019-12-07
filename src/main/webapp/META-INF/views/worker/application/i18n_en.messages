@@ -1,0 +1,16 @@
+worker.application.form.label.referenceNumber = Reference
+worker.application.form.label.creationMoment = Creation moment
+worker.application.form.label.status = Status
+worker.application.form.label.statement = Statement
+worker.application.form.label.skills = Skills
+worker.application.form.label.qualifications = Qualifications
+worker.application.form.label.worker = Worker
+worker.application.form.label.job = Job
+
+worker.application.list.label.referenceNumber = Reference
+worker.application.list.label.creationMoment = Creation moment
+worker.application.list.label.statement = Statement
+worker.application.list.label.status = Status
+worker.application.list.label.job = Job
+
+worker.application.form.label.button.return = Return

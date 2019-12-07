@@ -1,0 +1,25 @@
+administrator.challenge.form.label.moment = Fecha:
+administrator.challenge.form.label.title = Titulo:
+administrator.challenge.form.label.description = Descripcion:
+administrator.challenge.form.label.deadline = Fecha Limite:
+administrator.challenge.form.label.goalBronze = Objetivo Bronce:
+administrator.challenge.form.label.goalSilver = Objetivo Plata:
+administrator.challenge.form.label.goalGold = Objetivo Oro:
+administrator.challenge.form.label.rewardBronze = Recompensa Bronze:
+administrator.challenge.form.label.rewardSilver = Recompensa Plata:
+administrator.challenge.form.label.rewardGold = Recompensa Oro:
+
+administrator.challenge.form.button.return = Volver
+administrator.challenge.form.button.update = Actualizar
+administrator.challenge.form.button.create = Crear reto
+administrator.challenge.form.button.delete = Borrar
+
+administrator.challenge.list.label.moment = Fecha
+administrator.challenge.list.label.title = Titulo
+administrator.challenge.list.label.deadline = Fecha Limite
+
+administrator.challenge.error.money-no-euro = Debe ser en euros
+administrator.challenge.error.rewardNoValidB = La recompensa nivel bronce debe ser menor que la plata y que la oro
+administrator.challenge.error.rewardNoValidS = La recompensa nivel plata debe estar entre la bronce y la oro
+administrator.challenge.error.rewardNoValidG = La recompensa nivel oro debe ser mayor que la plata y que la bronce
+administrator.challenge.error.deadline = La fecha de expiración debe ser una semana más tarde desde este momento

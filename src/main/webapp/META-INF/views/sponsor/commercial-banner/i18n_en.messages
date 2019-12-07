@@ -1,0 +1,18 @@
+sponsor.commercial-banner.form.label.picture = Picture(url):
+sponsor.commercial-banner.form.label.slogan = Slogan(url):
+sponsor.commercial-banner.form.label.targetURL = URL:
+sponsor.commercial-banner.form.label.accountHolder = Account holder:
+sponsor.commercial-banner.form.label.creditCardNumber: Credit card number:
+sponsor.commercial-banner.form.label.expirationDate = Expiration date:
+sponsor.commercial-banner.form.label.cvv = CVV:
+sponsor.comercial-banner.error.creditCard = Credit Card expired
+
+sponsor.commercial-banner.form.button.return = Return
+sponsor.commercial-banner.form.button.create = Create banner
+sponsor.commercial-banner.form.button.delete = Delete
+sponsor.commercial-banner.form.button.update = Update
+
+sponsor.commercial-banner.list.label.picture = Picture
+sponsor.commercial-banner.list.label.slogan = Slogan
+sponsor.commercial-banner.list.label.targetURL = Link
+sponsor.commercial-banner.list.label.creditCard = Credit Card

@@ -1,0 +1,19 @@
+provider.request.form.label.creationMoment = Momento:
+provider.request.form.label.title = Título:
+provider.request.form.label.deadLine = Expira:
+provider.request.form.label.text = Texto:
+provider.request.form.label.reward = Recompensa:
+provider.request.form.label.ticker = Referencia:
+
+provider.request.form.label.accept = Confirmo la creación
+provider.request.error.must-accept = Debe aceptar la creación
+provider.request.error.duplicated = La referencia ya existe
+provider.request.error.money-no-euro = Debe estar en euros
+provider.request.error.deadline = La fecha de expiración debe ser una semana más tarde desde este momento
+provider.request.error.ticker = La referencia no sigue el patrón, “R” es la letra “R”, “X” denota una letra arbitraria y “9” denota un dígito arbitrario
+
+provider.request.form.button.create = Crear
+provider.request.form.button.return = Volver
+
+provider.request.list.label.creationMoment = Momento
+provider.request.list.label.title = Título

@@ -1,0 +1,24 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+employer.duty.form.label.percentageTimeWeek = Percentage:
+employer.duty.form.label.title = Title:
+employer.duty.form.label.description = Description:
+employer.duty.form.label.jobTitle = Job Title:
+employer.duty.form.label.jobReference = Job Reference:
+employer.duty.form.label.jobEmployer = Employer:
+
+employer.duty.list.label.percentageTimeWeek = Percentage
+employer.duty.list.label.title = Title
+
+employer.duty.form.label.title.JobInformation = Job Information
+
+
+employer.duty.form.button.return = Return

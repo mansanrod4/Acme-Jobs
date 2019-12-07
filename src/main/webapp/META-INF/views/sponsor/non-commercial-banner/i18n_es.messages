@@ -1,0 +1,14 @@
+sponsor.non-commercial-banner.form.label.picture = Foto(url):
+sponsor.non-commercial-banner.form.label.slogan = Eslogan:
+sponsor.non-commercial-banner.form.label.targetURL = Enlace:
+sponsor.non-commercial-banner.form.label.jingle = Jingle:
+
+sponsor.non-commercial-banner.form.button.return = Volver
+sponsor.non-commercial-banner.form.button.create = Crear banner
+sponsor.non-commercial-banner.form.button.delete = Borrar
+sponsor.non-commercial-banner.form.button.update = Actualizar
+
+sponsor.non-commercial-banner.list.label.picture = Foto
+sponsor.non-commercial-banner.list.label.slogan = Eslogan
+sponsor.non-commercial-banner.list.label.targetURL = Enlace
+sponsor.non-commercial-banner.list.label.creditCard = Tarjeta de crédito

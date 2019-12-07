@@ -1,0 +1,22 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.announcement.form.label.moment = Moment:
+administrator.announcement.form.label.title = Title:
+administrator.announcement.form.label.moreInfo = More info:
+administrator.announcement.form.label.text = Text:
+
+administrator.announcement.form.button.return = Return
+administrator.announcement.form.button.create = Create Announcement
+administrator.announcement.form.button.delete = Delete
+administrator.announcement.form.button.update = Update
+
+administrator.announcement.list.label.moment = Moment
+administrator.announcement.list.label.title = Title

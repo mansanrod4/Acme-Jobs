@@ -1,0 +1,19 @@
+consumer.offer.form.label.moment = Momento:
+consumer.offer.form.label.title = Título:
+consumer.offer.form.label.deadLine = Expira:
+consumer.offer.form.label.text = Texto:
+consumer.offer.form.label.money = Oferta:
+consumer.offer.form.label.ticker = Referencia:
+
+consumer.offer.form.label.accept = Confirmo la creación
+consumer.offer.error.must-accept = Debe aceptar la creación
+consumer.offer.error.duplicated = La referencia ya existe
+consumer.offer.error.money-no-euro = Debe estar en euros
+consumer.offer.error.deadline = La fecha de expiración debe ser una semana más tarde desde este momento
+consumer.offer.error.ticker = La referencia no sigue el patrón, “O” es la letra “O”, “X” denota una letra arbitraria y “9” denota un dígito arbitrario
+
+consumer.offer.form.button.create = Crear
+consumer.offer.form.button.return = Volver
+
+consumer.offer.list.label.moment = Momento
+consumer.offer.list.label.title = Título

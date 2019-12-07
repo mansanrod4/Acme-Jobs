@@ -1,0 +1,10 @@
+authenticated.offer.form.label.moment = Moment:
+authenticated.offer.form.label.title = Title:
+authenticated.offer.form.label.deadLine = Dead-line:
+authenticated.offer.form.label.text = Text:
+authenticated.offer.form.label.money = Offer:
+authenticated.offer.form.label.ticker = Reference:
+authenticated.offer.form.button.return = Return
+
+authenticated.offer.list.label.moment = Moment
+authenticated.offer.list.label.title = Title

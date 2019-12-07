@@ -1,0 +1,9 @@
+auditor.audit.list.label.title = Titulo
+auditor.audit.list.label.moment = Fecha
+
+auditor.audit.form.label.reference = Titulo:
+auditor.audit.form.label.moment = Fecha:
+auditor.audit.form.label.body = Cuerpo:
+auditor.audit.form.label.status =  Estado:
+
+auditor.audit.form.button.return = Volver

@@ -1,0 +1,8 @@
+authenticated.announcement.form.label.moment = Moment:
+authenticated.announcement.form.label.title = Title:
+authenticated.announcement.form.label.moreInfo = More info:
+authenticated.announcement.form.label.text = Text:
+authenticated.announcement.form.button.return = Return
+
+authenticated.announcement.list.label.moment = Moment
+authenticated.announcement.list.label.title = Title

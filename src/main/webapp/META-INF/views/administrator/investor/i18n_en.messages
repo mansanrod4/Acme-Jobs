@@ -1,0 +1,24 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.investor.form.label.sector = Sector:
+administrator.investor.form.label.name = Name:
+administrator.investor.form.label.investingStatement =  Investing statement:
+administrator.investor.form.label.star = Number of stars:
+
+administrator.investor.form.button.return = Return
+administrator.investor.form.button.create = Create record
+administrator.investor.form.button.delete = Delete
+administrator.investor.form.button.update = Update
+
+
+administrator.investor.list.label.name = Name
+administrator.investor.list.label.sector = Sector
+administrator.investor.list.label.star = Stars

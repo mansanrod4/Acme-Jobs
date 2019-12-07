@@ -10,15 +10,13 @@
 
 # master.banner.welcome #######################################################
 
-master.banner.background = #FFE97F 
+master.banner.background = #febf49
 
 ﻿# master.welcome ##############################################################
 
 master.welcome.title = ¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme Stater!  Nunca antes ha sido tan sencillo desarrollar un \
-	proyecto y hacerlo funcionar.
-
+	¡Bienvenidos a Acme Jobs!  Nunca antes ha sido tan sencillo encontrar una oferta de trabajo u ofrecer una.
 # master.menu #################################################################
 
 master.menu.home = Inicio
@@ -29,23 +27,82 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
+master.menu.anonymous.announcements = Anuncios
+master.menu.anonymous.investorrecord = Registros de inversores
+master.menu.anonymous.companyrecords = Archivos de las Compañías
+master.menu.anonymous.topcompanyrecords = Mejores archivos de las Compañías
+master.menu.anonymous.topinvestorrecords = Mejores Registros de inversores
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Autentificado
+master.menu.authenticated.announcement = Anuncios
+master.menu.authenticated.challenge = Desafios
+master.menu.authenticated.offer = Ofertas
+master.menu.authenticated.companyrecords = Archivos de las Compañías
+master.menu.authenticated.request = Solicitudes
+master.menu.authenticated.investorrecords = Registros de Inversores
+master.menu.authenticated.messagethread.mine = Mis Hilos de Mensajes
+master.menu.authenticated.jobs.list = Empleos
+
+
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.shutdown = Parar el sistema
+master.menu.administrator.announcements = Anuncios
+master.menu.administrator.announcements.create = Crear Anuncio
+master.menu.administrator.challenges = Reto
+master.menu.administrator.challenges.create = Crear reto
+master.menu.administrator.investor = Registros de Inversores
+master.menu.administrator.investor.create = Crear registro de inversor
+
+master.menu.administrator.sysconfig = Configuración del Sistema
+master.menu.administrator.dashboard = Estadísticas
+master.menu.administrator.companyrecords.list = Archivos de las Compañías
+master.menu.administrator.companyrecords.create = Crear Archivo de Compañía
+
+master.menu.administrator.banners.commercial-banner = Banners Comercial 
+master.menu.administrator.banners.commercial-banner.create = Crear banner comercial
+master.menu.administrator.banners.non-commercial-banner =Banners No Comercial
+master.menu.administrator.banners.non-commercial-banner.create = Crear banner no comercial
+
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.jobs.list = Trabajos Auditados
+master.menu.auditor.notrecorded.list = Trabajos No Auditados
 
 # master.menu.provider ########################################################
 
 master.menu.provider = Proveedor
-master.menu.provider.favourite-link = Enlace favorito
+master.menu.provider.requests.create = Crear Solicitud
 
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumidor
-master.menu.consumer.favourite-link = Enlace favorito
+master.menu.consumer.offers.create = Crear Oferta
+
+# master.menu.employer ##########################################################
+
+master.menu.employer = Empleado
+master.menu.employer.jobs.list = Mis Empleos
+master.menu.employer.jobs.create = Crear Empleo
+
+
+# master.menu.worker ###########################################################
+
+master.menu.worker = Trabajador
+master.menu.worker.applications.list = Mis solicitudes
+
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.commercialbanner.list = Banners Comerciales Creados
+master.menu.sponsor.noncommercialbanner.list = Banners No Comerciales Creados
+
 
 # master.menu.user-account ####################################################
 
@@ -55,8 +112,12 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.employer = Datos de empleado
+master.menu.user-account.become-employer = Hazte empleado
+master.menu.user-account.worker = Datos de trabajador
+master.menu.user-account.become-worker = Hazte trabajador
 
-﻿# master.footer ###############################################################
+# master.footer ###############################################################
 
 master.footer.title.about = Nosotros
 master.footer.label.company = La empresa
@@ -72,10 +133,11 @@ master.footer.label.spanish = Español
 
 master.company.title = La compañía
 master.company.text = \
-	Starter Project, Inc. es una compañía fictícia que proporciona un proyecto \
-	plantilla para los estudiantes de la asignatura Diseño y Pruebas, en el Grado \
-	en Ingeniería del Software de la Universidad de Sevilla.
-master.company.name = Starter Project, Inc.
+	Acme Jobs, Inc. es una compañía fictícia que proporciona una posibilidad \
+	para las personas que buscan una oferta de trabajo y la posibilidad para \
+	las empresas de ofrecerlas.
+	
+master.company.name = Acme Jobs, Inc.
 master.company.address = Calle, número, Ciudad, Estado, País
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com
@@ -91,4 +153,3 @@ master.license.text = \
 	durante un máximo de 31 días y "language" para almacenar sus preferencias de \
 	lenguage.  Además, almacenamos un ítem llamado "returnStack" en el almacenamiento \
 	local de su navegador para saber dónde tienen que ir algunos botones.
-	
