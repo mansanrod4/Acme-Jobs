@@ -1,0 +1,34 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# administrator.dashboard.list #################################
+
+administrator.dashboard.form.label.totalAnnouncements = Número total de Anuncios:
+administrator.dashboard.form.label.totalCompanyRecords = Número total de Archivos de Compañía:
+administrator.dashboard.form.label.totalInvestorRecords = Número total de Registros de Inversores:
+administrator.dashboard.form.label.maxRewardsRequests = Recompensa máxima de las Solicitudes activas:
+administrator.dashboard.form.label.minRewardsRequests = Recompensa mínima de las Solicitudes activas:
+administrator.dashboard.form.label.avgRewardsRequests = Recompensa media de las Solicitudes activas:
+administrator.dashboard.form.label.stdRewardsRequests = Desviación típica de las Solicitudes activas:
+administrator.dashboard.form.label.maxRewardsOffers = Recompensa máxima de las Ofertas activas:
+administrator.dashboard.form.label.minRewardsOffers = Recompensa mínima de las Ofertas activas:
+administrator.dashboard.form.label.avgRewardsOffers = Recompensa media de las Ofertas activas:
+administrator.dashboard.form.label.stdRewardsOffers = Desviación típica de las Ofertas activas:
+administrator.dashboard.form.label.avgNumberOfJobsPerEmployer = Número medio de Empleos por Empleado:
+administrator.dashboard.form.label.avgNumberOfApplicationsPerEmployer = Número medio de Empleos por Empleado:
+administrator.dashboard.form.label.avgNumberOfApplicationsPerWorker = Average number of Applications per Worker:
+
+administrator.dashboard.form.label.title.sectorCompaniesStatus = AGRUPACIÓN POR SECTORES DE LAS COMPAÑÍAS
+administrator.dashboard.form.label.title.sectorInvestorsStatus = AGRUPACIÓN POR SECTORES DE LOS INVERSORES
+administrator.dashboard.form.label.title.sectorJobStatus = RATIO DEL ESTADO DE LOS EMPLEOS
+administrator.dashboard.form.label.title.sectorApplicationStatus = RATIO DEL ESTADO DE LAS APLICACIONES
+administrator.dashboard.form.label.title.statistics = ESTADÍSTICAS PRINCIPALES
+
+administrator.dashboard.form.button.return = Volver

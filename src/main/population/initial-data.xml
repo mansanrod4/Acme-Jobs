@@ -73,4 +73,18 @@
 		<property name="userAccount" ref="administratorUserAccount" />
 	</bean>
 	
+	<!-- System Configuration Parameters -->
+	
+	<bean name="spamWords" class="acme.entities.sysconfig.Sysconfig">
+		<property name="spamwords" value="sex,hard core,viagra,cialis,nigeria,you've won,million dollar,has ganado,millon de euros,sexo"/>
+		<property name="threshold">
+			<value>1.0</value>
+		</property>
+	</bean>
+	
+	<!-- Dashboard -->
+	
+	<bean name="dashboard" class="acme.entities.dashboard.Dashboard">
+	</bean>
+	
 </beans>

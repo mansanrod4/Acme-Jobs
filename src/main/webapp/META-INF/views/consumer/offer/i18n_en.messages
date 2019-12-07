@@ -1,0 +1,19 @@
+consumer.offer.form.label.moment = Moment:
+consumer.offer.form.label.title = Title:
+consumer.offer.form.label.deadLine = Dead-line:
+consumer.offer.form.label.text = Text:
+consumer.offer.form.label.money = Offer:
+consumer.offer.form.label.ticker = Reference:
+
+consumer.offer.form.label.accept = I confirm the creation
+consumer.offer.error.must-accept = Must accept the creation
+consumer.offer.error.duplicated = This ticker is already taken
+consumer.offer.error.money-no-euro = It must be in Euro
+consumer.offer.error.deadline = The Deadline must be one week later from now
+consumer.offer.error.ticker = Ticker doesn't follow the pattern, “O” is letter “O”, “X” denotes an arbitrary letter and “9” denotes an arbitrary digit
+
+consumer.offer.form.button.create = Create
+consumer.offer.form.button.return = Return
+
+consumer.offer.list.label.moment = Moment
+consumer.offer.list.label.title = Title

@@ -1,0 +1,15 @@
+authenticated.request.list.label.ticker = Ticker
+authenticated.request.list.label.title = Title
+authenticated.request.list.label.creationMoment = Creation moment
+authenticated.request.list.label.deadLine = Dead-Line
+authenticated.request.list.label.text = Text
+authenticated.request.list.label.reward = Reward
+
+authenticated.request.form.label.ticker = Ticker:
+authenticated.request.form.label.title = Title:
+authenticated.request.form.label.creationMoment = Creation moment:
+authenticated.request.form.label.deadLine = Dead-Line:
+authenticated.request.form.label.text = Text:
+authenticated.request.form.label.reward = Reward:
+
+authenticated.request.form.button.return = Return

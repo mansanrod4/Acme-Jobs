@@ -1,0 +1,37 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# administrator.company-record.form ###############################
+
+administrator.company-record.form.label.companyName = Nombre de la Compañía:
+administrator.company-record.form.label.sector = Sector:
+administrator.company-record.form.label.ceoName = CEO:
+administrator.company-record.form.label.activDescription = Descripcion de la Actividad:
+administrator.company-record.form.label.website = Página Web:
+administrator.company-record.form.label.phone = Telefono:
+administrator.company-record.form.label.email = E-mail:
+administrator.company-record.form.label.incorporated: Sociedad Anónima
+administrator.company-record.form.label.rating = Rating:
+administrator.company-record.form.button.delete = Borrar
+administrator.company-record.form.button.create = Crear
+administrator.company-record.form.button.update = Actualizar
+
+administrator.company-record.form.button.return = Volver
+
+# administrator.company-record.list ###############################
+
+administrator.company-record.list.label.companyName: Nombre de la Compañía
+administrator.company-record.list.label.sector = Sector
+administrator.company-record.list.label.activDescription = Descripcion de la Actividad
+administrator.company-record.list.label.rating = Rating
+
+# company-record.form.error ###################################
+
+company-record.form.error.phone = El patrón del teléfono es incorrecto. Z puede tener como máximo 10 dígitos. Los paréntesis son opcionales

@@ -1,0 +1,19 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.employer.form.title.create = Become an employer
+authenticated.employer.form.title.update = Update your employer data
+
+authenticated.employer.form.label.company = Company:
+authenticated.employer.form.label.sector = Sector:
+
+authenticated.employer.form.button.create = Register
+authenticated.employer.form.button.update = Update
+authenticated.employer.form.button.return = Return

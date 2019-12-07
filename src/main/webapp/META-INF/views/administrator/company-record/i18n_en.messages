@@ -1,0 +1,37 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# administrator.company-record.form ###############################
+
+administrator.company-record.form.label.companyName = Company Name:
+administrator.company-record.form.label.sector = Sector:
+administrator.company-record.form.label.ceoName = CEO:
+administrator.company-record.form.label.activDescription = Activity Description:
+administrator.company-record.form.label.website = Website:
+administrator.company-record.form.label.phone = Phone Number:
+administrator.company-record.form.label.email = E-mail:
+administrator.company-record.form.label.incorporated: Incorporated
+administrator.company-record.form.label.rating = Rating:
+administrator.company-record.form.button.delete = Delete
+administrator.company-record.form.button.create = Create
+administrator.company-record.form.button.update = Update
+
+administrator.company-record.form.button.return = Return
+
+# administrator.company-record.list ###############################
+
+administrator.company-record.list.label.companyName: Company Name
+administrator.company-record.list.label.sector = Sector
+administrator.company-record.list.label.activDescription = Activity Description
+administrator.company-record.list.label.rating = Rating
+
+# company-record.form.error ###################################
+
+company-record.form.error.phone = Phone pattern doesnt match. Z can be up to 10 digits. Brackets are optional

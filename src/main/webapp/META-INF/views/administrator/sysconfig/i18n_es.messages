@@ -1,0 +1,23 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+# administrator.sysconfig.list #################################
+
+administrator.sysconfig.list.label.spamwords = Palabras Spam
+administrator.sysconfig.list.label.threshold = Umbral
+
+# administrator.sysconfig.form ##################################
+
+administrator.sysconfig.form.label.spamwords = Palabras Spam
+administrator.sysconfig.form.label.threshold = Umbral
+
+
+administrator.sysconfig.form.button.update = Actualizar
+administrator.sysconfig.form.button.return = Volver

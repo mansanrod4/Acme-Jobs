@@ -10,14 +10,14 @@
 
 # master.banner.welcome #######################################################
 
-master.banner.background = #FFE97F 
+master.banner.background = #febf49 
 
 # master.welcome ##############################################################
 
 master.welcome.title = Welcome!
 master.welcome.text = \
-	Welcome to Starter Project! Never before has it bee easier to get your \
-	project up and running!
+	Welcome to Acme Jobs! Never before has it been easier to get a \
+	job or offer one!
 
 # master.menu #################################################################
 
@@ -29,23 +29,83 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.favourite-link = Favourite link
+master.menu.anonymous.announcements = Announcements
+
+# master.menu.Records #######################################################
+master.menu.anonymous.investor = Records
+master.menu.anonymous.investorrecord = Investor Records
+master.menu.anonymous.companyrecords = Company Records
+master.menu.anonymous.topcompanyrecords = Top Company Records
+master.menu.anonymous.topinvestorrecords = Top Investor Records
+
+# master.menu.authenticated #######################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.announcement = Announcements
+master.menu.authenticated.challenge = Challenges
+master.menu.authenticated.offer = Offers
+master.menu.authenticated.companyrecords = Company Records
+master.menu.authenticated.investorrecords = Investor Records
+master.menu.authenticated.request = Request
+master.menu.authenticated.jobs.list = Jobs
+master.menu.authenticated.messagethread.mine = List Mine Message's Threads
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.shutdown = Shut down
+master.menu.administrator.announcements = Announcements
+master.menu.administrator.announcements.create = Create announcement
+master.menu.administrator.challenges = Challenges
+master.menu.administrator.challenges.create = Create challenge
+master.menu.administrator.investor = Investor Records
+master.menu.administrator.investor.create = Create investor record
+master.menu.administrator.sysconfig = System Configuration
+master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.companyrecords.list = Company Records
+master.menu.administrator.companyrecords.create = Create Company Record
+
+master.menu.administrator.banners.commercial-banner = Commercial Banners
+master.menu.administrator.banners.commercial-banner.create = Create Commercial Banner
+master.menu.administrator.banners.non-commercial-banner = Non Commercial Banners
+master.menu.administrator.banners.non-commercial-banner.create = Create Non Commercial Banner
+
+# master.menu.auditor ########################################################
+
+master.menu.auditor = Auditor
+master.menu.auditor.jobs.list = Recorded Jobs
+master.menu.auditor.notrecorded.list = Non Recorded Jobs
 
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
-master.menu.provider.favourite-link = Favourite link
+master.menu.provider.requests.create = Create Request
 
 # master.menu.consumer ##########################################################
 
 master.menu.consumer = Consumer
-master.menu.consumer.favourite-link = Favourite link
+master.menu.consumer.offers.create = Create Offer
+
+
+# master.menu.employer ##########################################################
+
+master.menu.employer = Employer
+master.menu.employer.jobs.list = My Jobs
+master.menu.employer.jobs.create = Create Job
+
+
+# master.menu.worker ###########################################################
+
+master.menu.worker = Worker
+master.menu.worker.applications.list = My applications
+
+# master.menu.sponsor ##########################################################
+
+master.menu.sponsor = Sponsor
+master.menu.sponsor.commercialbanner.list = Created Commercial Banners
+master.menu.sponsor.noncommercialbanner.list = Created Non Commercial Banners
+
 
 # master.menu.user-account ####################################################
 
@@ -55,6 +115,11 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.employer = Employer data
+master.menu.user-account.become-employer = Become a employer
+master.menu.user-account.worker = Worker data
+master.menu.user-account.become-worker = Become a worker
+
 
 # master.footer ###############################################################
 
@@ -72,10 +137,10 @@ master.footer.label.spanish = Spanish
 
 master.company.title = La compañía
 master.company.text = \
-	Starter Project, Inc. is a fictitious fictitious company that provides a \
-	starter project for the students of the Design and Testing subject of the \
-	Software Engineering Curriculum of the University of Sevilla.
-master.company.name = Starter Project, Inc.
+	Acme Jobs, Inc. is a fictitious company that provides a \
+	job offer for the people and gives to the companies the possibility \
+	to offer jobs to hire people.
+master.company.name = Acme Jobs, Inc.
 master.company.address = Number Street, City, State, Country
 master.company.phone = +000 123 456
 master.company.email = contact@acme.com
@@ -91,3 +156,4 @@ master.license.text = \
 	automatically for a maximum of 31 days, and "language" to store your language \
 	preferences. Additionally, we store an item called "returnStack" in your browser's \
 	local storage to keep track of the document to which some buttons must return.
+

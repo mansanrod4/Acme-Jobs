@@ -1,0 +1,19 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.worker.form.title.create = Become an worker
+authenticated.worker.form.title.update = Update your worker data
+
+authenticated.worker.form.label.qualifications = Qualifications:
+authenticated.worker.form.label.skills = Skills:
+
+authenticated.worker.form.button.create = Register
+authenticated.worker.form.button.update = Update
+authenticated.worker.form.button.return = Return
