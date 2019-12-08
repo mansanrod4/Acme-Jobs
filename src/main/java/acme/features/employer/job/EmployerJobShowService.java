@@ -4,6 +4,7 @@ package acme.features.employer.job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Application;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
@@ -46,10 +47,22 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
+		// COMPROBAMOS SI EL JOB TIENE APPLICATIONS
+
+		Integer jobId = entity.getId();
+		model.setAttribute("canDelete", false);
+
+		for (Application a : this.repository.findManyApplication()) {
+			Integer jobIdApplication = a.getJob().getId();
+			if (jobId.equals(jobIdApplication)) {
+				model.setAttribute("canDelete", true);
+			}
+		}
+
+		//-----------------------------------------
+
 		request.unbind(entity, model, "reference", "title", "deadLine");
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
-
-		//TODO: Crear un atributo para ver si el job tiene apply. (Con el jobId y tal)
 
 	}
 

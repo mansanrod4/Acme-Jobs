@@ -26,7 +26,7 @@
 		code="employer.job.form.button.publish"
 		action="/employer/job/publish"/>
 		
-	<acme:form-submit test="${command == 'show'}"			
+	<acme:form-submit test="${command == 'show' && !canDelete}"			
 		code="employer.job.form.button.delete"
 		action="/employer/job/delete"/>
 
@@ -38,10 +38,9 @@
 		
 	<acme:form-submit test="${command == 'update'}"
 		code="employer.job.form.button.publish"
-		action="/employer/job/publish"
-	/>
+		action="/employer/job/publish"/>
 
-	<acme:form-submit test="${command == 'update'}"			
+	<acme:form-submit test="${command == 'update' && !canDelete}"			
 		code="employer.job.form.button.delete"
 		action="/employer/job/delete"/>
 
@@ -55,14 +54,22 @@
 		code="employer.job.form.button.publish"
 		action="/employer/job/publish"/>
 		
-	<acme:form-submit test="${command == 'publish'}"		
+	<acme:form-submit test="${command == 'publish' && !canDelete}"		
 		code="employer.job.form.button.delete"
 		action="/employer/job/delete"/>
 		
+	<%-- Botones en la vista delete --%>
 		
 		
-							
-	<acme:form-submit test="${command == 'delete'}"					
+	<acme:form-submit test="${command == 'delete'}"
+		code="employer.job.form.button.update"
+		action="/employer/job/update"/>	
+		
+	<acme:form-submit test="${command == 'delete'}"
+		code="employer.job.form.button.publish"
+		action="/employer/job/publish"/>
+		
+	<acme:form-submit test="${command == 'delete' && !canDelete}"					
 		code="employer.job.form.button.delete"
 		action="/employer/job/delete"/>
 							
