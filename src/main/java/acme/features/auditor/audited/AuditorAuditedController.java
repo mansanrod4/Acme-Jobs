@@ -23,6 +23,9 @@ public class AuditorAuditedController extends AbstractController<Auditor, Audit>
 	@Autowired
 	private AuditorAuditedListService	listService;
 
+	@Autowired
+	private AuditorAuditedCreateService	createService;
+
 
 	//Constructores
 
@@ -30,5 +33,6 @@ public class AuditorAuditedController extends AbstractController<Auditor, Audit>
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 }
