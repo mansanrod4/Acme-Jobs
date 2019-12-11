@@ -18,3 +18,6 @@ authenticated.messagethread.form.label.author = Author
 
 authenticated.messagethread.form.button.return = Return
 authenticated.messagethread.form.button.message = Message
+authenticated.messagethread.form.button.create = Create Thread
+authenticated.messagethread.form.button.delete = Delete
+authenticated.messagethread.form.button.update = Update

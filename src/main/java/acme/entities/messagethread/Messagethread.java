@@ -50,8 +50,4 @@ public class Messagethread extends DomainEntity {
 	@ManyToOne(optional = false)
 	private Authenticated						author;
 
-	//
-	//	@OneToMany(mappedBy = "messagethread")
-	//	private Collection<@Valid Message>			messages;
-
 }
