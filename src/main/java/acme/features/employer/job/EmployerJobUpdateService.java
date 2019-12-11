@@ -20,13 +20,20 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 	EmployerJobRepository repository;
 
 
-	//AbstractUpdateService<Administrator, Announcement> interface
+	//AbstractUpdateService<Employer, Job> interface
 
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		//Validacion
+
+		boolean isFinalMode;
+
+		//A JOB CAN BE MODIFIED AS LONG AS IT'S NOT SAVED IN FINAL MODE
+		isFinalMode = this.repository.findOneJobById(request.getModel().getInteger("id")).isFinalMode();
+
+		return !isFinalMode;
 	}
 
 	@Override
@@ -63,6 +70,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
 	}
 
 	@Override

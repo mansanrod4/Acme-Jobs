@@ -4,17 +4,32 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox code="employer.duty.form.label.title" path="title"/>
-	<acme:form-textbox code="employer.duty.form.label.description" path="description"/>
-	<acme:form-moment code="employer.duty.form.label.percentageTimeWeek" path="percentageTimeWeek"/>
-	
+
 	<h2>
 		<acme:message code="employer.duty.form.label.title.JobInformation"/>
 	</h2>
 	
-	<acme:form-textbox code="employer.duty.form.label.jobTitle" path="jobTitle"/>
-	<acme:form-textbox code="employer.duty.form.label.jobReference" path="jobReference"/>
-	<acme:form-textbox code="employer.duty.form.label.jobEmployer" path="jobEmployer"/>
+	<acme:form-textbox code="employer.duty.form.label.jobTitle" path="jobTitle" readonly = "true"/>
+	<acme:form-textbox code="employer.duty.form.label.jobReference" path="jobReference" readonly = "true"/>
+	<acme:form-textbox code="employer.duty.form.label.jobEmployer" path="jobEmployer" readonly = "true"/>	
+			
+	<h2>
+		<acme:message code="employer.duty.form.label.title.DutyInformation"/>
+	</h2>
+		
+	<acme:form-textbox code="employer.duty.form.label.title" path="title"/>
+	<acme:form-textbox code="employer.duty.form.label.description" path="description"/>
+	<acme:form-double code="employer.duty.form.label.percentageTimeWeek" path="percentageTimeWeek"/>
+	
+		
+	
+	<acme:form-submit test="${command == 'show' || command == 'delete'}"
+		code="employer.duty.form.button.delete"
+		action="/employer/duty/delete"/>
+	
+	<acme:form-submit test="${command == 'create'}"
+		code="employer.duty.form.button.create"
+		action="/employer/duty/create?job_id=${job_id}"/>
 	
 	<acme:form-return code="employer.job.form.button.return"/>
 </acme:form>

@@ -93,8 +93,6 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 
 		//TODO: Salario en euros?
 
-		//TODO: Ticker duplicado?
-
 	}
 
 	@Override

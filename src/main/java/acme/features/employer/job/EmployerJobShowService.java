@@ -47,7 +47,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert entity != null;
 		assert model != null;
 
-		// COMPROBAMOS SI EL JOB TIENE APPLICATIONS
+		// COMPROBAMOS SI EL JOB TIENE APPLICATIONS Y DUTIES
 
 		Integer jobId = entity.getId();
 		model.setAttribute("canDelete", false);

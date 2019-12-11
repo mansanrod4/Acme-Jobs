@@ -689,7 +689,7 @@
 	<!-- Application beans -->
 
 	<bean name="application1" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EEEE-JJJJ:WWWW" />
+		<property name="referenceNumber" value="EMP1-JOB1:WOR1" />
 		<property name="creationMoment" value="2019/11/10 16:30" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
@@ -700,7 +700,7 @@
 	</bean>	
 	
 	<bean name="application2" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="AAAAA-KKKJJ:WRRW" />
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
 		<property name="creationMoment" value="2019/10/10 16:30" />
 		<property name="status" value="REJECTED" />
 		<property name="statement" value="statement" />
@@ -711,7 +711,7 @@
 	</bean>
 	
 	<bean name="application3" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="E234-JJJJ:WW1W" />
+		<property name="referenceNumber" value="EMP1-JOB2:WOR1" />
 		<property name="creationMoment" value="2019/10/11 16:30" />
 		<property name="status" value="ACCEPTED" />
 		<property name="statement" value="statement" />
@@ -722,7 +722,7 @@
 	</bean>
 	
 	<bean name="application4" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="E567-JJJJ:WW1W" />
+		<property name="referenceNumber" value="EMP1-JOB2:WOR2" />
 		<property name="creationMoment" value="2019/10/11 16:30" />
 		<property name="status" value="REJECTED" />
 		<property name="statement" value="statement" />

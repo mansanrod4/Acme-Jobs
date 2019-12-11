@@ -3,17 +3,22 @@ employer.job.form.label.title = Título:
 employer.job.form.label.deadLine = Expira:
 employer.job.form.label.salary = Salario:
 employer.job.form.label.moreInfo = Más Info:
-employer.job.form.label.description = Descrición:
+employer.job.form.label.description = Descripción:
 
 employer.job.form.button.duties = Tareas
+employer.job.form.button.duties.create = Crear Tarea
 employer.job.form.button.return = Volver
 employer.job.form.button.create = Crear
 employer.job.form.button.create&publish = Crear y Publicar
 employer.job.form.button.publish = Publicar
 employer.job.form.button.update = Actualizar
 employer.job.form.button.delete = Borrar
+employer.job.form.button.deleteWithDuties = Borrar (Borra las Tareas primero)
 
 employer.job.list.label.reference = Referencia
 employer.job.list.label.deadLine = Expira:
 employer.job.list.label.title = Título
 employer.job.list.label.status = Estado
+
+employer.job.error.hasDescriptor = Debes añadir una descripción obligatoriamente
+employer.job.error.hasDuties = El Empleo tiene Tarea o Tareas, debes borrarlas antes que el Empleo.

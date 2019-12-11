@@ -1,9 +1,13 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Application;
+import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -25,7 +29,20 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
-		return true;
+
+		//A JOB CAN BE DELETED AS LONG AS NO WORKER HAS APPLIED FOR IT
+
+		boolean hasApplications = true;
+		Integer jobId = request.getModel().getInteger("id");
+
+		for (Application a : this.repository.findManyApplication()) {
+			Integer jobIdApplication = a.getJob().getId();
+			if (jobId.equals(jobIdApplication)) {
+				hasApplications = false;
+			}
+		}
+
+		return hasApplications;
 	}
 
 	@Override
@@ -63,6 +80,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
 	}
 
 	@Override
@@ -70,6 +88,12 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert request != null;
 		assert entity != null;
 
+		//Borramos las tareas del empleo para que no salte error de dependencia
+		Integer jobId = entity.getId();
+		Collection<Duty> duties = this.repository.findManyDutiesByJob(jobId);
+		this.repository.deleteAll(duties);
+
+		//Borramos el empleo
 		this.repository.delete(entity);
 
 	}

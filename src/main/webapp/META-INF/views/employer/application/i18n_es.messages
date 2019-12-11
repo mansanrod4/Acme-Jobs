@@ -1,0 +1,19 @@
+employer.application.form.label.referenceNumber = Referencia
+employer.application.form.label.creationMoment = Momento de creación
+employer.application.form.label.status = Estado
+employer.application.form.label.statement = Declaración
+employer.application.form.label.skills = Habilidades
+employer.application.form.label.qualifications = Cualificaciones
+employer.application.form.label.worker = Trabajador
+employer.application.form.label.job = Trabajo
+
+employer.application.list.label.referenceNumber = Referencia
+employer.application.list.label.creationMoment = Momento de creación
+employer.application.list.label.statement = Declaración
+employer.application.list.label.status = Estado
+employer.application.list.label.job = Trabajo
+
+employer.application.form.label.button.return = Volver
+
+employer.job.form.button.accept = Accept
+employer.job.form.button.reject = Reject

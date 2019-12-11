@@ -19,6 +19,7 @@ authenticated.duty.list.label.percentageTimeWeek = Percentage
 authenticated.duty.list.label.title = Title
 
 authenticated.duty.form.label.title.JobInformation = Job Information
+authenticated.duty.form.label.title.DutyInformation = Duty Information
 
 
 authenticated.duty.form.button.return = Return

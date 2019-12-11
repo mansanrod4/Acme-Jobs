@@ -70,7 +70,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		//Validaciones
 
-		boolean isOneWeekLater;
+		boolean isOneWeekLater, hasDescriptor;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -84,9 +84,12 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			errors.state(request, isOneWeekLater, "deadLine", "employer.job.error.deadline");
 		}
 
-		//TODO: Salario en euros?
+		//HAS DESCRIPTOR
 
-		//TODO: Ticker duplicado?
+		hasDescriptor = request.getModel().getString("description").isEmpty();
+		errors.state(request, !hasDescriptor, "description", "employer.job.error.hasDescriptor");
+
+		//TODO: Salario en euros?
 
 	}
 

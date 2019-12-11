@@ -6,16 +6,19 @@ employer.job.form.label.moreInfo = More Info:
 employer.job.form.label.description = Description:
 
 employer.job.form.button.duties = Duties
+employer.job.form.button.duties.create = Create a Duty
 employer.job.form.button.return = Return
 employer.job.form.button.create = Create
 employer.job.form.button.create&publish = Create and Publish
 employer.job.form.button.publish = Publish
 employer.job.form.button.update = Update
 employer.job.form.button.delete = Delete
+employer.job.form.button.deleteWithDuties = Delete (Delete Duties first)
 
 employer.job.list.label.reference = Reference
 employer.job.list.label.deadLine = Dead-line
 employer.job.list.label.title = Title
 employer.job.list.label.status = Status
 
-employer.job.error.hasDescriptor = Debes añadir una descripción del trabajo obligatoriamente
+employer.job.error.hasDescriptor = You must write a mandatory description
+employer.job.error.hasDuties = The Job has a Duty or Duties, you must delete them before the Job.
