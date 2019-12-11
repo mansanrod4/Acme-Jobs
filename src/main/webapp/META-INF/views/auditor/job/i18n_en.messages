@@ -7,6 +7,7 @@ auditor.job.form.label.description = Description:
 
 auditor.job.form.button.return = Return
 auditor.job.form.button.audits = Audits
+auditor.job.form.button.create = Create Audition
 
 auditor.job.list.label.reference = Reference
 auditor.job.list.label.deadLine = Dead-line

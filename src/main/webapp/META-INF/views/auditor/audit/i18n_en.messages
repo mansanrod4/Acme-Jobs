@@ -7,3 +7,4 @@ auditor.audit.form.label.body = Body:
 auditor.audit.form.label.status =  Status:
 
 auditor.audit.form.button.return = Return
+auditor.audit.form.button.create = Create Audition

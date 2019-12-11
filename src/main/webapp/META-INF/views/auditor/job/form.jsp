@@ -16,5 +16,18 @@
 		action="/auditor/audit/list?job_id=${id}" 
 		method="get"
 	/>
+	
+	<acme:form-submit test="${command == 'show'}" 
+		code="auditor.job.form.button.create" 
+		action="/auditor/audit/create?job_id=${id}" 
+		method="get"
+	/>
+	
+	<acme:form-submit test="${command == 'create'}" 
+		code="auditor.job.form.button.create"
+		action="/auditor/audit/create?job_id=${id}" 
+		method="get"
+	/>
+	
 	<acme:form-return code="auditor.job.form.button.return"/>		
 </acme:form>

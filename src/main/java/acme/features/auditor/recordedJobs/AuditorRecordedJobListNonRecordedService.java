@@ -13,7 +13,6 @@ import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Principal;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -38,13 +37,19 @@ public class AuditorRecordedJobListNonRecordedService implements AbstractListSer
 
 		Collection<Job> result;
 		List<Job> jobs = new ArrayList<>();
-		Principal principal = request.getPrincipal();
+		int principal = request.getPrincipal().getAccountId();
+		int countAuditedJobs;
 
 		Collection<Audit> allRecords = this.repository.findManyAllAuditRecord();
 
 		for (Audit ar : allRecords) {
-			if (ar.getAuditor().getUserAccount().getId() != principal.getAccountId() && !jobs.contains(this.repository.findOneJobById(ar.getJob().getId()))) {
-				jobs.add(this.repository.findOneJobById(ar.getJob().getId()));
+
+			countAuditedJobs = this.repository.countAuditedJobByAuditorAndJob(principal, this.repository.findOneJobById(ar.getJob().getId()).getId());
+
+			if (countAuditedJobs == 0) {
+				if (ar.getAuditor().getUserAccount().getId() != principal && !jobs.contains(this.repository.findOneJobById(ar.getJob().getId()))) {
+					jobs.add(this.repository.findOneJobById(ar.getJob().getId()));
+				}
 			}
 		}
 
