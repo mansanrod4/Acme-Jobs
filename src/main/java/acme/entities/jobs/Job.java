@@ -58,6 +58,7 @@ public class Job extends DomainEntity {
 
 	private boolean				finalMode;
 
+	@NotNull
 	@Column(length = 1024)
 	private String				description;  //Descriptor
 

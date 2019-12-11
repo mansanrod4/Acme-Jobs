@@ -87,9 +87,10 @@ master.menu.consumer.offers.create = Crear Oferta
 
 # master.menu.employer ##########################################################
 
-master.menu.employer = Empleado
+master.menu.employer = Empleador
 master.menu.employer.jobs.list = Mis Empleos
 master.menu.employer.jobs.create = Crear Empleo
+master.menu.employer.applications.list = Mis Aplicaciones
 
 
 # master.menu.worker ###########################################################

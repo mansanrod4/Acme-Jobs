@@ -93,6 +93,7 @@ master.menu.consumer.offers.create = Create Offer
 master.menu.employer = Employer
 master.menu.employer.jobs.list = My Jobs
 master.menu.employer.jobs.create = Create Job
+master.menu.employer.applications.list = My Applications
 
 
 # master.menu.worker ###########################################################
