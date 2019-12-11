@@ -31,7 +31,14 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		//Validacion
+
+		boolean isFinalMode;
+
+		//A JOB CAN BE MODIFIED AS LONG AS IT'S NOT SAVED IN FINAL MODE
+		isFinalMode = this.repository.findOneJobById(request.getModel().getInteger("id")).isFinalMode();
+
+		return !isFinalMode;
 	}
 
 	@Override
@@ -69,7 +76,8 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		boolean hasDescriptor, isOneWeekLater;
+		Integer jobId = request.getModel().getInteger("id");
+		boolean hasDescriptor, isOneWeekLater, duties100, hasNoDuties, isEuroZone = false;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -87,12 +95,26 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		hasDescriptor = request.getModel().getString("description").isEmpty();
 		errors.state(request, !hasDescriptor, "description", "employer.job.error.hasDescriptor");
 
-		//TODO: La suma de los porcentajes de los duties debe ser del 100%
+		//No se puede publicar si no tiene duties (DESCRIPTOR) -Solo al Publicar-
+		hasNoDuties = this.repository.findManyDutiesByJob(jobId).isEmpty();
+		errors.state(request, !hasNoDuties, "description", "employer.job.error.noDuties");
+
+		//La suma de los porcentajes de los duties debe ser del 100% -Solo al Publicar-
+		if (this.repository.sumPercentageDuty(jobId) != null) {
+			duties100 = this.repository.sumPercentageDuty(jobId).equals(100.00);
+			errors.state(request, duties100, "description", "employer.job.error.dutiesOver100");
+		}
+
+		//Salario en euros
+		if (!errors.hasErrors("salary")) {
+			String eur2 = "€", eur = "EUR", currency = request.getModel().getAttribute("salary").toString();
+			if (currency.contains(eur) || currency.contains(eur2)) {
+				isEuroZone = true;
+			}
+			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
+		}
 
 		//TODO: La entidad no se considera SPAM
-
-		//TODO: Salario en euros?
-
 	}
 
 	@Override

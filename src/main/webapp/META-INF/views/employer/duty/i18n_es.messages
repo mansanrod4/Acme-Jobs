@@ -22,5 +22,12 @@ employer.duty.list.label.percentageTimeWeek = Porcentaje Semanal
 employer.duty.list.label.title = Título
 
 employer.duty.form.button.create = Crear
+
+
 employer.duty.form.button.return = Volver
 employer.duty.form.button.delete = Borrar
+employer.duty.form.button.update = Actualizar
+
+employer.duty.error.over100 = Modifica el porcentaje semanal, el porcentaje total de las tareas no puede ser mayor al 100%
+employer.duty.error.isSpam = Esta pieza de texto es considerada como SPAM, debes modificarla
+

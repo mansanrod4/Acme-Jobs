@@ -70,7 +70,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		//Validaciones
 
-		boolean isOneWeekLater, hasDescriptor;
+		boolean isOneWeekLater, hasDescriptor, isEuroZone = false;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -89,7 +89,16 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		hasDescriptor = request.getModel().getString("description").isEmpty();
 		errors.state(request, !hasDescriptor, "description", "employer.job.error.hasDescriptor");
 
-		//TODO: Salario en euros?
+		//Salario en euros
+		if (!errors.hasErrors("salary")) {
+			String eur2 = "€", eur = "EUR", currency = request.getModel().getAttribute("salary").toString();
+			if (currency.contains(eur) || currency.contains(eur2)) {
+				isEuroZone = true;
+			}
+			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
+		}
+
+		//TODO: La entidad no se considera SPAM
 
 	}
 

@@ -1,6 +1,11 @@
 
 package acme.features.employer.job;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +75,35 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		boolean isOneWeekLater, isEuroZone = false, hasDescriptor;
+
+		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
+		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
+
+			LocalDateTime now = LocalDateTime.now();							//Obtenemos la fecha actual
+			LocalDateTime nowplus7 = now.plus(7, ChronoUnit.DAYS);				//Le sumamos una semana
+			Date date = Timestamp.valueOf(nowplus7);
+			Date date1 = request.getModel().getDate("deadLine");				//Obtenemos la fecha insertada
+
+			isOneWeekLater = date1.after(date);									//Comparamos fechas
+			errors.state(request, isOneWeekLater, "deadLine", "employer.job.error.deadline");
+		}
+
+		//No se puede publicar si no tiene descripción (DESCRIPTOR)
+		hasDescriptor = request.getModel().getString("description").isEmpty();
+		errors.state(request, !hasDescriptor, "description", "employer.job.error.hasDescriptor");
+
+		//Salario en euros
+		if (!errors.hasErrors("salary")) {
+			String eur2 = "€", eur = "EUR", currency = request.getModel().getAttribute("salary").toString();
+			if (currency.contains(eur) || currency.contains(eur2)) {
+				isEuroZone = true;
+			}
+			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
+		}
+
+		//TODO: La entidad no se considera SPAM
 
 	}
 

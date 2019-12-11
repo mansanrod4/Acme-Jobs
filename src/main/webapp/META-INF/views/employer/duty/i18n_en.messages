@@ -24,3 +24,7 @@ employer.duty.form.label.title.DutyInformation = Duty Information
 employer.duty.form.button.create = Create
 employer.duty.form.button.return = Return
 employer.duty.form.button.delete = Delete
+employer.duty.form.button.update = Update
+
+employer.duty.error.over100 = Modify the week percentage, the total week percentage of the duties cannot be bigger than 100%
+employer.duty.error.isSpam = This piece of test is considere SPAM, you must modify it

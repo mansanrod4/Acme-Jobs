@@ -29,7 +29,7 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 	private EmployerApplicationAcceptService	acceptService;
 
 	@Autowired
-	private EmployerApplicationAcceptService	rejectService;
+	private EmployerApplicationRejectService	rejectService;
 
 
 	//Constructores

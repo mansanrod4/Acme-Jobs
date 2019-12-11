@@ -21,4 +21,7 @@ employer.job.list.label.title = Título
 employer.job.list.label.status = Estado
 
 employer.job.error.hasDescriptor = Debes añadir una descripción obligatoriamente
-employer.job.error.hasDuties = El Empleo tiene Tarea o Tareas, debes borrarlas antes que el Empleo.
+employer.job.error.hasDuties = El empleo tiene tarea o tareas, debes borrarlas antes que el empleo
+employer.job.error.dutiesOver100 = ¡El porcentaje semanal de tareas no es del 100%! Por favor, modifíque el porcentaje samanal de las tareas para que sume exactamente el 100%
+employer.job.error.noDuties = No puedes publicar un empleo sin tareas
+employer.job.error.money-no-euro = Debe estar en Euros

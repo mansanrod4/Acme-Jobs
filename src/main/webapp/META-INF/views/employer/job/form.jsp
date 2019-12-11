@@ -16,17 +16,19 @@
 		<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" readonly= "${readOnly}"/>
 		<acme:form-textarea code="employer.job.form.label.description" path="description" readonly= "${readOnly}"/>
 	
+	
+	<%-- Boton Publish --%>	
+		
+	<acme:form-submit test="${(command == 'show' && !finalMode) || command == 'update' || command == 'publish' }"		
+		code="employer.job.form.button.publish"
+		action="/employer/job/publish"/>
+		
 	<%-- Boton Update --%>	
 	
 	<acme:form-submit test="${(command == 'show' && !finalMode) || command == 'update' || command == 'publish' }"		
 		code="employer.job.form.button.update"
 		action="/employer/job/update"/>
 		
-	<%-- Boton Publish --%>	
-		
-	<acme:form-submit test="${(command == 'show' && !finalMode) || command == 'update' || command == 'publish' }"		
-		code="employer.job.form.button.publish"
-		action="/employer/job/publish"/>
 		
 	<%-- Boton Delete --%>	
 	
@@ -49,7 +51,7 @@
 		action="/employer/duty/list?job_id=${id}" 
 		method="get"/>
 		
-	<acme:form-submit test="${command != 'create'}" 
+	<acme:form-submit test="${command != 'create' && !finalMode}" 
 		code="employer.job.form.button.duties.create" 
 		action="/employer/duty/create?job_id=${id}" 
 		method="get"/>

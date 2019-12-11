@@ -702,7 +702,7 @@
 	<bean name="application2" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
 		<property name="creationMoment" value="2019/10/10 16:30" />
-		<property name="status" value="REJECTED" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application3 cualifications" />
@@ -713,7 +713,7 @@
 	<bean name="application3" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="EMP1-JOB2:WOR1" />
 		<property name="creationMoment" value="2019/10/11 16:30" />
-		<property name="status" value="ACCEPTED" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application3 cualifications" />
@@ -724,7 +724,7 @@
 	<bean name="application4" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="EMP1-JOB2:WOR2" />
 		<property name="creationMoment" value="2019/10/11 16:30" />
-		<property name="status" value="REJECTED" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application4 cualifications" />

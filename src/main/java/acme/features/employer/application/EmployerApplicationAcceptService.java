@@ -21,13 +21,24 @@ public class EmployerApplicationAcceptService implements AbstractUpdateService<E
 	EmployerApplicationRepository repository;
 
 
-	//AbstractUpdateService<Administrator, Announcement> interface
+	//AbstractUpdateService<Employer, Application> interface
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		//No se puede aceptar o rechazar si ya esta aceptado o rechazado
+
+		boolean isPending = true;
+
+		Integer ApplyId = request.getModel().getInteger("id");
+		ApplicationStatus status = this.repository.findOneApplicationById(ApplyId).getStatus();
+
+		if (status.equals(ApplicationStatus.REJECTED) || status.equals(ApplicationStatus.ACCEPTED)) {
+			isPending = false;
+		}
+
+		return isPending;
 	}
 
 	@Override
@@ -36,7 +47,7 @@ public class EmployerApplicationAcceptService implements AbstractUpdateService<E
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "status");
+		request.bind(entity, errors, "status", "worker", "job");
 	}
 
 	@Override
@@ -44,6 +55,8 @@ public class EmployerApplicationAcceptService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		model.setAttribute("isPending", true);
 
 		request.unbind(entity, model);
 	}
