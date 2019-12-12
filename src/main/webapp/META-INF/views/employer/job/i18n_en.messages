@@ -25,3 +25,4 @@ employer.job.error.hasDuties = The job has a duty or duties, you must delete the
 employer.job.error.dutiesOver100 = ¡The duties week percentage is not 100%! Please, modify the duties week percentage to one hundred percent exactly
 employer.job.error.noDuties = You can't publish a job without duties
 employer.job.error.money-no-euro = It must be in Euro
+employer.job.error.isSpam = This piece of test is considere SPAM, you must modify it

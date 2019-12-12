@@ -9,6 +9,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamFilter;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -77,7 +78,7 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		assert errors != null;
 
 		Integer jobId = request.getModel().getInteger("id");
-		boolean hasDescriptor, isOneWeekLater, duties100, hasNoDuties, isEuroZone = false;
+		boolean hasDescriptor, isOneWeekLater, duties100, hasNoDuties, isEuroZone = false, isSpam;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -114,7 +115,21 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
 		}
 
-		//TODO: La entidad no se considera SPAM
+		// SPAM FILTER
+		Double threshold = this.repository.findSysconfig().getThreshold();
+		String spamWords = this.repository.findSysconfig().getSpamwords();
+
+		//Spam - Description
+		if (!errors.hasErrors("description")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("description"), spamWords, threshold);
+			errors.state(request, !isSpam, "description", "employer.duty.error.isSpam");
+		}
+
+		//Spam - Title
+		if (!errors.hasErrors("title")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("title"), spamWords, threshold);
+			errors.state(request, !isSpam, "title", "employer.duty.error.isSpam");
+		}
 	}
 
 	@Override

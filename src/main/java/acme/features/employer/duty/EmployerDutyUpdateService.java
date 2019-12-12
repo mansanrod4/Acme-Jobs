@@ -4,6 +4,7 @@ package acme.features.employer.duty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamFilter;
 import acme.entities.duties.Duty;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -73,7 +74,7 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		boolean over100;
+		boolean over100, isSpam;
 
 		//No se puede crear una tarea si su timeWeekPercentage supera el 100 si se suma con el resto
 		Integer jobId = entity.getJob().getId();
@@ -82,8 +83,22 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 			over100 = actualPercent <= 100.00;
 			errors.state(request, over100, "percentageTimeWeek", "employer.duty.error.over100");
 		}
-		
-		//TODO: La entidad no se considera SPAM 
+
+		// SPAM FILTER
+		Double threshold = this.repository.findSysconfig().getThreshold();
+		String spamWords = this.repository.findSysconfig().getSpamwords();
+
+		//Spam - Description
+		if (!errors.hasErrors("description")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("description"), spamWords, threshold);
+			errors.state(request, !isSpam, "description", "employer.job.error.isSpam");
+		}
+
+		//Spam - Title
+		if (!errors.hasErrors("title")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("title"), spamWords, threshold);
+			errors.state(request, !isSpam, "title", "employer.job.error.isSpam");
+		}
 
 	}
 
