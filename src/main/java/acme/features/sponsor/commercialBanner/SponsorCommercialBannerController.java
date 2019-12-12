@@ -19,10 +19,13 @@ public class SponsorCommercialBannerController extends AbstractController<Sponso
 	//Internal state
 
 	@Autowired
-	private SponsorCommercialBannerListService	listService;
+	private SponsorCommercialBannerListService		listService;
 
 	@Autowired
-	private SponsorCommercialBannerShowService	showService;
+	private SponsorCommercialBannerShowService		showService;
+
+	@Autowired
+	private SponsorCommercialBannerCreateService	createService;
 
 
 	//Constructores
@@ -31,6 +34,7 @@ public class SponsorCommercialBannerController extends AbstractController<Sponso
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }

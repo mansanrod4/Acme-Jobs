@@ -12,6 +12,9 @@
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.expirationDate" path="expirationDate"/>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.cvv" path="cvv"/>
 	
+	<acme:form-submit test="${command == 'create'}"
+		code="administrator.commercial-banner.form.button.create"
+		action="/administrator/commercial-banner/create"/>
 	
 	<acme:form-return code="sponsor.commercial-banner.form.button.return"/>
 </acme:form>

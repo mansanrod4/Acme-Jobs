@@ -35,7 +35,7 @@ public class AuthenticatedWorkerUpdateService implements AbstractUpdateService<A
 	private AuthenticatedWorkerRepository repository;
 
 
-	// AbstractUpdateService<Authenticated, Consumer> interface -----------------
+	// AbstractUpdateService<Authenticated, Worker> interface -----------------
 
 	@Override
 	public boolean authorise(final Request<Worker> request) {

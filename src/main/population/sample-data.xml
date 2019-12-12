@@ -172,7 +172,6 @@
 	
 	<bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 1, Inc." />
-		<property name="accountHolder" value="Pedro Manuel Cobos Ramos" />
 		<property name="creditCardNumber" value="4628900597961379" />
 		<property name="expirationDate" value="11/20" />
 		<property name="cvv" value="511" />
@@ -206,7 +205,6 @@
 	
 	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 2, Inc." />
-		<property name="accountHolder"><null/></property>
 		<property name="creditCardNumber"><null/></property>
 		<property name="expirationDate"><null/></property>
 		<property name="cvv"><null/></property>

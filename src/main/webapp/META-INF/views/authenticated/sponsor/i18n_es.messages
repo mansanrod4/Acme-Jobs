@@ -1,0 +1,26 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.sponsor.form.title.create = Hazte Sponsor
+authenticated.sponsor.form.title.update = Actualiza tus datos de sponsor
+
+authenticated.sponsor.form.label.orgName = Organización: 
+authenticated.sponsor.form.label.creditCardNumber = Tarjeta de Crédito (Opcional):
+authenticated.sponsor.form.label.expirationDate = Fecha de expiración (Opcional):
+authenticated.sponsor.form.label.cvv = CVV (Opcional):
+
+authenticated.sponsor.error.creditcard = El número de la tarjeta de crédito es incorrecto
+authenticated.sponsor.error.expirationDate = La fecha de exipiración es incorrecta. Debe seguir el patrón "MM/YY", donde "MM" es el mes y "YY" es el año
+authenticated.sponsor.error.cvv = El número del CVV es incorrecto. Debe seguir el patrón "XXX", donde "X" es un número aleatorio
+authenticated.sponsor.error.noCreditCard = No puedes guardar la fecha de expiración o el CVV si no hay una tarjeta de crédito
+
+authenticated.sponsor.form.button.create = Registrar
+authenticated.sponsor.form.button.update = Actualizar
+authenticated.sponsor.form.button.return = Volver
