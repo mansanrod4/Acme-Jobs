@@ -10,6 +10,7 @@ import acme.entities.applications.Application;
 import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
+import acme.entities.sysconfig.Sysconfig;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -32,4 +33,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("Select sum(d.percentageTimeWeek) from Duty d where d.job.id = ?1")
 	Double sumPercentageDuty(int jobId);
+
+	@Query("Select s from Sysconfig s")
+	Sysconfig findSysconfig();
 }

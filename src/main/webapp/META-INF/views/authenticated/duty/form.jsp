@@ -17,9 +17,10 @@
 		<acme:message code="authenticated.duty.form.label.title.DutyInformation"/>
 	</h2>
 		
-	<acme:form-textbox code="authenticated.duty.form.label.percentageTimeWeek" path="percentageTimeWeek"/>
+	
 	<acme:form-textbox code="authenticated.duty.form.label.title" path="title"/>
-	<acme:form-textbox code="authenticated.duty.form.label.description" path="description"/>
+	<acme:form-textarea code="authenticated.duty.form.label.description" path="description"/>
+	<acme:form-double code="authenticated.duty.form.label.percentageTimeWeek" path="percentageTimeWeek"/>
 	
 	
 

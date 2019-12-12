@@ -18,7 +18,7 @@
 	</h2>
 		
 	<acme:form-textbox code="employer.duty.form.label.title" path="title" readonly = "${isNotFinalMode}"/>
-	<acme:form-textbox code="employer.duty.form.label.description" path="description" readonly = "${isNotFinalMode}"/>
+	<acme:form-textarea code="employer.duty.form.label.description" path="description" readonly = "${isNotFinalMode}"/>
 	<acme:form-double code="employer.duty.form.label.percentageTimeWeek" path="percentageTimeWeek" readonly = "${isNotFinalMode}"/>
 	
 		
