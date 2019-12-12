@@ -8,7 +8,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.Audits.Audit;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
@@ -35,25 +34,20 @@ public class AuditorRecordedJobListNonRecordedService implements AbstractListSer
 	public Collection<Job> findMany(final Request<Job> request) {
 		assert request != null;
 
-		Collection<Job> result;
-		List<Job> jobs = new ArrayList<>();
-		int principal = request.getPrincipal().getAccountId();
-		int countAuditedJobs;
+		List<Job> recordedByThisAuditor = new ArrayList<Job>();
+		List<Job> result = new ArrayList<Job>();
+		Integer auditorId = request.getPrincipal().getActiveRoleId(); //auditorId
 
-		Collection<Audit> allRecords = this.repository.findManyAllAuditRecord();
-
-		for (Audit ar : allRecords) {
-
-			countAuditedJobs = this.repository.countAuditedJobByAuditorAndJob(principal, this.repository.findOneJobById(ar.getJob().getId()).getId());
-
-			if (countAuditedJobs == 0) {
-				if (ar.getAuditor().getUserAccount().getId() != principal && !jobs.contains(this.repository.findOneJobById(ar.getJob().getId()))) {
-					jobs.add(this.repository.findOneJobById(ar.getJob().getId()));
-				}
-			}
+		for (Integer i : this.repository.findJobAuditsId(auditorId)) {
+			Job j = this.repository.findOneJobById(i);
+			recordedByThisAuditor.add(j); //Trabajos con audiciones del auditorId
 		}
 
-		result = jobs;
+		for (Job j : this.repository.findManyAllJob()) {
+			result.add(j); //Todos los trabajos
+		}
+
+		result.removeAll(recordedByThisAuditor); //Quito los trabajos que tenga audiciones del auditorId
 
 		return result;
 	}
