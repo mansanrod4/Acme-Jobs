@@ -22,18 +22,15 @@ public class CommercialBanner extends Banner {
 	//Atributos
 
 	@NotBlank
-	private String				accountHolder;
-
-	@NotBlank
 	@CreditCardNumber
 	private String				creditCardNumber;
 
 	@NotBlank
-	@Pattern(regexp = "^(1[0-2]|0[1-9]|\\d)\\/(\\d{2})$", message = "MM/YY")
+	@Pattern(regexp = "^(1[0-2]|0[1-9]|\\d)\\/(\\d{2})$", message = "“MM/YY”")
 	private String				expirationDate;
 
 	@NotBlank
-	@Pattern(regexp = "^\\d{3}$")
+	@Pattern(regexp = "^\\d{3}$", message = "“999”")
 	private String				cvv;
 
 	// Relationships

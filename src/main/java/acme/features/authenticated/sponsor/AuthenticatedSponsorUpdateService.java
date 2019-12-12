@@ -12,6 +12,9 @@
 
 package acme.features.authenticated.sponsor;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,7 +58,7 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 
 		boolean isCreditCardOk, isCVVOk, isExpirationDateOk, thereIsNotCreditCard;
 
-		//CreditCardNumber
+		//CreditCardNumber pattern
 		if (!request.getModel().getString("creditCardNumber").equals("")) {
 			String regex = "^(?:(?<visa>4[0-9]{12}(?:[0-9]{3})?)|" + "(?<mastercard>5[1-5][0-9]{14})|" + "(?<discover>6(?:011|5[0-9]{2})[0-9]{12})|" + "(?<amex>3[47][0-9]{13})|" + "(?<diners>3(?:0[0-5]|[68][0-9])?[0-9]{11})|"
 				+ "(?<jcb>(?:2131|1800|35[0-9]{3})[0-9]{11}))$";
@@ -64,7 +67,7 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 			isCreditCardOk = m.matches();
 			errors.state(request, isCreditCardOk, "creditCardNumber", "authenticated.sponsor.error.creditcard");
 		}
-		//CreditCardNumber cvv
+		//CreditCardNumber expirationDate pattern
 		if (!request.getModel().getString("expirationDate").equals("")) {
 			Pattern p = Pattern.compile("^(1[0-2]|0[1-9]|\\d)\\/(\\d{2})$");
 			Matcher m = p.matcher(request.getModel().getString("expirationDate"));
@@ -72,7 +75,7 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 			errors.state(request, isExpirationDateOk, "expirationDate", "authenticated.sponsor.error.expirationDate");
 
 		}
-		//CreditCardNumber expirationDate
+		//CreditCardNumber cvv pattern
 		if (!request.getModel().getString("cvv").equals("")) {
 			Pattern p = Pattern.compile("^\\d{3}$");
 			Matcher m = p.matcher(request.getModel().getString("cvv"));
@@ -86,9 +89,22 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 		cvv = request.getModel().getString("cvv").equals("");
 		date = request.getModel().getString("expirationDate").equals("");
 
-		thereIsNotCreditCard = creditCard && !cvv || creditCard && !date;
+		thereIsNotCreditCard = creditCard && !cvv || creditCard && !date || !creditCard && date || !creditCard && cvv;
 
 		errors.state(request, !thereIsNotCreditCard, "creditCardNumber", "authenticated.sponsor.error.noCreditCard");
+
+		//ExpirationDate no caducado
+		if (!errors.hasErrors("expirationDate") && !date) {
+			String[] exdate = entity.getExpirationDate().split("/");
+			try {
+				Date date2 = new SimpleDateFormat("dd/MM/yy").parse("01/" + exdate[0] + "/" + exdate[1]);
+				Date today = new Date();
+				errors.state(request, date2.after(today), "expirationDate", "administrator.comercial-banner.error.creditCard");
+
+			} catch (ParseException e) {
+				errors.state(request, false, "expirationDate", "sponsor.comercial-banner.error.creditCard");
+			}
+		}
 
 	}
 

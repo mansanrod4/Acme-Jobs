@@ -101,8 +101,10 @@ master.menu.worker.applications.list = Mis solicitudes
 # master.menu.sponsor ##########################################################
 
 master.menu.sponsor = Sponsor
-master.menu.sponsor.commercialbanner.list = Banners Comerciales Creados
-master.menu.sponsor.noncommercialbanner.list = Banners No Comerciales Creados
+master.menu.sponsor.commercialbanner.list = Mis Banners Comerciales
+master.menu.sponsor.commercialbanner.create = Crear un Banner Comercial
+master.menu.sponsor.noncommercialbanner.list = Mis Banners No Comerciales
+master.menu.sponsor.noncommercialbanner.create = Crear un Banner No Comercial
 
 
 # master.menu.user-account ####################################################

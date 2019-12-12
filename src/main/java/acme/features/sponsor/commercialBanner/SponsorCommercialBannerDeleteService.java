@@ -1,26 +1,26 @@
 
-package acme.features.administrator.commercialBanner;
+package acme.features.sponsor.commercialBanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.CommercialBanner;
+import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class AdministratorCommercialBannerDeleteService implements AbstractDeleteService<Administrator, CommercialBanner> {
+public class SponsorCommercialBannerDeleteService implements AbstractDeleteService<Sponsor, CommercialBanner> {
 
 	//Internal state
 
 	@Autowired
-	AdministratorCommercialBannerRepository repository;
+	SponsorCommercialBannerRepository repository;
 
 
-	//AbstractUpdateService<Administrator, Investor> interface
+	//AbstractUpdateService<Sponsor, CommercialBanner> interface
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
@@ -53,7 +53,7 @@ public class AdministratorCommercialBannerDeleteService implements AbstractDelet
 		CommercialBanner result;
 		int id;
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findOneCommercialBannerById(id);
 
 		return result;
 	}

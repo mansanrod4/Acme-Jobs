@@ -1,14 +1,18 @@
 sponsor.commercial-banner.form.label.picture = Foto(url):
 sponsor.commercial-banner.form.label.slogan = Eslogan:
 sponsor.commercial-banner.form.label.targetURL = Enlace:
-sponsor.commercial-banner.form.label.accountHolder = Titular de la cuenta:
 sponsor.commercial-banner.form.label.creditCardNumber: Número de la tarjeta:
 sponsor.commercial-banner.form.label.expirationDate = Fecha de expiración:
 sponsor.commercial-banner.form.label.cvv = CVV:
-sponsor.comercial-banner.error.creditCard = Tarjeta caducada
+
+sponsor.commercial-banner.error.creditCard = Tarjeta caducada
+sponsor.commercial-banner.error.hasNotCreditCard = ¡No tienes una tarjeta de crédito registrada en tu cuenta! Por favor, añade una tarjeta de crédito en los datos de tu cuenta de sponsor
+sponsor.commercial-banner.error.cvv = El CVV no sigue el patrón, “9” es un número aleatorio
+sponsor.commercial-banner.error.expirationDate = La fecha de expiración no sigue el patrón, “MM” es el mes e “YY” es el año
+sponsor.commercial-banner.error.isSpam = Esta pieza de texto es considerada como SPAM, debes modificarla
 
 sponsor.commercial-banner.form.button.return = Volver
-sponsor.commercial-banner.form.button.create = Crear banner
+sponsor.commercial-banner.form.button.create = Crear
 sponsor.commercial-banner.form.button.delete = Borrar
 sponsor.commercial-banner.form.button.update = Actualizar
 

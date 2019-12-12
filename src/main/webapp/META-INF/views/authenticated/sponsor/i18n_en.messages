@@ -19,7 +19,7 @@ authenticated.sponsor.form.label.cvv = CVV (Optional):
 authenticated.sponsor.error.creditcard = The credit card number is invalid.
 authenticated.sponsor.error.expirationDate = The expiration date is invalid. It must follow the pattern "MM/YY", where "MM" denotes the month and "YY" denotes the year
 authenticated.sponsor.error.cvv = The CVV number is invalid. It must follow the pattern "XXX", where "X" denotes an arbitrary digit
-authenticated.sponsor.error.noCreditCard = You can't save an expiration date or CVV if there is not a credit card
+authenticated.sponsor.error.noCreditCard = You must enter data in all credit card fields in order to save it (number, expiration date and CVV)
 
 authenticated.sponsor.form.button.create = Register
 authenticated.sponsor.form.button.update = Update

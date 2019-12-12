@@ -104,8 +104,10 @@ master.menu.worker.applications.list = My applications
 # master.menu.sponsor ##########################################################
 
 master.menu.sponsor = Sponsor
-master.menu.sponsor.commercialbanner.list = Created Commercial Banners
-master.menu.sponsor.noncommercialbanner.list = Created Non Commercial Banners
+master.menu.sponsor.commercialbanner.list = My Commercial Banners
+master.menu.sponsor.commercialbanner.create = Create a Commercial Banner
+master.menu.sponsor.noncommercialbanner.list = My Non Commercial Banners
+master.menu.sponsor.noncommercialbanner.create = Create a Non Commercial Banner
 
 
 # master.menu.user-account ####################################################

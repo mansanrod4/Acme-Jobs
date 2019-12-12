@@ -16,10 +16,10 @@ import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class SponsorCommercialBannerCreateService implements AbstractCreateService<Sponsor, CommercialBanner> {
+public class SponsorCommercialBannerUpdateService implements AbstractUpdateService<Sponsor, CommercialBanner> {
 
 	//Internal state
 
@@ -32,6 +32,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
+
 		return true;
 	}
 
@@ -54,16 +55,12 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 	}
 
 	@Override
-	public CommercialBanner instantiate(final Request<CommercialBanner> request) {
-
+	public CommercialBanner findOne(final Request<CommercialBanner> request) {
+		assert request != null;
 		CommercialBanner result;
-		Integer sponsorId = request.getPrincipal().getActiveRoleId();
-
-		result = new CommercialBanner();
-
-		result.setCreditCardNumber(this.repository.findSponsorById(sponsorId).getCreditCardNumber());
-		result.setExpirationDate(this.repository.findSponsorById(sponsorId).getExpirationDate());
-		result.setCvv(this.repository.findSponsorById(sponsorId).getCvv());
+		int id;
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneCommercialBannerById(id);
 
 		return result;
 	}
@@ -115,32 +112,29 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		//Spam - picture
 		if (!errors.hasErrors("picture")) {
 			isSpam = SpamFilter.spamFilterUrl(request.getModel().getString("picture"), spamWords, threshold);
-			errors.state(request, !isSpam, "picture", "sponsor.commercial-banner.error.isSpam");
+			errors.state(request, !isSpam, "picture", "sponsor.comercial-banner.error.isSpam");
 		}
 
 		//Spam - slogan
 		if (!errors.hasErrors("slogan")) {
 			isSpam = SpamFilter.spamFilterUrl(request.getModel().getString("slogan"), spamWords, threshold);
-			errors.state(request, !isSpam, "slogan", "sponsor.commercial-banner.error.isSpam");
+			errors.state(request, !isSpam, "slogan", "sponsor.comercial-banner.error.isSpam");
 		}
 
 		//Spam - targetUrl
 		if (!errors.hasErrors("targetURL")) {
 			isSpam = SpamFilter.spamFilterUrl(request.getModel().getString("targetURL"), spamWords, threshold);
-			errors.state(request, !isSpam, "targetURL", "sponsor.commercial-banner.error.isSpam");
+			errors.state(request, !isSpam, "targetURL", "sponsor.comercial-banner.error.isSpam");
 		}
 
 	}
 
 	@Override
-	public void create(final Request<CommercialBanner> request, final CommercialBanner entity) {
+	public void update(final Request<CommercialBanner> request, final CommercialBanner entity) {
 		assert request != null;
 		assert entity != null;
 
-		Integer sponsorId = request.getPrincipal().getActiveRoleId();
-		Sponsor sponsor = this.repository.findSponsorById(sponsorId);
-		entity.setSponsor(sponsor);
-
 		this.repository.save(entity);
+
 	}
 }

@@ -359,7 +359,6 @@
 		<property name="picture" value="http://www.picture.com"/>
 		<property name="slogan" value="http://www.slogan.com"/>
 		<property name="targetURL" value="http://www.targetURL.com"/>
-		<property name="accountHolder" value="Alfredo Diaz Perez"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -370,7 +369,6 @@
 		<property name="picture" value="http://www.picture2.com"/>
 		<property name="slogan" value="http://www.slogan2.com"/>
 		<property name="targetURL" value="http://www.targetURL2.com"/>
-		<property name="accountHolder" value="Alfredo Diaz Perez"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -381,7 +379,6 @@
 		<property name="picture" value="http://www.picture3.com"/>
 		<property name="slogan" value="http://www.slogan3.com"/>
 		<property name="targetURL" value="http://www.targetURL3.com"/>
-		<property name="accountHolder" value="Lydia Fajardo Iglesias"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>
@@ -392,7 +389,6 @@
 		<property name="picture" value="http://www.picture4.com"/>
 		<property name="slogan" value="http://www.slogan4.com"/>
 		<property name="targetURL" value="http://www.targetURL4.com"/>
-		<property name="accountHolder" value="Lydia Fajardo Iglesias"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>

@@ -30,4 +30,29 @@ public class SpamFilter {
 		return result;
 	}
 
+	public static boolean spamFilterUrl(final String text, final String spam, final Double threshold) {
+		boolean result = false;
+
+		Double contador = 0.0, thresholdNumber = threshold, resultado;
+
+		String[] spamText = spam.split(",");
+		String[] splitedText = text.split("\\.");
+
+		for (String wordFromSpam : spamText) {
+			for (String wordFromText : splitedText) {
+				if (wordFromText.equals(wordFromSpam)) {
+					contador += 1;
+				}
+			}
+		}
+
+		resultado = contador / splitedText.length;
+
+		if (thresholdNumber <= resultado) {
+			result = true;
+		}
+
+		return result;
+	}
+
 }
