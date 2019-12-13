@@ -33,7 +33,7 @@ public class EmployerApplicationListMineService implements AbstractListService<E
 		Collection<Application> result;
 
 		Integer employerId = request.getPrincipal().getActiveRoleId();
-		result = this.repository.findManyApplicationsByEmployer(employerId);
+		result = this.repository.findManyApplicationsByEmployerOrderingBy(employerId);
 
 		return result;
 	}
