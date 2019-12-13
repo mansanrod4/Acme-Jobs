@@ -1,0 +1,26 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.sponsor.form.title.create = Become an sponsor
+authenticated.sponsor.form.title.update = Update your sponsor data
+
+authenticated.sponsor.form.label.orgName = Organisation: 
+authenticated.sponsor.form.label.creditCardNumber = Credit Card (Optional):
+authenticated.sponsor.form.label.expirationDate = Expiration Date (Optional):
+authenticated.sponsor.form.label.cvv = CVV (Optional):
+
+authenticated.sponsor.error.creditcard = The credit card number is invalid.
+authenticated.sponsor.error.expirationDate = The expiration date is invalid. It must follow the pattern "MM/YY", where "MM" denotes the month and "YY" denotes the year
+authenticated.sponsor.error.cvv = The CVV number is invalid. It must follow the pattern "XXX", where "X" denotes an arbitrary digit
+authenticated.sponsor.error.noCreditCard = You must enter data in all credit card fields in order to save it (number, expiration date and CVV)
+
+authenticated.sponsor.form.button.create = Register
+authenticated.sponsor.form.button.update = Update
+authenticated.sponsor.form.button.return = Return

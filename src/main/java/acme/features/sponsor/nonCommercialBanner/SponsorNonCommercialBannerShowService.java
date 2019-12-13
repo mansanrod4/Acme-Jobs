@@ -18,7 +18,7 @@ public class SponsorNonCommercialBannerShowService implements AbstractShowServic
 	SponsorNonCommercialBannerRepository repository;
 
 
-	//AbstractListService<Sponsor, Banner> interface
+	//AbstractListService<Sponsor, NonCommercialBanner> interface
 
 	@Override
 	public boolean authorise(final Request<NonCommercialBanner> request) {

@@ -7,11 +7,8 @@
 	<acme:form-url code="administrator.commercial-banner.form.label.picture" path="picture"/>
 	<acme:form-url code="administrator.commercial-banner.form.label.slogan" path="slogan"/>
 	<acme:form-url code="administrator.commercial-banner.form.label.targetURL" path="targetURL"/>
-	<acme:form-textbox code="administrator.commercial-banner.form.label.accountHolder" path="accountHolder"/>
 	<acme:form-textbox code="administrator.commercial-banner.form.label.creditCardNumber" path="creditCardNumber"/>
 	<acme:form-textbox code="administrator.commercial-banner.form.label.expirationDate" path="expirationDate" placeholder="mm/yy" /> 
-	<!--<acme:form-integer code="administrator.commercial-banner.form.label.expirationMonth" path="expirationMonth" placeholder="DD"/>-->
-	<!--<acme:form-integer code="administrator.commercial-banner.form.label.expirationYear" path="expirationYear" placeholder="YYYY"/>-->
 	<acme:form-textbox code="administrator.commercial-banner.form.label.cvv" path="cvv" placeholder="XXX"/>
 	
 	<acme:form-submit test="${command == 'show'}"
