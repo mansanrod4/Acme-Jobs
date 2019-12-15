@@ -121,6 +121,8 @@ master.menu.user-account.worker = Datos de trabajador
 master.menu.user-account.become-worker = Hazte trabajador
 master.menu.user-account.sponsor = Datos de sponsor
 master.menu.user-account.become-sponsor = Hazte sponsor
+master.menu.user-account.auditor = Datos de auditor
+master.menu.user-account.become-auditor = Hazte auditor
 
 # master.footer ###############################################################
 
