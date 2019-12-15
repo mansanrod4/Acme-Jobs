@@ -14,7 +14,7 @@ administrator.non-commercial-banner.form.label.targetURL = Enlace:
 administrator.non-commercial-banner.form.label.jingle = Jingle:
 
 administrator.non-commercial-banner.form.button.return = Return
-administrator.non-commercial-banner.form.button.create = Create banner
+administrator.non-commercial-banner.form.button.create = Create
 administrator.non-commercial-banner.form.button.delete = Delete
 administrator.non-commercial-banner.form.button.update = Update
 

@@ -172,7 +172,6 @@
 	
 	<bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 1, Inc." />
-		<property name="accountHolder" value="Pedro Manuel Cobos Ramos" />
 		<property name="creditCardNumber" value="4628900597961379" />
 		<property name="expirationDate" value="11/20" />
 		<property name="cvv" value="511" />
@@ -206,7 +205,6 @@
 	
 	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 2, Inc." />
-		<property name="accountHolder"><null/></property>
 		<property name="creditCardNumber"><null/></property>
 		<property name="expirationDate"><null/></property>
 		<property name="cvv"><null/></property>
@@ -361,7 +359,6 @@
 		<property name="picture" value="http://www.picture.com"/>
 		<property name="slogan" value="http://www.slogan.com"/>
 		<property name="targetURL" value="http://www.targetURL.com"/>
-		<property name="accountHolder" value="Alfredo Diaz Perez"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -372,7 +369,6 @@
 		<property name="picture" value="http://www.picture2.com"/>
 		<property name="slogan" value="http://www.slogan2.com"/>
 		<property name="targetURL" value="http://www.targetURL2.com"/>
-		<property name="accountHolder" value="Alfredo Diaz Perez"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -383,7 +379,6 @@
 		<property name="picture" value="http://www.picture3.com"/>
 		<property name="slogan" value="http://www.slogan3.com"/>
 		<property name="targetURL" value="http://www.targetURL3.com"/>
-		<property name="accountHolder" value="Lydia Fajardo Iglesias"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>
@@ -394,7 +389,6 @@
 		<property name="picture" value="http://www.picture4.com"/>
 		<property name="slogan" value="http://www.slogan4.com"/>
 		<property name="targetURL" value="http://www.targetURL4.com"/>
-		<property name="accountHolder" value="Lydia Fajardo Iglesias"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>
@@ -689,8 +683,8 @@
 	<!-- Application beans -->
 
 	<bean name="application1" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EEEE-JJJJ:WWWW" />
-		<property name="creationMoment" value="2019/11/10 16:30" />
+		<property name="referenceNumber" value="EMP1-JOB1:WOR1" />
+		<property name="creationMoment" value="2019/09/10 16:30" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
@@ -700,9 +694,9 @@
 	</bean>	
 	
 	<bean name="application2" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="AAAAA-KKKJJ:WRRW" />
-		<property name="creationMoment" value="2019/10/10 16:30" />
-		<property name="status" value="REJECTED" />
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
+		<property name="creationMoment" value="2019/08/10 16:30" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application3 cualifications" />
@@ -711,9 +705,9 @@
 	</bean>
 	
 	<bean name="application3" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="E234-JJJJ:WW1W" />
-		<property name="creationMoment" value="2019/10/11 16:30" />
-		<property name="status" value="ACCEPTED" />
+		<property name="referenceNumber" value="EMP1-JOB2:WOR1" />
+		<property name="creationMoment" value="2019/12/11 16:30" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application3 cualifications" />
@@ -722,14 +716,36 @@
 	</bean>
 	
 	<bean name="application4" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="E567-JJJJ:WW1W" />
-		<property name="creationMoment" value="2019/10/11 16:30" />
-		<property name="status" value="REJECTED" />
+		<property name="referenceNumber" value="EMP1-JOB2:WOR2" />
+		<property name="creationMoment" value="2019/05/11 16:30" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application4 cualifications" />
 		<property name="worker" ref="worker2Worker" />
 		<property name="job" ref="job2" />
+	</bean>
+	
+	<bean name="application5" class="acme.entities.applications.Application">
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
+		<property name="creationMoment" value="2019/01/11 16:30" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application5 cualifications" />
+		<property name="worker" ref="worker2Worker" />
+		<property name="job" ref="job1" />
+	</bean>
+	
+	<bean name="application6" class="acme.entities.applications.Application">
+		<property name="referenceNumber" value="EMP1-JOB3:WOR1" />
+		<property name="creationMoment" value="2019/02/11 16:30" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application6 cualifications" />
+		<property name="worker" ref="worker1Worker" />
+		<property name="job" ref="job3" />
 	</bean>
     
  	<!-- Audit Record Beans -->

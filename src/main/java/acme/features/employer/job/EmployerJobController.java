@@ -20,33 +20,33 @@ public class EmployerJobController extends AbstractController<Employer, Job> {
 	//Internal state
 
 	@Autowired
-	private EmployerJobListMineService			listMineService;
+	private EmployerJobListMineService	listMineService;
 
 	@Autowired
-	private EmployerJobShowService				showService;
+	private EmployerJobShowService		showService;
 
 	@Autowired
-	private EmployerJobCreateService			createService;
+	private EmployerJobCreateService	createService;
 
 	@Autowired
-	private EmployerJobCreateAndPublishService	createAndPublishService;
+	private EmployerJobUpdateService	updateService;
 
 	@Autowired
-	private EmployerJobUpdateService			updateService;
+	private EmployerJobPublishService	publishService;
 
 	@Autowired
-	private EmployerJobPublishService			publishService;
+	private EmployerJobDeleteService	deleteService;
 
 
 	//Constructores
 
 	@PostConstruct
 	private void initialise() {
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
-		super.addCustomCommand(CustomCommand.CREATE_AND_PUBLISH, BasicCommand.CREATE, this.createAndPublishService);
 		super.addCustomCommand(CustomCommand.PUBLISH, BasicCommand.UPDATE, this.publishService);
 	}
 

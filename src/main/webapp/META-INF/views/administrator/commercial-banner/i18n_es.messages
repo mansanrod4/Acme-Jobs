@@ -11,14 +11,13 @@
 administrator.commercial-banner.form.label.picture = Foto(url):
 administrator.commercial-banner.form.label.slogan = Eslogan:
 administrator.commercial-banner.form.label.targetURL = Enlace:
-administrator.commercial-banner.form.label.accountHolder = Titular de la cuenta:
 administrator.commercial-banner.form.label.creditCardNumber: Número de la tarjeta:
 administrator.commercial-banner.form.label.expirationDate = Fecha de expiración:
 administrator.commercial-banner.form.label.cvv = CVV:
 administrator.comercial-banner.error.creditCard = Tarjeta caducada
 
 administrator.commercial-banner.form.button.return = Volver
-administrator.commercial-banner.form.button.create = Crear banner
+administrator.commercial-banner.form.button.create = Crear
 administrator.commercial-banner.form.button.delete = Borrar
 administrator.commercial-banner.form.button.update = Actualizar
 

@@ -3,17 +3,26 @@ employer.job.form.label.title = Título:
 employer.job.form.label.deadLine = Expira:
 employer.job.form.label.salary = Salario:
 employer.job.form.label.moreInfo = Más Info:
-employer.job.form.label.description = Descrición:
+employer.job.form.label.description = Descripción:
 
 employer.job.form.button.duties = Tareas
+employer.job.form.button.duties.create = Crear Tarea
 employer.job.form.button.return = Volver
 employer.job.form.button.create = Crear
 employer.job.form.button.create&publish = Crear y Publicar
 employer.job.form.button.publish = Publicar
 employer.job.form.button.update = Actualizar
 employer.job.form.button.delete = Borrar
+employer.job.form.button.deleteWithDuties = Borrar (Borra las Tareas primero)
 
 employer.job.list.label.reference = Referencia
 employer.job.list.label.deadLine = Expira:
 employer.job.list.label.title = Título
 employer.job.list.label.status = Estado
+
+employer.job.error.hasDescriptor = Debes añadir una descripción obligatoriamente
+employer.job.error.hasDuties = El empleo tiene tarea o tareas, debes borrarlas antes que el empleo
+employer.job.error.dutiesOver100 = ¡El porcentaje semanal de tareas no es del 100%! Por favor, modifíque el porcentaje samanal de las tareas para que sume exactamente el 100%
+employer.job.error.noDuties = No puedes publicar un empleo sin tareas
+employer.job.error.money-no-euro = Debe estar en Euros
+employer.job.error.isSpam = Esta pieza de texto es considerada como SPAM, debes modificarla
