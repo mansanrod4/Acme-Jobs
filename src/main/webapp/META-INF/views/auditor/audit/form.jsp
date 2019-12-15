@@ -14,7 +14,7 @@
 	</jstl:if>
 	
 	<acme:form-textarea code="auditor.audit.form.label.body" path="body"/>
-	<acme:form-textbox code="auditor.audit.form.label.status" path="status"/>
+	<acme:form-textbox code="auditor.audit.form.label.status" path="status" placeholder="DRAFT/PUBLISHED"/>
 	
 	<acme:form-submit test = "${command == 'create'}"
 		code = "auditor.audit.form.button.create" 

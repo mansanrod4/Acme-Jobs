@@ -1,12 +1,14 @@
 
 package acme.features.auditor.audited;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.Audits.Audit;
+import acme.entities.Audits.Status;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -36,17 +38,31 @@ public class AuditorAuditedListService implements AbstractListService<Auditor, A
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment");
+		model.setAttribute("identity.name", entity.getAuditor().getUserAccount().getUsername());
+
+		if (entity.getAuditor().getUserAccount().getId() == request.getPrincipal().getAccountId()) {
+			model.setAttribute("me", " * ");
+		} else {
+			model.setAttribute("me", " ");
+		}
+
+		request.unbind(entity, model, "title", "moment", "status");
 	}
 
 	@Override
 	public Collection<Audit> findMany(final Request<Audit> request) {
 		assert request != null;
 
-		Collection<Audit> result;
+		Collection<Audit> result = new ArrayList<Audit>();
+
 		Integer jobId = request.getModel().getInteger("job_id");
 
-		result = this.repository.findManyAuditRecordsByJob(jobId);
+		for (Audit audit : this.repository.findManyAuditRecordsByJob(jobId)) {
+			Audit a = this.repository.findOneAuditRecordById(audit.getId());
+			if (a.getStatus() == Status.PUBLISHED || a.getAuditor().getUserAccount().getId() == request.getPrincipal().getAccountId()) {
+				result.add(a);
+			}
+		}
 
 		return result;
 	}

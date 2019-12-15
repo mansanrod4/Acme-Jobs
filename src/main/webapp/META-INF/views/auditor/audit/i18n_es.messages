@@ -1,5 +1,8 @@
+auditor.audit.list.label.me = Creado por mi
+auditor.audit.list.label.identity.name = Creador
 auditor.audit.list.label.title = Titulo
 auditor.audit.list.label.moment = Fecha
+auditor.audit.list.label.status = Estado
 
 auditor.audit.form.label.reference = Titulo:
 auditor.audit.form.label.moment = Fecha:
