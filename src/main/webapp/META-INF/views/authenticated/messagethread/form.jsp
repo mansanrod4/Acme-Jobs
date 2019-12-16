@@ -16,44 +16,26 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-
-	<acme:form-textbox code="authenticated.messagethread.form.lable.title" path="title"/>
+	<acme:form-textbox code="authenticated.messagethread.form.label.title" path="title" />
+	<jstl:if test="${command == 'show' }">
+	<acme:form-moment code="authenticated.messagethread.form.label.moment" path="moment" />
 	
-	<jstl:if test="${command != 'create'}">
-		<acme:form-moment 
-		code="authenticated.messagethread.form.label.moment" 
-		path="moment"
-		readonly= "true"/>
-		<acme:form-moment 
-		code="authenticated.messagethread.form.label.author" 
-		path="authorName"
-		readonly= "true"/>
+	<button type="button" onclick="javascript: pushReturnUrl('/authenticated/messagethread/show?id=${id}');
+	redirect('/authenticated/message/list?id=${id}')" class="btn btn-primary">
+	<acme:message code="authenticated.messagethread.form.label.message"/>
+	</button>
+	<jstl:if test="${hasAccess}">
+	<button type="button" onclick="javascript: pushReturnUrl('/authenticated/messagethread/show?id=${id}');
+	redirect('/authenticated/userthread/list?id=${id}')" class="btn btn-primary">
+	<acme:message code="authenticated.messagethread.form.label.users"/>
+	</button>
 	</jstl:if>
 	
-	<acme:form-submit test="${command == 'show'}"
-		code="authenticated.messagethread.form.button.update"
-		action="/authenticated/messagethread/update"/>
-		
-	<acme:form-submit test="${command == 'show'}"
-		code="authenticated.messagethread.form.button.delete"
-		action="/authenticated/messagethread/delete"/>
-		
-	<acme:form-submit test="${command == 'create'}"
-		code="authenticated.messagethread.form.button.create"
-		action="/authenticated/messagethread/create"/>
-		
-	<acme:form-submit test="${command == 'update'}"
-		code="authenticated.messagethread.form.button.update"
-		action="/authenticated/messagethread/update"/>
-		
-	<acme:form-submit test="${command == 'delete'}"
-		code="authenticated.messagethread.form.button.delete"
-		action="/authenticated/messagethread/delete"/>
-	
-	
-  	<acme:form-submit 
-		method="get" 
-		code="authenticated.messagethread.form.button.message" 
-		action="/authenticated/message/list?id=${id}"/>
-	<acme:form-return code="authenticated.messagethread.form.button.return"/>
+	</jstl:if>
+		<!--  <button type="button" onclick="javascript: pushReturnUrl('/authenticated/thread/show?id=${id}');
+		redirect('/authenticated/thread/create')" class="btn btn-primary">
+		<acme:message code="authenticated.threads.button.create"/>
+		</button> -->
+	<acme:form-submit test="${command == 'create' }" code="authenticated.messagethread.form.button.create" action="/authenticated/messagethread/create"/>
+	<acme:form-return code="authenticated.messagethread.form.button.return" />
 </acme:form>

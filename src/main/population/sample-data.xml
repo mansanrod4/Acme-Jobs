@@ -775,37 +775,67 @@
 	<bean name="messagethread1" class="acme.entities.messagethread.Messagethread">
 		<property name="title" value="Hola Mundo!" />
 		<property name="moment" value="2019/06/10 10:35"/>
-		<property name="author" ref="userAuthenticated"/>
-		<property name= "users">
+		<property name="messages">
 			<list>
-				<ref bean="userAuthenticated" />
-				<ref bean="auditor2Authenticated" />
+				<ref bean="message1" />
+				<ref bean="message2" />
 			</list>
-			</property>
+		</property>
+	
+	</bean>
+	<bean id="userThread1" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread1"/>
+		<property name="authenticated" ref="userAuthenticated"/>
+		<property name="creator" value = "true"/>
+	</bean>
+	<bean id="userThread2" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread1"/>
+		<property name="authenticated" ref="auditor2Authenticated"/>
+		<property name="creator" value ="false"/>
 	</bean>
 	
 	<bean name="messagethread2" class="acme.entities.messagethread.Messagethread">
 		<property name="title" value="Hola!" />
 		<property name="moment" value="2019/10/10 14:30"/>
-		<property name="author" ref="userAuthenticated"/>
-		<property name= "users">
+		
+		<property name="messages">
 			<list>
-				<ref bean="userAuthenticated" />
-				<ref bean="employer1Authenticated" />
+				<ref bean="message3" />
+				<ref bean="message4" />
 			</list>
-			</property>
+		</property>
+	</bean>
+	<bean id="userThread3" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread2"/>
+		<property name="authenticated" ref="userAuthenticated"/>
+		<property name="creator" value = "true"/>
+	</bean>
+	<bean id="userThread4" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread2"/>
+		<property name="authenticated" ref="employer1Authenticated"/>
+		<property name="creator" value = "false"/>
 	</bean>
 	
 	<bean name="messagethread3" class="acme.entities.messagethread.Messagethread">
 		<property name="title" value="Madrid?" />
 		<property name="moment" value="2019/11/20 11:30"/>
-		<property name="author" ref="employer1Authenticated"/>
-		<property name= "users">
+
+		<property name="messages">
 			<list>
-				<ref bean="userAuthenticated" />
-				<ref bean="employer1Authenticated" />
+				<ref bean="message5" />
+				<ref bean="message6" />
 			</list>
-			</property>
+		</property>
+	</bean>
+	<bean id="userThread5" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread3"/>
+		<property name="authenticated" ref="employer1Authenticated"/>
+		<property name="creator" value = "true"/>
+	</bean>
+	<bean id="userThread6" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread3"/>
+		<property name="authenticated" ref="userAuthenticated"/>
+		<property name="creator" value = "false"/>
 	</bean>
 	
 	<bean id="message1" class="acme.entities.message.Message">
@@ -813,7 +843,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="holaMundo"/>
 		<property name="body" value="Hola Mundo! primer mensaje del sistema"/>
-		<property name="thread" ref="messagethread1"/>
 		<property name="author" ref="userAuthenticated"/>
 	</bean>
 	
@@ -822,7 +851,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="hola"/>
 		<property name="body" value="¿Qué es esto?"/>
-		<property name="thread" ref="messagethread1"/>
 		<property name="author" ref="auditor2Authenticated"/>
 	</bean>
 	
@@ -831,7 +859,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="hola,saludo"/>
 		<property name="body" value="Hola! soy nuevo aqui, ¿esto funciona bien?"/>
-		<property name="thread" ref="messagethread2"/>
 		<property name="author" ref="userAuthenticated"/>
 	</bean>
 	
@@ -840,7 +867,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="hola"/>
 		<property name="body" value="Hola! soy employer1, funciona muy bien"/>
-		<property name="thread" ref="messagethread2"/>
 		<property name="author" ref="employer1Authenticated"/>
 	</bean>
 	
@@ -849,7 +875,6 @@
 		<property name="title" value="Madrid"/>
 		<property name="tags" value="Madrid,piso,compañero"/>
 		<property name="body" value="Buenas soy employer1 y vivo en un piso en madrid, estoy bucando un compañero de piso"/>
-		<property name="thread" ref="messagethread3"/>
 		<property name="author" ref="employer1Authenticated"/>
 	</bean>
 	
@@ -858,7 +883,6 @@
 		<property name="title" value="Hola"/>
 		<property name="tags" value="Madrid,piso,compañero"/>
 		<property name="body" value="Hola, voy a preguntar y te digo"/>
-		<property name="thread" ref="messagethread3"/>
 		<property name="author" ref="userAuthenticated"/>
 	</bean>
 		

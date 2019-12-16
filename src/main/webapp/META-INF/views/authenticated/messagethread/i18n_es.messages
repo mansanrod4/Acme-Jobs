@@ -12,8 +12,8 @@ authenticated.messagethread.list.label.title = Título
 authenticated.messagethread.list.label.moment = Fecha Creación
 authenticated.messagethread.list.label.author = Autor
 
-authenticated.messagethread.form.lable.title = Título
-authenticated.messagethread.form.lable.moment = Fecha Creación
+authenticated.messagethread.form.label.title = Título
+authenticated.messagethread.form.label.moment = Fecha Creación
 authenticated.messagethread.form.label.author = Autor
 
 authenticated.messagethread.form.button.return = Volver

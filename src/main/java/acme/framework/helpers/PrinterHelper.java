@@ -93,6 +93,7 @@ public class PrinterHelper {
 		assert buffer != null;
 		// assert value is nullable
 
+		@SuppressWarnings("unused")
 		List<Object> collection;
 
 		if (PrinterHelper.isPrimitive(value) || PrinterHelper.isEnum(value)) {
