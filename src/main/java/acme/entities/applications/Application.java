@@ -34,6 +34,7 @@ public class Application extends DomainEntity {
 
 	//Atributtes--------------------------------------------------
 
+	@Column(unique = true)
 	@NotBlank
 	private String				referenceNumber;
 
@@ -41,6 +42,11 @@ public class Application extends DomainEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
 	private Date				creationMoment;
+
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	private Date				updateMoment;
 
 	@NotNull
 	private ApplicationStatus	status;

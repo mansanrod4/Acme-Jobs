@@ -16,3 +16,13 @@ worker.application.list.label.job = Trabajo
 worker.application.form.label.button.return = Volver
 worker.application.form.button.create = Guardar
 worker.application.form.button.delete = Eliminar
+
+worker.application.form.label.title.JobInformation = Trabajo
+worker.application.form.label.jobTitle = Título
+worker.application.form.label.jobReference = Referencia
+
+worker.application.form.label.title.ApplicationInformation = Aplicación
+
+worker.application.form.label.updateMoment = Última modificación
+
+worker.application.form.button.update = Actualizar

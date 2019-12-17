@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.applications.Application;
+import acme.entities.applications.ApplicationStatus;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -21,7 +22,12 @@ public class WorkerApplicationDeleteService implements AbstractDeleteService<Wor
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		return true;
+
+		boolean result;
+
+		result = !this.repository.findOneApplicationById(request.getModel().getInteger("id")).getStatus().equals(ApplicationStatus.ACCEPTED);
+
+		return result;
 	}
 
 	@Override
