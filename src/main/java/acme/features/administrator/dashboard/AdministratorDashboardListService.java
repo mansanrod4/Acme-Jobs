@@ -2,7 +2,6 @@
 package acme.features.administrator.dashboard;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -12,7 +11,6 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.applications.Application;
 import acme.entities.companyRecords.CompanyRecord;
 import acme.entities.dashboard.Dashboard;
 import acme.entities.investor.Investor;
@@ -70,19 +68,19 @@ public class AdministratorDashboardListService implements AbstractListService<Ad
 		Double[] numberOfCompaniesGroupedBySector = this.repository.numberOfCompaniesGroupedBySector();
 		Double[] numberOfInvestorsGroupedBySector = this.repository.numberOfInvestorsGroupedBySector();
 
+		ArrayList<LocalDate> lastFourWeeks = new ArrayList<LocalDate>();
 		Calendar currCalendar = Calendar.getInstance();
-		currCalendar.add(Calendar.MONTH, -1);
 		Date dateMinusMonth = currCalendar.getTime();
 
-		ArrayList<LocalDate> pendingAppDates = new ArrayList<LocalDate>();
-
-		for (Application a : this.repository.pendingApplicationDates(dateMinusMonth)) {
-
-			LocalDate time = LocalDateTime.ofInstant(a.getCreationMoment().toInstant(), ZoneId.systemDefault()).toLocalDate();
-
-			if (!pendingAppDates.contains(time)) {
-				pendingAppDates.add(time);
+		for (int i = 0; i < 27; i++) {
+			// Añade el día actual si no está ya presente
+			if (!lastFourWeeks.contains(currCalendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
+				lastFourWeeks.add(currCalendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 			}
+			// Restamos un día, lo convertimos a LocalDate para solo mostrar la fecha y lo añadimos al ArrayList
+			currCalendar.add(Calendar.DAY_OF_YEAR, -1);
+			LocalDate dateMinusDays = currCalendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+			lastFourWeeks.add(dateMinusDays);
 		}
 
 		ArrayList<String> investorsSectors = new ArrayList<String>();
@@ -102,7 +100,7 @@ public class AdministratorDashboardListService implements AbstractListService<Ad
 
 		entity.setCompaniesSectors(companiesSectors);
 		entity.setInvestorsSectors(investorsSectors);
-		entity.setPendingAppDates(pendingAppDates);
+		entity.setLastFourWeeks(lastFourWeeks);
 
 		Double avgNumberOfJobsPerEmployer = this.repository.averageNumberOfJobsPerEmployer();
 		Double avgNumberOfApplicationsPerEmployer = this.repository.averageNumberOfApplicationsPerEmployer();
@@ -112,9 +110,7 @@ public class AdministratorDashboardListService implements AbstractListService<Ad
 		Double ratioOfPendingApplications = this.repository.ratioOfPendingApplications();
 		Double ratioOfAcceptedApplications = this.repository.ratioOfAcceptedApplications();
 		Double ratioOfRejectedApplications = this.repository.ratioOfRejectedApplications();
-		ArrayList<Double> companiesStatusPending = this.repository.getCompaniesStatusPending(dateMinusMonth);
-		ArrayList<Double> companiesStatusAccepted = this.repository.getCompaniesStatusAccepted(dateMinusMonth);
-		ArrayList<Double> companiesStatusRejected = this.repository.getCompaniesStatusRejected(dateMinusMonth);
+		//ArrayList<Double> companiesStatusPending = this.repository.getCompaniesStatusPending(dateMinusMonth);
 
 		entity.setTotalAnnouncements(totalAnnouncements);
 		entity.setTotalCompanyRecords(totalCompanyRecords);
@@ -140,13 +136,11 @@ public class AdministratorDashboardListService implements AbstractListService<Ad
 		entity.setRatioOfPendingApplications(ratioOfPendingApplications);
 		entity.setRatioOfRejectedApplications(ratioOfRejectedApplications);
 
-		entity.setCompaniesStatusPending(companiesStatusPending);
-		entity.setCompaniesStatusAccepted(companiesStatusAccepted);
-		entity.setCompaniesStatusRejected(companiesStatusRejected);
+		//entity.setCompaniesStatusPending(companiesStatusPending);
 
 		request.unbind(entity, model, "totalAnnouncements", "totalCompanyRecords", "totalInvestorRecords", "maxRewardsRequests", "minRewardsRequests", "avgRewardsRequests", "stdRewardsRequests", "maxRewardsOffers", "minRewardsOffers", "avgRewardsOffers",
 			"stdRewardsOffers", "avgNumberOfJobsPerEmployer", "avgNumberOfApplicationsPerEmployer", "avgNumberOfApplicationsPerWorker", "ratioOfDraftedJobs", "ratioOfPublishedJobs", "ratioOfPendingApplications", "ratioOfAcceptedApplications",
-			"ratioOfRejectedApplications", "numberOfCompaniesGroupedBySector", "numberOfInvestorsGroupedBySector", "investorsSectors", "companiesSectors", "pendingAppDates", "companiesStatusPending", "companiesStatusAccepted", "companiesStatusRejected");
+			"ratioOfRejectedApplications", "numberOfCompaniesGroupedBySector", "numberOfInvestorsGroupedBySector", "investorsSectors", "companiesSectors", "companiesStatusPending", "lastFourWeeks");
 	}
 
 }
