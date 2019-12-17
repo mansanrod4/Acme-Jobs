@@ -71,6 +71,9 @@ master.menu.administrator.banners.commercial-banner.create = Create Commercial B
 master.menu.administrator.banners.non-commercial-banner = Non Commercial Banners
 master.menu.administrator.banners.non-commercial-banner.create = Create Non Commercial Banner
 
+master.menu.administrator.rol-request = Rol Requests
+master.menu.administrator.rol-request.auditor-request = Auditor Requests
+
 # master.menu.auditor ########################################################
 
 master.menu.auditor = Auditor
@@ -124,6 +127,8 @@ master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a worker
 master.menu.user-account.sponsor = Sponsor data
 master.menu.user-account.become-sponsor = Become a sponsor
+master.menu.user-account.auditor = Auditor data
+master.menu.user-account.become-auditor = Become an auditor
 
 
 # master.footer ###############################################################
