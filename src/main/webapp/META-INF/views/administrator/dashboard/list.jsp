@@ -247,7 +247,7 @@
 	
 	<div>
 		<h2>
-			<acme:message code="administrator.dashboard.form.label.title.Applications.pending"/>
+			<acme:message code="administrator.dashboard.form.label.title.Applications"/>
 		</h2>
 		<p>
 			<acme:message code="administrator.dashboard.form.label.title.Applications.subtext"/>
@@ -263,16 +263,36 @@
 				
 			var data = {
 		
-					labels: [<jstl:forEach var = "item" items="${pendingAppDates}"> 
+					labels: [<jstl:forEach var = "item" items="${lastFourWeeks}"> 
 					"${item}",
 					</jstl:forEach>],
+					
 					datasets : [{ 
-						label: "Ratio",
+						label: "Pending",
+						borderColor: ["#0fe600"],
+						fill: "false",
 						data : [<jstl:forEach var = "item" items="${companiesStatusPending}"> 
 						<jstl:out value="${item}"/>,
 						</jstl:forEach>
 						]
-				}]
+					},{
+						label: "Accepted",
+						borderColor: ["#3b83bd"],					
+						fill: "false",
+						data : [<jstl:forEach var = "item" items="${companiesStatusAccepted}"> 
+						<jstl:out value="${item}"/>,
+						</jstl:forEach>
+						]
+					},{
+						label: "Rejected",
+						borderColor: ["#e62e00"],
+						fill: "false",
+						data : [<jstl:forEach var = "item" items="${companiesStatusRejected}"> 
+						<jstl:out value="${item}"/>,
+						</jstl:forEach>
+						]
+					}
+					]
 			};
 			
 			var options = {
@@ -281,7 +301,8 @@
 								{
 									ticks : {
 										suggestedMin : 0.0,
-										suggestedMax : 5.0
+										suggestedMax : 5.0,
+										sampleSize : 3
 									}
 								}
 							]
@@ -294,124 +315,6 @@
 				var canvas, context;
 				
 				canvas = document.getElementById("canvas4");
-				context = canvas.getContext("2d");
-				new Chart(context, {
-					type: "line",
-					data : data,
-					options : options
-				});
-				
-			});
-	</script>
-	
-	<div>
-		<h2>
-			<acme:message code="administrator.dashboard.form.label.title.Applications.accepted"/>
-		</h2>
-		<p>
-			<acme:message code="administrator.dashboard.form.label.title.Applications.subtext"/>
-		</p>
-	</div>
-	
-	<div>
-		<canvas id="canvas5"></canvas>
-	</div>
-	
-	<script type="text/javascript">
-		$(document).ready(function(){ 
-				
-			var data = {
-		
-					labels: [<jstl:forEach var = "item" items="${pendingAppDates}"> 
-					"${item}",
-					</jstl:forEach>],
-					datasets : [{ 
-						label: "Ratio",
-						data : [<jstl:forEach var = "item" items="${companiesStatusAccepted}"> 
-						<jstl:out value="${item}"/>,
-						</jstl:forEach>
-						]
-				}]
-			};
-			
-			var options = {
-					scales : {
-							yAxes : [
-								{
-									ticks : {
-										suggestedMin : 0.0,
-										suggestedMax : 5.0
-									}
-								}
-							]
-						},
-						legend : {
-							display : false
-						}
-				};
-				
-				var canvas, context;
-				
-				canvas = document.getElementById("canvas5");
-				context = canvas.getContext("2d");
-				new Chart(context, {
-					type: "line",
-					data : data,
-					options : options
-				});
-				
-			});
-	</script>
-	
-	<div>
-		<h2>
-			<acme:message code="administrator.dashboard.form.label.title.Applications.rejected"/>
-		</h2>
-		<p>
-			<acme:message code="administrator.dashboard.form.label.title.Applications.subtext"/>
-		</p>
-	</div>
-	
-	<div>
-		<canvas id="canvas6"></canvas>
-	</div>
-	
-	<script type="text/javascript">
-		$(document).ready(function(){ 
-				
-			var data = {
-		
-					labels: [<jstl:forEach var = "item" items="${pendingAppDates}"> 
-					"${item}",
-					</jstl:forEach>],
-					datasets : [{ 
-						label: "Ratio",
-						data : [<jstl:forEach var = "item" items="${companiesStatusRejected}"> 
-						<jstl:out value="${item}"/>,
-						</jstl:forEach>
-						]
-				}]
-			};
-			
-			var options = {
-					scales : {
-							yAxes : [
-								{
-									ticks : {
-										suggestedMin : 0.0,
-										suggestedMax : 5.0
-									}
-								}
-							]
-						},
-						legend : {
-							display : false
-						}
-				};
-				
-				var canvas, context;
-				
-				canvas = document.getElementById("canvas6");
 				context = canvas.getContext("2d");
 				new Chart(context, {
 					type: "line",

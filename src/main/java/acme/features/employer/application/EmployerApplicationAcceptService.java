@@ -1,6 +1,8 @@
 
 package acme.features.employer.application;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -90,7 +92,11 @@ public class EmployerApplicationAcceptService implements AbstractUpdateService<E
 		assert request != null;
 		assert entity != null;
 
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+
 		entity.setStatus(ApplicationStatus.ACCEPTED);
+		entity.setLastModification(moment);
 
 		this.repository.save(entity);
 

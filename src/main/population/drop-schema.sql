@@ -55,21 +55,13 @@
        drop 
        foreign key `FKe1edpykjs39o98sfkjafa0dtn`;
 
-    alter table `message` 
+    alter table `messagethread_message` 
        drop 
-       foreign key `FK9yv547yagiwkor2pefs0aa2ly`;
+       foreign key `FK4v12fabi148oatb5ldiqhq6k5`;
 
-    alter table `messagethread` 
+    alter table `messagethread_message` 
        drop 
-       foreign key `FKh3qs9vxci6t518j2o235cb0sm`;
-
-    alter table `messagethread_authenticated` 
-       drop 
-       foreign key `FK44e36gtyrt8m7vf5xnecbvlih`;
-
-    alter table `messagethread_authenticated` 
-       drop 
-       foreign key `FKp3akaw4gqb3fiiuixlcnpg7bp`;
+       foreign key `FKu9f1tx0chqv0svcgpexg0hbn`;
 
     alter table `non_commercial_banner` 
        drop 
@@ -82,6 +74,14 @@
     alter table `sponsor` 
        drop 
        foreign key FK_20xk0ev32hlg96kqynl6laie2;
+
+    alter table `userthread` 
+       drop 
+       foreign key `FKg6g6iilyp0nbcmtyuhh9iveor`;
+
+    alter table `userthread` 
+       drop 
+       foreign key `FKmctquc72kciwec2m7b0mte2t2`;
 
     alter table `worker` 
        drop 
@@ -121,7 +121,7 @@
 
     drop table if exists `messagethread`;
 
-    drop table if exists `messagethread_authenticated`;
+    drop table if exists `messagethread_message`;
 
     drop table if exists `non_commercial_banner`;
 
@@ -136,6 +136,8 @@
     drop table if exists `sysconfig`;
 
     drop table if exists `user_account`;
+
+    drop table if exists `userthread`;
 
     drop table if exists `worker`;
 

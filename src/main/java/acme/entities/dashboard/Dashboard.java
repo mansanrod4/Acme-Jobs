@@ -48,5 +48,6 @@ public class Dashboard implements Serializable {
 	ArrayList<Double>			companiesStatusPending;
 	ArrayList<Double>			companiesStatusAccepted;
 	ArrayList<Double>			companiesStatusRejected;
+	ArrayList<LocalDate>		LastFourWeeks;
 
 }

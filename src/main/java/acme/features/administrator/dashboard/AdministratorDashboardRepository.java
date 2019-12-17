@@ -1,14 +1,12 @@
 
 package acme.features.administrator.dashboard;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.applications.Application;
 import acme.entities.companyRecords.CompanyRecord;
 import acme.entities.investor.Investor;
 import acme.framework.repositories.AbstractRepository;
@@ -85,16 +83,12 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select 1.0 * count(a) / (select count (b) from Application b) from Application a where a.status = acme.entities.applications.ApplicationStatus.REJECTED")
 	Double ratioOfRejectedApplications();
 
-	@Query("Select a from Application a where a.creationMoment >= ?1")
-	Collection<Application> pendingApplicationDates(Date dateMinusMonth);
+	@Query("select count(a) from Application a where a.status = acme.entities.applications.ApplicationStatus.PENDING and a.creationMoment < ?1 and a.creationMoment >= ?2")
+	Double getCompaniesStatusPending(Date IndexDatePlusOne, Date IndexDate);
 
-	@Query("Select count(a) from Application a where a.status = acme.entities.applications.ApplicationStatus.PENDING and a.creationMoment >= ?1 group by a.creationMoment")
-	ArrayList<Double> getCompaniesStatusPending(Date dateMinusMonth);
+	@Query("select count(a) from Application a where a.status = acme.entities.applications.ApplicationStatus.ACCEPTED and a.lastModification < ?1 and a.lastModification >= ?2")
+	Double getCompaniesStatusAccepted(Date IndexDatePlusOne, Date IndexDate);
 
-	@Query("Select count(a) from Application a where a.status = acme.entities.applications.ApplicationStatus.ACCEPTED and a.creationMoment >= ?1 group by a.creationMoment")
-	ArrayList<Double> getCompaniesStatusAccepted(Date dateMinusMonth);
-
-	@Query("Select count(a) from Application a where a.status = acme.entities.applications.ApplicationStatus.REJECTED and a.creationMoment >= ?1 group by a.creationMoment")
-	ArrayList<Double> getCompaniesStatusRejected(Date dateMinusMonth);
-
+	@Query("select count(a) from Application a where a.status = acme.entities.applications.ApplicationStatus.REJECTED and a.lastModification < ?1 and a.lastModification >= ?2")
+	Double getCompaniesStatusRejected(Date IndexDatePlusOne, Date IndexDate);
 }
