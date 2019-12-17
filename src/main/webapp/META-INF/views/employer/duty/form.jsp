@@ -22,11 +22,11 @@
 	<acme:form-double code="employer.duty.form.label.percentageTimeWeek" path="percentageTimeWeek" readonly = "${isNotFinalMode}"/>
 	
 		
-	<acme:form-submit test="${(command == 'show' || command == 'update') && !isNotFinalMode}"
+	<acme:form-submit test="${(command == 'show' || command == 'update' || command == 'delete') && !isNotFinalMode}"
 		code="employer.duty.form.button.update"
 		action="/employer/duty/update"/>
 	
-	<acme:form-submit test="${(command == 'show' || command == 'update') && !isNotFinalMode}"
+	<acme:form-submit test="${(command == 'show' || command == 'update' || command == 'delete') && !isNotFinalMode}"
 		code="employer.duty.form.button.delete"
 		action="/employer/duty/delete"/>
 	

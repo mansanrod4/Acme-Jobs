@@ -26,7 +26,13 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
 
-		return true;
+		//Para que otro employer no pueda aceptar o rechazar el apply
+		Application apply = this.repository.findOneApplicationById(request.getModel().getInteger("id"));
+		Integer employerId = apply.getJob().getEmployer().getId();
+
+		boolean result = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return result;
 	}
 
 	@Override
@@ -43,7 +49,7 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 
 		model.setAttribute("worker", entity.getWorker().getIdentity().getFullName());
 		model.setAttribute("status", entity.getStatus().toString());
-		model.setAttribute("job", entity.getJob().getTitle());
+		model.setAttribute("job", entity.getJob().getReference());
 
 		request.unbind(entity, model, "referenceNumber", "creationMoment", "statement", "skills", "qualifications", "justification");
 	}

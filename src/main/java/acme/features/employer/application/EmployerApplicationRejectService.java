@@ -38,7 +38,13 @@ public class EmployerApplicationRejectService implements AbstractUpdateService<E
 			isPending = false;
 		}
 
-		return isPending;
+		//Para que otro employer no pueda rechazar el apply
+		Application apply = this.repository.findOneApplicationById(request.getModel().getInteger("id"));
+		Integer employerId = apply.getJob().getEmployer().getId();
+
+		boolean thisEmployer = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return isPending && thisEmployer;
 	}
 
 	@Override

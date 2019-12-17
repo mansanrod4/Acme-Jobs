@@ -26,7 +26,14 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return true;
+
+		//Para que otro employer no pueda crear el duty a un job que no es suyo
+		Job duty = this.repository.findJobById(request.getModel().getInteger("job_id"));
+		Integer employerId = duty.getEmployer().getId();
+
+		boolean result = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return result;
 	}
 
 	@Override
@@ -49,7 +56,6 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		model.setAttribute("job_id", jobId);
 
 		if (request.isMethod(HttpMethod.GET)) {
-
 			model.setAttribute("jobTitle", entity.getJob().getTitle());
 			model.setAttribute("jobReference", entity.getJob().getReference());
 			model.setAttribute("jobEmployer", entity.getJob().getEmployer().getUserAccount().getUsername());
@@ -78,16 +84,7 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		boolean over100, isSpam;
-
-		//No se puede crear una tarea si su timeWeekPercentage supera el 100 si se suma con el resto
-		Integer jobId = entity.getJob().getId();
-
-		if (this.repository.sumPercentageDuty(jobId) != null && !errors.hasErrors("percentageTimeWeek")) {
-			Double actualPercent = this.repository.sumPercentageDuty(jobId) + request.getModel().getInteger("percentageTimeWeek");
-			over100 = actualPercent <= 100.00;
-			errors.state(request, over100, "percentageTimeWeek", "employer.duty.error.over100");
-		}
+		boolean isSpam;
 
 		// SPAM FILTER
 		Double threshold = this.repository.findSysconfig().getThreshold();

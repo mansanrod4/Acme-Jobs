@@ -20,6 +20,8 @@ employer.job.list.label.deadLine = Dead-line
 employer.job.list.label.title = Title
 employer.job.list.label.status = Status
 
+employer.job.error.duplicated = This ticker is already taken
+employer.job.error.deadline = The Deadline must be one week later from now
 employer.job.error.hasDescriptor = You must write a mandatory description
 employer.job.error.hasDuties = The job has a duty or duties, you must delete them before the job
 employer.job.error.dutiesOver100 = ¡The duties week percentage is not 100%! Please, modify the duties week percentage to one hundred percent exactly
