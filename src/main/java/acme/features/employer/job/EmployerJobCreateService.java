@@ -86,7 +86,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		}
 
 		//HAS DESCRIPTOR
-
 		hasDescriptor = request.getModel().getString("description").isEmpty();
 		errors.state(request, !hasDescriptor, "description", "employer.job.error.hasDescriptor");
 
