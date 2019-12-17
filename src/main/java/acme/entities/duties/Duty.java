@@ -33,7 +33,8 @@ public class Duty extends DomainEntity {
 	@Column(length = 1024)
 	private String				description;
 
-	@Min(0)
+	@NotNull
+	@Min(1)
 	@Max(100)
 	private Double				percentageTimeWeek;
 

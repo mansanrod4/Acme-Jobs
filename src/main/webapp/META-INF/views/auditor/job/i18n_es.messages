@@ -9,6 +9,7 @@ auditor.job.form.button.return = Volver
 auditor.job.form.button.audits = Auditorias
 auditor.job.form.button.create = Crear Auditoría
 
+
 auditor.job.list.label.reference = Referencia
 auditor.job.list.label.deadLine = Expira:
 auditor.job.list.label.title = Título

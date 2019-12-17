@@ -30,5 +30,9 @@ administrator.dashboard.form.label.title.sectorInvestorsStatus = AGRUPACIÓN POR
 administrator.dashboard.form.label.title.sectorJobStatus = RATIO DEL ESTADO DE LOS EMPLEOS
 administrator.dashboard.form.label.title.sectorApplicationStatus = RATIO DEL ESTADO DE LAS APLICACIONES
 administrator.dashboard.form.label.title.statistics = ESTADÍSTICAS PRINCIPALES
+administrator.dashboard.form.label.title.Applications.pending = SOLICITUDES PENDIENTES
+administrator.dashboard.form.label.title.Applications.accepted = SOLICITUDES ACEPTADAS
+administrator.dashboard.form.label.title.Applications.rejected = SOLICITUDES RECHAZADAS
+administrator.dashboard.form.label.title.Applications.subtext = En los últimos 30 días
 
 administrator.dashboard.form.button.return = Volver

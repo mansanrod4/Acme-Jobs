@@ -2,6 +2,7 @@
 package acme.entities.dashboard;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import lombok.Getter;
@@ -42,4 +43,10 @@ public class Dashboard implements Serializable {
 
 	ArrayList<String>			investorsSectors;
 	ArrayList<String>			companiesSectors;
+
+	ArrayList<LocalDate>		pendingAppDates;
+	ArrayList<Double>			companiesStatusPending;
+	ArrayList<Double>			companiesStatusAccepted;
+	ArrayList<Double>			companiesStatusRejected;
+
 }

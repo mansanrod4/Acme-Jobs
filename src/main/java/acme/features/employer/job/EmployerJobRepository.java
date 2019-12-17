@@ -6,8 +6,11 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.applications.Application;
+import acme.entities.duties.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
+import acme.entities.sysconfig.Sysconfig;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -22,4 +25,15 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("Select e from Employer e where e.id = ?1")
 	Employer findOneEmployerById(int id);
 
+	@Query("Select a from Application a")
+	Collection<Application> findManyApplication();
+
+	@Query("Select d from Duty d where d.job.id = ?1")
+	Collection<Duty> findManyDutiesByJob(int jobId);
+
+	@Query("Select sum(d.percentageTimeWeek) from Duty d where d.job.id = ?1")
+	Double sumPercentageDuty(int jobId);
+
+	@Query("Select s from Sysconfig s")
+	Sysconfig findSysconfig();
 }

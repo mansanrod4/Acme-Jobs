@@ -19,6 +19,6 @@
 	<acme:form-submit test = "${command == 'create'}"
 		code = "auditor.audit.form.button.create" 
 		action = "/auditor/audit/create?job_id=${job_id}"/>
-	
+
 	<acme:form-return code="auditor.audit.form.button.return"/>
 </acme:form>

@@ -13,9 +13,10 @@ authenticated.duty.form.label.title = Título:
 authenticated.duty.form.label.description = Descripción:
 authenticated.duty.form.label.jobTitle = Título del Empleo:
 authenticated.duty.form.label.jobReference = Referencia del Empleo:
-authenticated.duty.form.label.jobEmployer = Empleado:
+authenticated.duty.form.label.jobEmployer = Empleador:
 
 authenticated.duty.form.label.title.JobInformation = Información del Empleo
+authenticated.duty.form.label.title.DutyInformation = Información de la Tarea
 
 authenticated.duty.list.label.percentageTimeWeek = Porcentaje Semanal
 authenticated.duty.list.label.title = Título
