@@ -16,8 +16,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:print value="El usuario ${user} quiere convertirse en Auditor"/>
-	
+	<acme:print value="${user}"/>
+	<acme:message code="administrator.auditor-rol-request.text"/><br/><br/>
 	<acme:form-submit test="${command == 'show'}" code="administrator.auditor-rol-request.form.button.approve" action="/administrator/auditor-rol-request/accept"/>
 	<acme:form-return code="administrator.auditor-rol-request.form.button.return"/>
 </acme:form>

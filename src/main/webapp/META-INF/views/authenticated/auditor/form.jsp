@@ -19,14 +19,20 @@
 <acme:form>
 
 	<jstl:if test="${command == 'create' && hasRequest && !isApproved}">
-		<acme:print value="Tu solicitud esta pendiente de Aprovacion"/>
+		<acme:message code="authenticated.auditor.form.text-waiting"/><br/><br/>
 	</jstl:if>
 	
 	<jstl:if test="${command == 'create' && !hasRequest}">
-		<acme:print value="Antes de ser Auditor necesitas la aprobacion de un administrador"/>
+		<acme:message code="authenticated.auditor.form.text-need-approval"/><br/><br/>
 	</jstl:if>
 	
 	<jstl:if test="${command == 'create' && hasRequest && isApproved}">
+		<acme:message code="authenticated.auditor.form.text-approved"/><br/><br/>
+		<acme:form-textbox code="authenticated.auditor.form.label.firm" path="firm"/>
+		<acme:form-textbox code="authenticated.auditor.form.label.statement" path="statement"/>
+	</jstl:if>
+	
+	<jstl:if test="${command == 'update'}">
 		<acme:form-textbox code="authenticated.auditor.form.label.firm" path="firm"/>
 		<acme:form-textbox code="authenticated.auditor.form.label.statement" path="statement"/>
 	</jstl:if>

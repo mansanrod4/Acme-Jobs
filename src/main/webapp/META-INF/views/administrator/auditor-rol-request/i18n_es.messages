@@ -10,5 +10,7 @@
 
 administrator.auditor-rol-request.list.label.name = Nombre
 
+administrator.auditor-rol-request.text = quiere convertirse en un Auditor
+
 administrator.auditor-rol-request.form.button.approve = Aprobar Peticion
 administrator.auditor-rol-request.form.button.return = Volver

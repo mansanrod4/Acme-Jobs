@@ -11,6 +11,10 @@
 authenticated.auditor.form.label.firm = Firm:
 authenticated.auditor.form.label.statement = Statement:
 
+authenticated.auditor.form.text-approved = Your request has been approved
+authenticated.auditor.form.text-waiting = Your request is apending approval
+authenticated.auditor.form.text-need-approval = Before becoming Auditor you need the approval of an administrator
+
 authenticated.auditor.form.button.create = Become Auditor
 authenticated.auditor.form.button.create-request = Request Auditor Rol
 

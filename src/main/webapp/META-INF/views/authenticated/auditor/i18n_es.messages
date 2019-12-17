@@ -11,6 +11,10 @@
 authenticated.auditor.form.label.firm = Firma:
 authenticated.auditor.form.label.statement = Declaracion:
 
+authenticated.auditor.form.text-approved = Tu solicitud ha sido aprobada
+authenticated.auditor.form.text-waiting = Tu solicitud esta pendiente de aprobacion
+authenticated.auditor.form.text-need-approval = Antes de ser Auditor necesitas la aprobacion de un administrador
+
 authenticated.auditor.form.button.create = Convertirte en Auditor
 authenticated.auditor.form.button.create-request = Pedir Rol Auditor
 
