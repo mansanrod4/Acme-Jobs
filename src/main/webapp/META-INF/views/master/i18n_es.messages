@@ -96,6 +96,7 @@ master.menu.employer.jobs.create = Crear Empleo
 
 master.menu.worker = Trabajador
 master.menu.worker.applications.list = Mis solicitudes
+master.menu.worker.job.list = Empleos
 
 # master.menu.sponsor ##########################################################
 

@@ -1,0 +1,16 @@
+worker.job.form.label.reference = Referencia:
+worker.job.form.label.title = Título:
+worker.job.form.label.deadLine = Expira:
+worker.job.form.label.salary = Salario:
+worker.job.form.label.moreInfo = Más Info:
+worker.job.form.label.description = Descrición:
+
+worker.job.form.button.duties = Tareas
+worker.job.form.button.return = Volver
+
+worker.job.list.label.reference = Referencia
+worker.job.list.label.deadLine = Expira:
+worker.job.list.label.title = Título
+
+worker.job.form.button.applications = Solicitar
+worker.application.form.button.create = Crear

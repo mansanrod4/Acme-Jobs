@@ -14,3 +14,5 @@ worker.application.list.label.status = Status
 worker.application.list.label.job = Job
 
 worker.application.form.label.button.return = Return
+worker.application.form.button.create = Save
+worker.application.form.button.delete = Delete
