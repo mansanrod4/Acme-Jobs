@@ -69,7 +69,7 @@ public class AuditorAuditedCreateService implements AbstractCreateService<Audito
 		result.setJob(job);
 
 		int auditor_id = request.getPrincipal().getActiveRoleId();
-		Auditor auditor = this.repository.findAuditorbyId(auditor_id);
+		Auditor auditor = this.repository.findAuditorById(auditor_id);
 		result.setAuditor(auditor);
 
 		return result;

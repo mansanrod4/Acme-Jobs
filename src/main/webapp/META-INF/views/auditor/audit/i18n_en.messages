@@ -1,5 +1,8 @@
+auditor.audit.list.label.me = Mine
+auditor.audit.list.label.identity.name = Creator
 auditor.audit.list.label.title = Title
 auditor.audit.list.label.moment = Moment
+auditor.audit.list.label.status = Status
 
 auditor.audit.form.label.reference = Title:
 auditor.audit.form.label.moment = Moment:
@@ -7,4 +10,4 @@ auditor.audit.form.label.body = Body:
 auditor.audit.form.label.status =  Status:
 
 auditor.audit.form.button.return = Return
-auditor.audit.form.button.create = Create Audit
+auditor.audit.form.button.create = Create Audition
