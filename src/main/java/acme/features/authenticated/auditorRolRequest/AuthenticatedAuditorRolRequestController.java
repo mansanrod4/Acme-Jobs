@@ -10,7 +10,7 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.auditor;
+package acme.features.authenticated.auditorRolRequest;
 
 import javax.annotation.PostConstruct;
 
@@ -18,29 +18,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import acme.entities.roles.Auditor;
+import acme.entities.rolRequests.AuditorRolRequest;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/auditor/")
-public class AuthenticatedAuditorController extends AbstractController<Authenticated, Auditor> {
+@RequestMapping("/authenticated/auditor-rol-request/")
+public class AuthenticatedAuditorRolRequestController extends AbstractController<Authenticated, AuditorRolRequest> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedAuditorUpdateService	updateService;
-
-	@Autowired
-	private AuthenticatedAuditorCreateService	createService;
+	private AuthenticatedAuditorRolRequestCreateService createService;
 
 
 	// Constructors -----------------------------------------------------------
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 

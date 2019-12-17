@@ -8,8 +8,5 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-authenticated.auditor.form.label.firm = Firm:
-authenticated.auditor.form.label.statement = Statement:
-
-authenticated.auditor.form.button.update = Update
-authenticated.auditor.form.button.return = Return
+authenticated.auditor-rol-request.form.button.create = Pedir Rol Auditor
+authenticated.auditor-rol-request.form.button.return = Volver

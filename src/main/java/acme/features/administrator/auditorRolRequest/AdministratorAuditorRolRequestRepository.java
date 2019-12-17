@@ -10,18 +10,22 @@
  * they accept any liabilities with respect to them.
  */
 
-package acme.features.authenticated.auditor;
+package acme.features.administrator.auditorRolRequest;
+
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import acme.entities.roles.Auditor;
+import acme.entities.rolRequests.AuditorRolRequest;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface AuthenticatedAuditorRepository extends AbstractRepository {
+public interface AdministratorAuditorRolRequestRepository extends AbstractRepository {
 
-	@Query("select a from Auditor a where a.userAccount.id = ?1")
-	Auditor findOneAuditorByUserAccountId(int id);
+	@Query("select arr from AuditorRolRequest arr")
+	Collection<AuditorRolRequest> findAllAuditorRolRequest();
 
+	@Query("select arr from AuditorRolRequest arr where arr.id = ?1")
+	AuditorRolRequest findOneAuditorRolRequestById(int id);
 }
