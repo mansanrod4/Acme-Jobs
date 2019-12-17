@@ -81,6 +81,10 @@ public class AuthenticatedAuditorRolRequestCreateService implements AbstractCrea
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		UserAccount ua = this.repository.findOneUserAccountById(request.getPrincipal().getAccountId());
+
+		assert entity.getUser().getId() == ua.getId();
 	}
 
 	@Override

@@ -41,6 +41,7 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
+
 		return true;
 	}
 
@@ -105,6 +106,10 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		UserAccount ua = this.repository.findOneUserAccountById(request.getPrincipal().getAccountId());
+
+		assert entity.getUserAccount().getId() == ua.getId();
 	}
 
 	@Override
