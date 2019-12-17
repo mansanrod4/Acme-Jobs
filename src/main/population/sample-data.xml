@@ -637,7 +637,7 @@
 	<!-- Job beans -->
 	
 	<bean name="job1" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP1-JOB1" />
+		<property name="reference" value="JOB1-000" />
 		<property name="title" value="Title 1" />
 		<property name="deadLine" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 15,000.98" />
@@ -648,7 +648,7 @@
 	</bean>
 	
 	<bean name="job2" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP1-JOB2" />
+		<property name="reference" value="JOB2-000" />
 		<property name="title" value="Title 2" />
 		<property name="deadLine" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 16,000.98" />
@@ -659,7 +659,7 @@
 	</bean>
 	
 	<bean name="job3" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP2-JOB1" />
+		<property name="reference" value="JOB1-001" />
 		<property name="title" value="Title 3" />
 		<property name="deadLine" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 20,000.00" />
@@ -670,7 +670,7 @@
 	</bean>
 	
 	<bean name="job4" class="acme.entities.jobs.Job">
-		<property name="reference" value="EMP2-JOB2" />
+		<property name="reference" value="JOB2-001" />
 		<property name="title" value="Title 4" />
 		<property name="deadLine" value="2030/12/11 23:59" />
 		<property name="salary" value="€ 30,000.00" />
@@ -683,8 +683,9 @@
 	<!-- Application beans -->
 
 	<bean name="application1" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB1:WOR1" />
-		<property name="creationMoment" value="2019/09/10 16:30" />
+		<property name="referenceNumber" value="EMP1-JOB1:WOR1-000" />
+		<property name="creationMoment" value="2019/12/12 16:30" />
+		<property name="lastModification" value="2019/12/12 16:30" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
@@ -694,8 +695,9 @@
 	</bean>	
 	
 	<bean name="application2" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
-		<property name="creationMoment" value="2019/08/10 16:30" />
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2-001" />
+		<property name="creationMoment" value="2019/11/25 16:30" />
+		<property name="lastModification" value="2019/11/25 16:30" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
@@ -705,8 +707,9 @@
 	</bean>
 	
 	<bean name="application3" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB2:WOR1" />
-		<property name="creationMoment" value="2019/12/11 16:30" />
+		<property name="referenceNumber" value="EMP1-JOB2:WOR1-002" />
+		<property name="creationMoment" value="2019/12/15 16:30" />
+		<property name="lastModification" value="2019/12/15 16:30" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
@@ -716,9 +719,10 @@
 	</bean>
 	
 	<bean name="application4" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB2:WOR2" />
-		<property name="creationMoment" value="2019/05/11 16:30" />
-		<property name="status" value="PENDING" />
+		<property name="referenceNumber" value="EMP1-JOB2:WOR2-003" />
+		<property name="creationMoment" value="2019/11/28 16:30" />
+		<property name="lastModification" value="2019/11/28 16:30" />
+		<property name="status" value="ACCEPTED" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application4 cualifications" />
@@ -727,9 +731,11 @@
 	</bean>
 	
 	<bean name="application5" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
-		<property name="creationMoment" value="2019/01/11 16:30" />
-		<property name="status" value="PENDING" />
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2-004" />
+		<property name="creationMoment" value="2019/12/11 16:30" />
+		<property name="lastModification" value="2019/12/11 16:30" />
+		<property name="status" value="REJECTED" />
+		<property name="justification" value="justification" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application5 cualifications" />
@@ -738,9 +744,22 @@
 	</bean>
 	
 	<bean name="application6" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB3:WOR1" />
-		<property name="creationMoment" value="2019/02/11 16:30" />
+		<property name="referenceNumber" value="EMP1-JOB3:WOR1-005" />
+		<property name="creationMoment" value="2019/12/02 16:30" />
+		<property name="lastModification" value="2019/12/02 16:30" />
 		<property name="status" value="PENDING" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application6 cualifications" />
+		<property name="worker" ref="worker1Worker" />
+		<property name="job" ref="job3" />
+	</bean>
+	
+	<bean name="application7" class="acme.entities.applications.Application">
+		<property name="referenceNumber" value="EMP1-JOB3:WOR1-006" />
+		<property name="creationMoment" value="2019/12/17 16:30" />
+		<property name="lastModification" value="2019/12/17 16:30" />
+		<property name="status" value="ACCEPTED" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application6 cualifications" />

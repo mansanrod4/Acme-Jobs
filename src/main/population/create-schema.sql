@@ -28,6 +28,7 @@
         `version` integer not null,
         `creation_moment` datetime(6),
         `justification` varchar(1024),
+        `last_modification` datetime(6),
         `qualifications` varchar(1024),
         `reference_number` varchar(255),
         `skills` varchar(1024),
@@ -56,6 +57,14 @@
         `user_account_id` integer,
         `firm` varchar(255),
         `statement` varchar(1024),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditor_rol_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `approved` bit not null,
+        `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -292,6 +301,10 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
+create index IDX1qe6h389w3v57lxb8b5w5llql on `auditor_rol_request` (`approved`);
+
+    alter table `auditor_rol_request` 
+       add constraint UK_b9gvggyngpcfiv0t6xnkfa1lt unique (`user_id`);
 create index IDX3o72alr4ryyvjly6hxvavkqwx on `company_record` (`rating`);
 create index IDX2psiob2l625wbcjcq6rac7jxd on `company_record` (`sector`);
 create index IDX1slmmcr1g0wv9jbgun6rny0oy on `investor` (`sector`);
@@ -346,6 +359,11 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
     alter table `auditor` 
        add constraint FK_clqcq9lyspxdxcp6o4f3vkelj 
        foreign key (`user_account_id`) 
+       references `user_account` (`id`);
+
+    alter table `auditor_rol_request` 
+       add constraint `FKte3wl47eegqj91ujx5w5g4vl` 
+       foreign key (`user_id`) 
        references `user_account` (`id`);
 
     alter table `authenticated` 

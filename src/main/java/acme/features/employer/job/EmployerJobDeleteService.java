@@ -31,7 +31,6 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert request != null;
 
 		//A JOB CAN BE DELETED AS LONG AS NO WORKER HAS APPLIED FOR IT
-
 		boolean hasApplications = true;
 		Integer jobId = request.getModel().getInteger("id");
 
@@ -43,7 +42,6 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		}
 
 		//Solo el empleado que creó el job puede borrarlo
-
 		Integer employerId = this.repository.findOneJobById(jobId).getEmployer().getId();
 		boolean thisEmployer = employerId.equals(request.getPrincipal().getActiveRoleId());
 
