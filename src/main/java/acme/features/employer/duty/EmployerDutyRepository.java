@@ -31,5 +31,4 @@ public interface EmployerDutyRepository extends AbstractRepository {
 
 	@Query("Select s from Sysconfig s")
 	Sysconfig findSysconfig();
-
 }

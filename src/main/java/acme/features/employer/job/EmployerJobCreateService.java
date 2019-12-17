@@ -71,7 +71,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		//Validaciones
 
-		boolean isOneWeekLater, hasDescriptor, isEuroZone = false, isSpam;
+		boolean isOneWeekLater, hasDescriptor, isEuroZone = false, isSpam, isDuplicated;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -98,6 +98,10 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			}
 			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
 		}
+
+		//Ticker duplicado
+		isDuplicated = this.repository.findOneJobByTicker(entity.getReference()) != null;
+		errors.state(request, !isDuplicated, "reference", "employer.job.error.duplicated");
 
 		// SPAM FILTER
 		Double threshold = this.repository.findSysconfig().getThreshold();

@@ -25,7 +25,14 @@ public class EmployerDutyDeleteService implements AbstractDeleteService<Employer
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return true;
+
+		//Para que otro employer no pueda borrar el duty
+		Duty duty = this.repository.findOneDutyById(request.getModel().getInteger("id"));
+		Integer employerId = duty.getJob().getEmployer().getId();
+
+		boolean result = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return result;
 	}
 
 	@Override

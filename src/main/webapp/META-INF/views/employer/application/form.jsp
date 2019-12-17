@@ -5,7 +5,7 @@
 
 <acme:form readonly ="false">
 	<acme:form-textbox code="employer.application.form.label.referenceNumber" path="referenceNumber" readonly = "true"/>
-	<acme:form-textarea code="employer.application.form.label.job" path="job" readonly = "true"/>
+	<acme:form-textbox code="employer.application.form.label.job" path="job" readonly = "true"/>
 	<acme:form-textarea code="employer.application.form.label.worker" path="worker" readonly = "true"/>
 	<acme:form-moment code="employer.application.form.label.creationMoment" path="creationMoment" readonly = "true"/>
 	<acme:form-textbox code="employer.application.form.label.status" path="status" readonly = "true"/>
