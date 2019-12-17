@@ -1,0 +1,9 @@
+authenticated.userThread.form.label.username = Nombre de usuario:
+authenticated.userThread.button.delete = Borrar del hilo
+authenticated.threads.form.button.return = Volver
+
+authenticated.userThread.list.button.return = Volver
+authenticated.userThread.list.label.username = Nombre de usuario
+authenticated.userThread.list.button.NonIncludedUsers = Ver usuarios no incluidos 
+
+authenticated.userThread.delete.notMe = No te puedes borrar a ti mismo de tu hilo

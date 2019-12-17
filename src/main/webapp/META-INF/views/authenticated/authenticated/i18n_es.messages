@@ -1,0 +1,10 @@
+authenticated.authenticated.list.button.return = Volver
+authenticated.authenticated.list.label.username = Nombre de usuario
+
+authenticated.authenticated.form.button.includeInThread = Incluir usuario al hilo
+authenticated.authenticated.form.label.username = Nombre de usuario:
+authenticated.threads.form.button.return = Volver
+authenticated.authenticated.form.select = Usuario
+authenticated.userThread.list.button.createIncludedUsers = Añadir usuario
+
+authenticated.authenticated.list.label.threadId = Identificador del hilo

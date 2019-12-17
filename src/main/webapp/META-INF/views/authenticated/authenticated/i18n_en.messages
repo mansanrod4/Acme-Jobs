@@ -1,0 +1,9 @@
+authenticated.authenticated.list.button.return = Return
+authenticated.authenticated.list.label.username = Username
+
+authenticated.authenticated.form.button.includeInThread = Include user in thread
+authenticated.authenticated.form.label.username = Username:
+authenticated.threads.form.button.return = Return
+authenticated.authenticated.form.select= Users
+authenticated.userThread.list.button.createIncludedUsers= Add user
+authenticated.authenticated.list.label.threadId = Thread identifier
