@@ -108,7 +108,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 			}
 		}
 
-		//SPAMTIME
+		//SPAM
 		Double threshold = this.repository.findSysconfig().getThreshold();
 		String spamWords = this.repository.findSysconfig().getSpamwords();
 
@@ -120,7 +120,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 
 		//Spam - slogan
 		if (!errors.hasErrors("slogan")) {
-			isSpam = SpamFilter.spamFilterUrl(request.getModel().getString("slogan"), spamWords, threshold);
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("slogan"), spamWords, threshold);
 			errors.state(request, !isSpam, "slogan", "sponsor.commercial-banner.error.isSpam");
 		}
 

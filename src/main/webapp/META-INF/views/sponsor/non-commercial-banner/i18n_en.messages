@@ -1,5 +1,5 @@
 sponsor.non-commercial-banner.form.label.picture = Picture(url):
-sponsor.non-commercial-banner.form.label.slogan = Slogan(url):
+sponsor.non-commercial-banner.form.label.slogan = Slogan:
 sponsor.non-commercial-banner.form.label.targetURL = URL:
 sponsor.non-commercial-banner.form.label.jingle = Jingle:
 

@@ -117,7 +117,7 @@ public class SponsorCommercialBannerUpdateService implements AbstractUpdateServi
 
 		//Spam - slogan
 		if (!errors.hasErrors("slogan")) {
-			isSpam = SpamFilter.spamFilterUrl(request.getModel().getString("slogan"), spamWords, threshold);
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("slogan"), spamWords, threshold);
 			errors.state(request, !isSpam, "slogan", "sponsor.comercial-banner.error.isSpam");
 		}
 

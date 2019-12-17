@@ -5,7 +5,7 @@
 
 <acme:form>
 	<acme:form-url code="sponsor.commercial-banner.form.label.picture" path="picture" />
-	<acme:form-url code="sponsor.commercial-banner.form.label.slogan" path="slogan" />
+	<acme:form-textarea code="sponsor.commercial-banner.form.label.slogan" path="slogan" />
 	<acme:form-url code="sponsor.commercial-banner.form.label.targetURL" path="targetURL" />
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.creditCardNumber" path="creditCardNumber" readonly="${readOnly}"/>
 	<acme:form-textbox code="sponsor.commercial-banner.form.label.expirationDate" path="expirationDate" placeholder="MM/YY" readonly="${readOnly}"/>
