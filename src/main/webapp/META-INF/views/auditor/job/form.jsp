@@ -3,7 +3,8 @@
 <%@taglib prefix="jstl" uri= "http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form>
+<acme:form readonly = "false">
+
 	<acme:form-textbox code="auditor.job.form.label.reference" path="reference"/>
 	<acme:form-textbox code="auditor.job.form.label.title" path="title"/>
 	<acme:form-moment code="auditor.job.form.label.deadLine" path="deadLine"/>
@@ -16,5 +17,19 @@
 		action="/auditor/audit/list?job_id=${id}" 
 		method="get"
 	/>
+	
+	<acme:form-submit test="${command == 'show'}" 
+		code="auditor.job.form.button.create" 
+		action="/auditor/audit/create?job_id=${id}" 
+		method="get"
+	/>
+	
+	<acme:form-submit test="${command == 'create'}" 
+		code="auditor.job.form.button.create"
+		action="/auditor/audit/create?job_id=${id}" 
+		method="get"
+	/>
+
+	
 	<acme:form-return code="auditor.job.form.button.return"/>		
 </acme:form>

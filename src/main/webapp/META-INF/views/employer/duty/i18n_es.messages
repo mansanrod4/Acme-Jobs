@@ -13,12 +13,21 @@ employer.duty.form.label.title = Título:
 employer.duty.form.label.description = Descripción:
 employer.duty.form.label.jobTitle = Título del Empleo:
 employer.duty.form.label.jobReference = Referencia del Empleo:
-employer.duty.form.label.jobEmployer = Empleado:
+employer.duty.form.label.jobEmployer = Empleador:
 
 employer.duty.form.label.title.JobInformation = Información del Empleo
+employer.duty.form.label.title.DutyInformation = Información de la Tarea
 
 employer.duty.list.label.percentageTimeWeek = Porcentaje Semanal
 employer.duty.list.label.title = Título
 
+employer.duty.form.button.create = Crear
+
 
 employer.duty.form.button.return = Volver
+employer.duty.form.button.delete = Borrar
+employer.duty.form.button.update = Actualizar
+
+employer.duty.error.over100 = Modifica el porcentaje semanal, el porcentaje total de las tareas no puede ser mayor al 100%
+employer.duty.error.isSpam = Esta pieza de texto es considerada como SPAM, debes modificarla
+
