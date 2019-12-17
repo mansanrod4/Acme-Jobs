@@ -357,7 +357,7 @@
 
 	<bean id="commercialBanner01" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture.com"/>
-		<property name="slogan" value="http://www.slogan.com"/>
+		<property name="slogan" value="Esto es un slogan"/>
 		<property name="targetURL" value="http://www.targetURL.com"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
@@ -367,7 +367,7 @@
 	
 	<bean id="commercialBanner02" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture2.com"/>
-		<property name="slogan" value="http://www.slogan2.com"/>
+		<property name="slogan" value="Esto es un slogan 2"/>
 		<property name="targetURL" value="http://www.targetURL2.com"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
@@ -377,7 +377,7 @@
 	
 	<bean id="commercialBanner03" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture3.com"/>
-		<property name="slogan" value="http://www.slogan3.com"/>
+		<property name="slogan" value="Esto es un slogan 3"/>
 		<property name="targetURL" value="http://www.targetURL3.com"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
@@ -387,7 +387,7 @@
 	
 	<bean id="commercialBanner04" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture4.com"/>
-		<property name="slogan" value="http://www.slogan4.com"/>
+		<property name="slogan" value="Esto es un slogan 4"/>
 		<property name="targetURL" value="http://www.targetURL4.com"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
@@ -399,7 +399,7 @@
 
 	<bean id="nonCommercialBanner01" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.picture.com"/>
-		<property name="slogan" value="http://www.slogan.com"/>
+		<property name="slogan" value="Esto es un slogan"/>
 		<property name="targetURL" value="http://www.targetURL.com"/>
 		<property name="jingle" value="http://www.jingle.com"/>
 		<property name="sponsor" ref="sponsor1Sponsor"/>
@@ -407,7 +407,7 @@
 	
 	<bean id="nonCommercialBanner02" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.picture2.com"/>
-		<property name="slogan" value="http://www.slogan2.com"/>
+		<property name="slogan" value="Esto es un slogan 2"/>
 		<property name="targetURL" value="http://www.targetURL2.com"/>
 		<property name="jingle" value="http://www.jingle2.com"/>
 		<property name="sponsor" ref="sponsor1Sponsor"/>
@@ -415,7 +415,7 @@
 	
 	<bean id="nonCommercialBanner03" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.picture3.com"/>
-		<property name="slogan" value="http://www.slogan3.com"/>
+		<property name="slogan" value="Esto es un slogan 3"/>
 		<property name="targetURL" value="http://www.targetURL3.com"/>
 		<property name="jingle" value="http://www.jingle3.com"/>
 		<property name="sponsor" ref="sponsor2Sponsor"/>
@@ -423,7 +423,7 @@
 	
 	<bean id="nonCommercialBanner04" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.pictureWithNoJingle.com"/>
-		<property name="slogan" value="http://www.sloganWithNoJingle.com"/>
+		<property name="slogan" value="Esto es un slogan 4"/>
 		<property name="targetURL" value="http://www.targetURLWithNoJingle.com"/>
 		<property name="jingle"><null/></property>
 		<property name="sponsor" ref="sponsor2Sponsor"/>

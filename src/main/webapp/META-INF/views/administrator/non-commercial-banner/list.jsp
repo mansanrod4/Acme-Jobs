@@ -17,6 +17,6 @@
 
 <acme:list>
 	<acme:list-column code="administrator.non-commercial-banner.list.label.picture" path="picture" width="20%"/>
-	<acme:list-column code="administrator.non-commercial-banner.list.label.slogan" path="slogan" width="20%"/>
 	<acme:list-column code="administrator.non-commercial-banner.list.label.targetURL" path="targetURL" width="20%"/>
+	<acme:list-column code="administrator.non-commercial-banner.list.label.slogan" path="slogan" width="60%"/>
 </acme:list>
