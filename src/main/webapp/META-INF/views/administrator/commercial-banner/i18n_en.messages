@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 administrator.commercial-banner.form.label.picture = Picture(url):
-administrator.commercial-banner.form.label.slogan = Slogan(url):
+administrator.commercial-banner.form.label.slogan = Slogan:
 administrator.commercial-banner.form.label.targetURL = Enlace:
 administrator.commercial-banner.form.label.creditCardNumber: Credit card number:
 administrator.commercial-banner.form.label.expirationDate = Expiration date:
