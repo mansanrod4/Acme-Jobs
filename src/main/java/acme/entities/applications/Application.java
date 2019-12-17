@@ -42,6 +42,10 @@ public class Application extends DomainEntity {
 	@Past
 	private Date				creationMoment;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Past
+	private Date				lastModification;
+
 	@NotNull
 	private ApplicationStatus	status;
 

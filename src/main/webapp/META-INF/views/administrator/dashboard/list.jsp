@@ -266,13 +266,33 @@
 					labels: [<jstl:forEach var = "item" items="${lastFourWeeks}"> 
 					"${item}",
 					</jstl:forEach>],
+					
 					datasets : [{ 
-						label: "Ratio",
+						label: "Pending",
+						borderColor: ["#0fe600"],
+						fill: "false",
 						data : [<jstl:forEach var = "item" items="${companiesStatusPending}"> 
 						<jstl:out value="${item}"/>,
 						</jstl:forEach>
 						]
-				}]
+					},{
+						label: "Accepted",
+						borderColor: ["#3b83bd"],					
+						fill: "false",
+						data : [<jstl:forEach var = "item" items="${companiesStatusAccepted}"> 
+						<jstl:out value="${item}"/>,
+						</jstl:forEach>
+						]
+					},{
+						label: "Rejected",
+						borderColor: ["#e62e00"],
+						fill: "false",
+						data : [<jstl:forEach var = "item" items="${companiesStatusRejected}"> 
+						<jstl:out value="${item}"/>,
+						</jstl:forEach>
+						]
+					}
+					]
 			};
 			
 			var options = {
@@ -281,7 +301,8 @@
 								{
 									ticks : {
 										suggestedMin : 0.0,
-										suggestedMax : 5.0
+										suggestedMax : 5.0,
+										sampleSize : 3
 									}
 								}
 							]
