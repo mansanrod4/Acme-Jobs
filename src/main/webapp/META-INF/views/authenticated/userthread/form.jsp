@@ -13,11 +13,11 @@
 	</div>
 	</div>
 	
-	<jstl:if test="${creatorThread == false }">
+	<jstl:if test="${creator == false }">
 	<acme:form-submit code="authenticated.userThread.button.delete" action="/authenticated/userthread/delete"/>
 	</jstl:if>
 	
-	<jstl:if test="${creatorThread == true }">
+	<jstl:if test="${creator == true }">
  	<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#alertDelete" aria-expanded="false" aria-controls="collapseExample">
   		<acme:message code="authenticated.userThread.button.delete"/>
   	</button>

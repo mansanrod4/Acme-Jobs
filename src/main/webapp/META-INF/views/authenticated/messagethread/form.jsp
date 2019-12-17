@@ -24,16 +24,16 @@
 	
 	<button type="button" onclick="javascript: pushReturnUrl('/authenticated/messagethread/show?id=${id}');
 	redirect('/authenticated/message/list?id=${id}')" class="btn btn-primary">
-	<acme:message code="authenticated.messagethread.form.label.message"/>
+	<acme:message code="authenticated.messagethread.form.button.message"/>
 	</button>
-	</jstl:if>
-	<jstl:if test="${command == 'show'}">
+	
+	
 	<button type="button" onclick="javascript: pushReturnUrl('/authenticated/messagethread/show?id=${id}');
 	redirect('/authenticated/userthread/list?id=${id}')" class="btn btn-primary">
-	<acme:message code="authenticated.messagethread.form.label.users"/>
+	<acme:message code="authenticated.messagethread.form.button.users"/>
 	</button>
-	</jstl:if>
 	
+	</jstl:if>
 	
 		
 	<acme:form-submit test="${command == 'create' }" code="authenticated.messagethread.form.button.create" action="/authenticated/messagethread/create"/>

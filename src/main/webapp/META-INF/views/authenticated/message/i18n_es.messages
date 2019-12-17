@@ -21,3 +21,7 @@ authenticated.message.form.label.body = Cuerpo
 authenticated.message.form.label.author= Autor
 
 authenticated.message.form.button.return = Volver
+authenticated.message.list.button.post= Crear Mensaje
+authenticated.message.form.button.create = Create Mensaje
+authenticated.message.create.error.must-confirm= Por favor, confirma la creación del mensaje
+authenticated.message.form.checkbox= Confirmar

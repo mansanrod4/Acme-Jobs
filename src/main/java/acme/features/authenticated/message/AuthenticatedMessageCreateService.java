@@ -1,6 +1,7 @@
 
 package acme.features.authenticated.message;
 
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,14 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+		Date moment;
+		Authenticated au = new Authenticated();
+		au = this.repository.findAuthenticatedById(request.getPrincipal().getActiveRoleId());
+		moment = new Date(System.currentTimeMillis() - 1);
+		entity.setMoment(moment);
+		entity.setAuthor(au);
 
-		request.bind(entity, errors, "moment", "authenticated.userAccount.username");
+		request.bind(entity, errors, "moment", "author");
 
 	}
 
@@ -48,6 +55,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		} else {
 			request.transfer(model, "confirm");
 		}
+
 		request.unbind(entity, model, "title", "tags", "body");
 
 	}
@@ -56,6 +64,7 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 	public Message instantiate(final Request<Message> request) {
 		Message result;
 		result = new Message();
+
 		return result;
 
 	}
@@ -66,25 +75,34 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert errors != null;
 
+		Boolean isConfirmed = request.getModel().getBoolean("confirm");
+
+		errors.state(request, isConfirmed, "confirm", "authenticated.message.create.error.must-confirm");
+
 	}
 
 	@Override
 	public void create(final Request<Message> request, final Message entity) {
 		assert request != null;
 		assert entity != null;
-		Date moment;
 		Messagethread thread;
 
+		Date moment;
+		Authenticated au = new Authenticated();
+		au = this.repository.findAuthenticatedById(request.getPrincipal().getActiveRoleId());
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
-
-		int threadId = request.getModel().getInteger("threadId");
-		entity.setAuthor(this.repository.findAuthenticatedById(request.getPrincipal().getActiveRoleId()));
-
-		thread = this.repository.findThreadById(threadId);
-		thread.getMessages().add(entity);
+		entity.setAuthor(au);
 
 		this.repository.save(entity);
+
+		int threadId = request.getModel().getInteger("threadId");
+		Collection<Message> messages = this.repository.findManyByMessagethread(threadId);
+		messages.add(entity);
+
+		thread = this.repository.findThreadById(threadId);
+		thread.setMessages(messages);
+
 		this.repository.save(thread);
 
 	}

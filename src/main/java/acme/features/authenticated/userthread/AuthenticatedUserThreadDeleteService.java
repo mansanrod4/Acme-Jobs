@@ -73,7 +73,7 @@ public class AuthenticatedUserThreadDeleteService implements AbstractDeleteServi
 		int authenticatedId = Userthread.getAuthenticated().getId();
 		int id = request.getPrincipal().getActiveRoleId();
 		boolean sameUser = id == authenticatedId;
-		errors.state(request, !sameUser, "authenticated.userAccount.username", "authenticated.Userthread.delete.creatorThread");
+		errors.state(request, !sameUser, "authenticated.userAccount.username", "authenticated.userthread.delete.creator");
 
 	}
 

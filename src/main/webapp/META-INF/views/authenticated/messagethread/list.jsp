@@ -20,6 +20,10 @@
 	<acme:list-column code="authenticated.messagethread.list.label.title" path="title" width="33%"/>
 	<acme:list-column code="authenticated.messagethread.list.label.moment" path="moment" width="33%"/>
 	<acme:list-column code="authenticated.messagethread.list.label.author" path="authorName" width="33%"/>
+	
 </acme:list>
+<button type="button" onclick="javascript: pushReturnUrl('/authenticated/messagethread/list-mine'); redirect('/authenticated/messagethread/create')" class="btn btn-primary">
+		<acme:message code="authenticated.messagethread.form.button.post" />
+	</button>
 
 

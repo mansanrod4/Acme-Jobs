@@ -11,6 +11,7 @@
 authenticated.messagethread.list.label.title = Title
 authenticated.messagethread.list.label.moment = Creation Moment
 authenticated.messagethread.list.label.author = Author
+authenticated.messagethread.form.button.post = Create Thread
 
 authenticated.messagethread.form.label.title = Title
 authenticated.messagethread.form.label.moment = Creation Moment
