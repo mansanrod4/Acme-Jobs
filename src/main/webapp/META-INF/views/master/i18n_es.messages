@@ -69,6 +69,9 @@ master.menu.administrator.banners.commercial-banner.create = Crear banner comerc
 master.menu.administrator.banners.non-commercial-banner =Banners No Comercial
 master.menu.administrator.banners.non-commercial-banner.create = Crear banner no comercial
 
+master.menu.administrator.rol-request = Peticiones de Rol
+master.menu.administrator.rol-request.auditor-request = Peticiones de Auditor
+
 # master.menu.auditor ########################################################
 
 master.menu.auditor = Auditor

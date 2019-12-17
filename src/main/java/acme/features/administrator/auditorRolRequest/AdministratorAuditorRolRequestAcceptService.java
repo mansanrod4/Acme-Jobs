@@ -12,7 +12,7 @@ import acme.framework.entities.Administrator;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AdministratorAuditorRolRequestUpdateService implements AbstractUpdateService<Administrator, AuditorRolRequest> {
+public class AdministratorAuditorRolRequestAcceptService implements AbstractUpdateService<Administrator, AuditorRolRequest> {
 
 	//Internal State
 
@@ -25,6 +25,15 @@ public class AdministratorAuditorRolRequestUpdateService implements AbstractUpda
 	@Override
 	public boolean authorise(final Request<AuditorRolRequest> request) {
 		assert request != null;
+
+		AuditorRolRequest req;
+		int id;
+		id = request.getModel().getInteger("id");
+		req = this.repository.findOneAuditorRolRequestById(id);
+
+		if (req.isApproved()) {
+			return false;
+		}
 
 		return true;
 	}
@@ -48,7 +57,8 @@ public class AdministratorAuditorRolRequestUpdateService implements AbstractUpda
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "getUserFullName()", "getUserEmail()", "approved");
+		model.setAttribute("isApproved", false);
+		request.unbind(entity, model);
 	}
 
 	@Override
@@ -57,7 +67,7 @@ public class AdministratorAuditorRolRequestUpdateService implements AbstractUpda
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "user");
 	}
 
 	@Override
@@ -71,6 +81,8 @@ public class AdministratorAuditorRolRequestUpdateService implements AbstractUpda
 	public void update(final Request<AuditorRolRequest> request, final AuditorRolRequest entity) {
 		assert request != null;
 		assert entity != null;
+
+		entity.setApproved(true);
 
 		this.repository.save(entity);
 	}

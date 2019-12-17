@@ -23,8 +23,8 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorAuditorRolRequestRepository extends AbstractRepository {
 
-	@Query("select arr from AuditorRolRequest arr")
-	Collection<AuditorRolRequest> findAllAuditorRolRequest();
+	@Query("select arr from AuditorRolRequest arr where arr.approved = false")
+	Collection<AuditorRolRequest> findAllAuditorRolRequestNotApproved();
 
 	@Query("select arr from AuditorRolRequest arr where arr.id = ?1")
 	AuditorRolRequest findOneAuditorRolRequestById(int id);

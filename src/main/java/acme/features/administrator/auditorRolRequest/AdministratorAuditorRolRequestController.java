@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.components.CustomCommand;
 import acme.entities.rolRequests.AuditorRolRequest;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
@@ -33,7 +34,10 @@ public class AdministratorAuditorRolRequestController extends AbstractController
 	private AdministratorAuditorRolRequestListService	listService;
 
 	@Autowired
-	private AdministratorAuditorRolRequestUpdateService	updateService;
+	private AdministratorAuditorRolRequestAcceptService	acceptService;
+
+	@Autowired
+	private AdministratorAuditorRolRequestShowService	showService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -41,7 +45,8 @@ public class AdministratorAuditorRolRequestController extends AbstractController
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addCustomCommand(CustomCommand.ACCEPT, BasicCommand.UPDATE, this.acceptService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 
 }

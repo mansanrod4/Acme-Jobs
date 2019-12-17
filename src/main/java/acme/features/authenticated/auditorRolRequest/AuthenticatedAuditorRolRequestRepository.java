@@ -23,4 +23,5 @@ public interface AuthenticatedAuditorRolRequestRepository extends AbstractReposi
 
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);
+
 }

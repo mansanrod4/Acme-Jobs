@@ -34,7 +34,7 @@ public class AdministratorAuditorRolRequestListService implements AbstractListSe
 
 		Collection<AuditorRolRequest> result;
 
-		result = this.repository.findAllAuditorRolRequest();
+		result = this.repository.findAllAuditorRolRequestNotApproved();
 
 		return result;
 	}
@@ -45,7 +45,9 @@ public class AdministratorAuditorRolRequestListService implements AbstractListSe
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "getUserName()", "approved");
+		model.setAttribute("user", entity.getUser().getIdentity().getFullName());
+
+		request.unbind(entity, model);
 	}
 
 }

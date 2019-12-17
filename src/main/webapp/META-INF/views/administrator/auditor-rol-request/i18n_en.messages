@@ -8,12 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-administrator.auditor-rol-request.list.label.firm = Firm
-administrator.auditor-rol-request.list.label.statement = Statement
+administrator.auditor-rol-request.list.label.name = Name
 
-administrator.auditor-rol-request.form.label.firm = Firm:
-administrator.auditor-rol-request.form.label.statement = Statement:
-administrator.auditor-rol-request.form.label.approved = Approved
-
-administrator.auditor-rol-request.form.button.approve = Update
+administrator.auditor-rol-request.form.button.approve = Approve Request
 administrator.auditor-rol-request.form.button.return = Return

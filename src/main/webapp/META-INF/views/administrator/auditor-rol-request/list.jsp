@@ -16,6 +16,6 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="administrator.auditor-rol-request.list.label.name" path="getUserName()" width="50%"/>
+	<acme:list-column code="administrator.auditor-rol-request.list.label.name" path="user" width="50%"/>
 </acme:list>
 

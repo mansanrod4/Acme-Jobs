@@ -3,7 +3,6 @@ package acme.entities.rolRequests;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -23,24 +22,8 @@ public class AuditorRolRequest extends DomainEntity {
 
 	@NotNull
 	@Valid
-	@OneToOne
+	@OneToOne(optional = false)
 	private UserAccount			user;
 
-
 	//Atributos info derivados
-	@Transient
-	public String getUserFullName() {
-		return this.user.getIdentity().getFullName();
-	}
-
-	@Transient
-	public String getUserName() {
-		return this.user.getIdentity().getName();
-	}
-
-	@Transient
-	public String getUserEmail() {
-		return this.user.getIdentity().getEmail();
-	}
-
 }

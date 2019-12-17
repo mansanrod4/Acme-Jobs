@@ -11,5 +11,8 @@
 authenticated.auditor.form.label.firm = Firma:
 authenticated.auditor.form.label.statement = Declaracion:
 
+authenticated.auditor.form.button.create = Convertirte en Auditor
+authenticated.auditor.form.button.create-request = Pedir Rol Auditor
+
 authenticated.auditor.form.button.update = Actualizar
 authenticated.auditor.form.button.return = Volver

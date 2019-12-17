@@ -16,10 +16,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:form-textbox readonly="true" code="administrator.auditor-rol-request.form.label.fullname" path="getUserFullName()"/>
-	<acme:form-textbox readonly="true" code="administrator.auditor-rol-request.form.label.email" path="getUserEmail"/>
-	<acme:form-checkbox code="administrator.auditor-rol-request.form.label.approved" path="approved"/>
+	<acme:print value="El usuario ${user} quiere convertirse en Auditor"/>
 	
-	<acme:form-submit test="${command == 'update'}" code="administrator.auditor-rol-request.form.button.approve" action="/authenticated/auditor/create"/>
+	<acme:form-submit test="${command == 'show'}" code="administrator.auditor-rol-request.form.button.approve" action="/administrator/auditor-rol-request/accept"/>
 	<acme:form-return code="administrator.auditor-rol-request.form.button.return"/>
 </acme:form>
