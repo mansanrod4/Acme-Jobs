@@ -2,7 +2,9 @@
 package acme.entities.rolRequests;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -14,6 +16,9 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = {
+	@Index(columnList = "approved")
+})
 public class AuditorRolRequest extends DomainEntity {
 
 	private static final long	serialVersionUID	= 1L;
