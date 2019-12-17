@@ -1,0 +1,10 @@
+authenticated.userThread.form.label.username = Username:
+authenticated.userThread.button.delete = Remove from thread
+authenticated.threads.form.button.return = Return
+
+
+authenticated.userThread.list.button.return = Return
+authenticated.userThread.list.label.username = Username
+authenticated.userThread.list.button.NonIncludedUsers = Non included users
+
+authenticated.userThread.delete.notMe = You can´t delete yourself from your thread

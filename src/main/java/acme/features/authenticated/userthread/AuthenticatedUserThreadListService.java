@@ -39,7 +39,7 @@ public class AuthenticatedUserThreadListService implements AbstractListService<A
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "authenticated.userAccount.username"); //DUDA
+		request.unbind(entity, model, "authenticated.userAccount.username");
 
 	}
 

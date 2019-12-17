@@ -13,11 +13,11 @@ import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
 
 @Controller
-@RequestMapping("/authenticated/user-thread/")
+@RequestMapping("/authenticated/userthread/")
 public class AuthenticatedUserThreadController extends AbstractController<Authenticated, Userthread> {
 
 	@Autowired
-	private AuthenticatedUserThreadListService		listUserService;
+	private AuthenticatedUserThreadListService		listService;
 
 	@Autowired
 	private AuthenticatedUserThreadShowService		showService;
@@ -31,7 +31,7 @@ public class AuthenticatedUserThreadController extends AbstractController<Authen
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listUserService);
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);

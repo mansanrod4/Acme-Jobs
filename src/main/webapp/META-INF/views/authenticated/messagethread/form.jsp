@@ -19,23 +19,23 @@
 	<acme:form-textbox code="authenticated.messagethread.form.label.title" path="title" />
 	<jstl:if test="${command == 'show' }">
 	<acme:form-moment code="authenticated.messagethread.form.label.moment" path="moment" />
+	<acme:form-textbox code="authenticated.messagethread.form.label.author" path="authorName" />
+	
 	
 	<button type="button" onclick="javascript: pushReturnUrl('/authenticated/messagethread/show?id=${id}');
 	redirect('/authenticated/message/list?id=${id}')" class="btn btn-primary">
 	<acme:message code="authenticated.messagethread.form.label.message"/>
 	</button>
-	<jstl:if test="${hasAccess}">
+	</jstl:if>
+	<jstl:if test="${command == 'show'}">
 	<button type="button" onclick="javascript: pushReturnUrl('/authenticated/messagethread/show?id=${id}');
 	redirect('/authenticated/userthread/list?id=${id}')" class="btn btn-primary">
 	<acme:message code="authenticated.messagethread.form.label.users"/>
 	</button>
 	</jstl:if>
 	
-	</jstl:if>
-		<!--  <button type="button" onclick="javascript: pushReturnUrl('/authenticated/thread/show?id=${id}');
-		redirect('/authenticated/thread/create')" class="btn btn-primary">
-		<acme:message code="authenticated.threads.button.create"/>
-		</button> -->
+	
+		
 	<acme:form-submit test="${command == 'create' }" code="authenticated.messagethread.form.button.create" action="/authenticated/messagethread/create"/>
 	<acme:form-return code="authenticated.messagethread.form.button.return" />
 </acme:form>
