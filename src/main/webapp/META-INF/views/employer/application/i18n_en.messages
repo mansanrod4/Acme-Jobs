@@ -5,9 +5,10 @@ employer.application.form.label.statement = Statement:
 employer.application.form.label.skills = Skills:
 employer.application.form.label.qualifications = Qualifications:
 employer.application.form.label.worker = Worker:
-employer.application.form.label.job = Job:
+employer.application.form.label.job = Job Reference:
 employer.application.form.label.justification = Justification:
 
+employer.application.list.label.jobReference = Job reference
 employer.application.list.label.referenceNumber = Reference
 employer.application.list.label.creationMoment = Creation moment
 employer.application.list.label.statement = Statement

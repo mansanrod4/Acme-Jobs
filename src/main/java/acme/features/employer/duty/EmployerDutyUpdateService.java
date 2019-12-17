@@ -28,7 +28,13 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		//Para que otro employer no pueda editar el duty
+		Duty duty = this.repository.findOneDutyById(request.getModel().getInteger("id"));
+		Integer employerId = duty.getJob().getEmployer().getId();
+
+		boolean result = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return result;
 	}
 
 	@Override
@@ -74,15 +80,7 @@ public class EmployerDutyUpdateService implements AbstractUpdateService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		boolean over100, isSpam;
-
-		//No se puede crear una tarea si su timeWeekPercentage supera el 100 si se suma con el resto
-		Integer jobId = entity.getJob().getId();
-		if (this.repository.sumPercentageDuty(jobId) != null) {
-			Double actualPercent = this.repository.sumPercentageDuty(jobId) + request.getModel().getInteger("percentageTimeWeek");
-			over100 = actualPercent <= 100.00;
-			errors.state(request, over100, "percentageTimeWeek", "employer.duty.error.over100");
-		}
+		boolean isSpam;
 
 		// SPAM FILTER
 		Double threshold = this.repository.findSysconfig().getThreshold();

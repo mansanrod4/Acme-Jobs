@@ -9,7 +9,7 @@
 			<jstl:set var= "readOnly" value = "true"/>
 		</jstl:if>
 		
-		<acme:form-textbox code="employer.job.form.label.reference" path="reference" readonly= "${readOnly}" />
+		<acme:form-textbox code="employer.job.form.label.reference" path="reference" readonly= "${readOnly}" placeholder ="EEEE-JJJJ" />
 		<acme:form-textbox code="employer.job.form.label.title" path="title" readonly= "${readOnly}"/>
 		<acme:form-moment code="employer.job.form.label.deadLine" path="deadLine" readonly= "${readOnly}"/>
 		<acme:form-money code="employer.job.form.label.salary" path="salary" readonly= "${readOnly}"/>

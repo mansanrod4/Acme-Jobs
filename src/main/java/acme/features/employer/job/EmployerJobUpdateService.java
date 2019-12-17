@@ -32,14 +32,17 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		//Validacion
-
 		boolean isFinalMode;
 
 		//A JOB CAN BE MODIFIED AS LONG AS IT'S NOT SAVED IN FINAL MODE
 		isFinalMode = this.repository.findOneJobById(request.getModel().getInteger("id")).isFinalMode();
 
-		return !isFinalMode;
+		//Solo el empleado que creó el job puede editarlo
+		Integer jobId = request.getModel().getInteger("id");
+		Integer employerId = this.repository.findOneJobById(jobId).getEmployer().getId();
+		boolean thisEmployer = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return !isFinalMode && thisEmployer;
 	}
 
 	@Override
@@ -77,7 +80,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isOneWeekLater, isEuroZone = false, hasDescriptor, isSpam;
+		boolean isOneWeekLater, isEuroZone = false, hasDescriptor, isSpam, isDuplicated;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -103,6 +106,10 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			}
 			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
 		}
+
+		//Ticker duplicado
+		isDuplicated = this.repository.findOneJobByTicker(entity.getReference()) != null;
+		errors.state(request, !isDuplicated, "reference", "employer.job.error.duplicated");
 
 		// SPAM FILTER
 		Double threshold = this.repository.findSysconfig().getThreshold();

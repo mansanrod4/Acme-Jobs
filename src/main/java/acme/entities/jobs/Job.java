@@ -40,7 +40,7 @@ public class Job extends DomainEntity {
 	@Column(unique = true)
 	@NotBlank
 	@Length(min = 5, max = 10)
-	private String				reference;    //TODO: Mostrar mensaje con consejo de patron
+	private String				reference;
 
 	@NotBlank
 	private String				title;
