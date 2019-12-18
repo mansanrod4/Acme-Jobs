@@ -15,18 +15,12 @@ public class Sponsor extends UserRole {
 
 	// Serialisation Identifier-----------------------------------
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long serialVersionUID = 1L;
 
 	// Attributes ------------------------------------------------
 
 	@NotBlank
-	private String				orgName;
-
-	private String				creditCardNumber;
-
-	private String				expirationDate;
-
-	private String				cvv;
+	private String orgName;
 
 	// Relationships
 }

@@ -57,13 +57,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 	public CommercialBanner instantiate(final Request<CommercialBanner> request) {
 
 		CommercialBanner result;
-		Integer sponsorId = request.getPrincipal().getActiveRoleId();
-
 		result = new CommercialBanner();
-
-		result.setCreditCardNumber(this.repository.findSponsorById(sponsorId).getCreditCardNumber());
-		result.setExpirationDate(this.repository.findSponsorById(sponsorId).getExpirationDate());
-		result.setCvv(this.repository.findSponsorById(sponsorId).getCvv());
 
 		return result;
 	}
@@ -76,12 +70,7 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 
 		//Validaciones
 
-		boolean hasCreditCard, isCVVOk, isExpirationDateOk, isSpam;
-
-		//Sponsor debe tener tarjeta de crédito registrada (a sponsor cannot create any commercial banners unless he or she has registered a credit card)
-		Integer sponsorId = request.getPrincipal().getActiveRoleId();
-		hasCreditCard = !this.repository.findSponsorById(sponsorId).getCreditCardNumber().isEmpty();
-		errors.state(request, hasCreditCard, "creditCardNumber", "sponsor.commercial-banner.error.hasNotCreditCard");
+		boolean isCVVOk, isExpirationDateOk, isSpam;
 
 		//CreditCardNumber cvv pattern
 		Pattern p1 = Pattern.compile("^\\d{3}$");
@@ -128,6 +117,12 @@ public class SponsorCommercialBannerCreateService implements AbstractCreateServi
 		if (!errors.hasErrors("targetURL")) {
 			isSpam = SpamFilter.spamFilterUrl(request.getModel().getString("targetURL"), spamWords, threshold);
 			errors.state(request, !isSpam, "targetURL", "sponsor.commercial-banner.error.isSpam");
+		}
+
+		//Spam - AccHolderName
+		if (!errors.hasErrors("creditCardHolder")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("creditCardHolder"), spamWords, threshold);
+			errors.state(request, !isSpam, "creditCardHolder", "sponsor.commercial-banner.error.isSpam");
 		}
 
 	}

@@ -172,9 +172,6 @@
 	
 	<bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 1, Inc." />
-		<property name="creditCardNumber" value="4628900597961379" />
-		<property name="expirationDate" value="11/20" />
-		<property name="cvv" value="511" />
 		<property name="userAccount"  ref="sponsor1UserAccount" />
 	</bean>
 	
@@ -205,9 +202,6 @@
 	
 	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 2, Inc." />
-		<property name="creditCardNumber"><null/></property>
-		<property name="expirationDate"><null/></property>
-		<property name="cvv"><null/></property>
 		<property name="userAccount"  ref="sponsor2UserAccount" />
 	</bean>
 	
@@ -359,6 +353,8 @@
 		<property name="picture" value="http://www.picture.com"/>
 		<property name="slogan" value="Esto es un slogan"/>
 		<property name="targetURL" value="http://www.targetURL.com"/>
+		<property name="marca" value="VISA"/>
+		<property name="creditCardHolder" value="Jose Luis López"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -369,6 +365,8 @@
 		<property name="picture" value="http://www.picture2.com"/>
 		<property name="slogan" value="Esto es un slogan 2"/>
 		<property name="targetURL" value="http://www.targetURL2.com"/>
+		<property name="marca" value="MASTERCARD"/>
+		<property name="creditCardHolder" value="Luis Melero López"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -379,6 +377,8 @@
 		<property name="picture" value="http://www.picture3.com"/>
 		<property name="slogan" value="Esto es un slogan 3"/>
 		<property name="targetURL" value="http://www.targetURL3.com"/>
+		<property name="marca" value="AMERICAN_EXPRESS"/>
+		<property name="creditCardHolder" value="Ana Fernández"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>
@@ -389,7 +389,9 @@
 		<property name="picture" value="http://www.picture4.com"/>
 		<property name="slogan" value="Esto es un slogan 4"/>
 		<property name="targetURL" value="http://www.targetURL4.com"/>
-		<property name="creditCardNumber" value="4196875127569862"/>
+		<property name="marca" value="DINERS_CLUB"/>
+		<property name="creditCardHolder" value="José Fernández"/>
+		<property name="creditCardNumber" value="30285110695591"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>
 		<property name="sponsor" ref="sponsor2Sponsor"/>

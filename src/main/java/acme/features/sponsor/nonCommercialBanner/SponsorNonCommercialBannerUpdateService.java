@@ -27,7 +27,12 @@ public class SponsorNonCommercialBannerUpdateService implements AbstractUpdateSe
 	public boolean authorise(final Request<NonCommercialBanner> request) {
 		assert request != null;
 
-		return true;
+		//Solo el sponsor que creó el banner puede editarlo
+		Integer bannerId = request.getModel().getInteger("id");
+		Integer sponsorId = this.repository.findOneNonCommercialBannerById(bannerId).getSponsor().getId();
+		boolean thisSponsor = sponsorId.equals(request.getPrincipal().getActiveRoleId());
+
+		return thisSponsor;
 	}
 
 	@Override
