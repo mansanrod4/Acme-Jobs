@@ -40,10 +40,9 @@ public class AuthenticatedUserThreadListService implements AbstractListService<A
 
 		int threadId = request.getModel().getInteger("id");
 		int id = request.getPrincipal().getActiveRoleId();
-		boolean res = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id).getCreator() == true;
+		Userthread u = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id);
 
-		model.setAttribute("creator", res);
-
+		request.unbind(u, model, "creator");
 		request.unbind(entity, model, "authenticated.userAccount.username");
 
 	}
