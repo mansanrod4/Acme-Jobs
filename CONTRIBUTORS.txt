@@ -9,3 +9,9 @@
 # they accept any liabilities with respect to them.
 
 - Rafael Corchuelo (corchu@us.es) 
+
+ - Gonzalo Fernández Jiménez (gonferjim@alum.us.es)
+ - Ignacio Jose Rodriguez Flores (ignrodflo@alum.us.es)
+ - Pedro Manuel Cobos Ramos (pedcobram@alum.us.es)
+ - Rafael Liébana Fuentes (rafliefue@alum.us.es)
+ - Manuel Sánchez Rodríguez (mansanrod4@alum.us.es) 

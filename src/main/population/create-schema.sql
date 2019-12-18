@@ -101,9 +101,11 @@
         `slogan` varchar(255),
         `targeturl` varchar(255),
         `sponsor_id` integer not null,
+        `credit_card_holder` varchar(255),
         `credit_card_number` varchar(255),
         `cvv` varchar(255),
         `expiration_date` varchar(255),
+        `marca` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -249,9 +251,6 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
-        `credit_card_number` varchar(255),
-        `cvv` varchar(255),
-        `expiration_date` varchar(255),
         `org_name` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -301,6 +300,9 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
+
+    alter table `application` 
+       add constraint UK_rf84q38qr35ymh5nn0dcxfdue unique (`reference_number`);
 create index IDX1qe6h389w3v57lxb8b5w5llql on `auditor_rol_request` (`approved`);
 
     alter table `auditor_rol_request` 
@@ -435,7 +437,7 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
        add constraint `FKmctquc72kciwec2m7b0mte2t2` 
        foreign key (`thread_id`) 
        references `messagethread` (`id`);
-       
+
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 
