@@ -19,7 +19,7 @@
 
 	<groupId>acme</groupId>
 	<artifactId>acme-jobs</artifactId>
-	<version>1.3</version>
+	<version>1.5</version>
 	<packaging>war</packaging>
 
 	<name>Acme-Jobs</name>

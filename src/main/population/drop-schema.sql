@@ -86,7 +86,7 @@
     alter table `userthread` 
        drop 
        foreign key `FKmctquc72kciwec2m7b0mte2t2`;
-       
+
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
