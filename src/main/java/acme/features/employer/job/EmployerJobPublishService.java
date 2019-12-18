@@ -82,7 +82,7 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		assert errors != null;
 
 		Integer jobId = request.getModel().getInteger("id");
-		boolean hasDescriptor, isOneWeekLater, duties100, hasNoDuties, isEuroZone = false, isSpam;
+		boolean hasDescriptor, isOneWeekLater, duties100, hasNoDuties, isEuroZone = false, isSpam, isDuplicated;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -118,6 +118,10 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 			}
 			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
 		}
+
+		//Ticker duplicado
+		isDuplicated = this.repository.findOneJobByTicker(entity.getReference()) != null;
+		errors.state(request, !isDuplicated, "reference", "employer.job.error.duplicated");
 
 		// SPAM FILTER
 		Double threshold = this.repository.findSysconfig().getThreshold();
