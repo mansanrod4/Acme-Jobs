@@ -21,5 +21,4 @@ authenticated.messagethread.form.button.return = Return
 authenticated.messagethread.form.button.message = Message
 authenticated.messagethread.form.button.users= Users
 authenticated.messagethread.form.button.create = Create Thread
-authenticated.messagethread.form.button.delete = Delete
-authenticated.messagethread.form.button.update = Update
+authenticated.messagethread.create.error.titlespam = The title contains spam words

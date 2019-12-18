@@ -22,7 +22,7 @@
 	
 
 <jstl:if test="${command == 'show' }">
-	<acme:form-textarea  code="authenticated.message.form.label.user" path="authorName" />
+	<acme:form-textarea  code="authenticated.message.form.label.author" path="authorName" />
 	<acme:form-moment code="authenticated.message.form.label.moment" path="moment" />
 
 	</jstl:if>

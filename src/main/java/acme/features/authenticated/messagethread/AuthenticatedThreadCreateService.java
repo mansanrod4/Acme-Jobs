@@ -6,8 +6,10 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamFilter;
 import acme.entities.messagethread.Messagethread;
 import acme.entities.messagethread.Userthread;
+import acme.entities.sysconfig.Sysconfig;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -36,10 +38,6 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		assert entity != null;
 		assert errors != null;
 
-		Date moment;
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
-
 		request.bind(entity, errors, "moment");
 	}
 
@@ -59,6 +57,11 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		Messagethread thread;
 
 		thread = new Messagethread();
+
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		thread.setMoment(moment);
+
 		return thread;
 	}
 
@@ -68,13 +71,16 @@ public class AuthenticatedThreadCreateService implements AbstractCreateService<A
 		assert entity != null;
 		assert errors != null;
 
+		Sysconfig sys = this.repository.findspam();
+
+		Boolean titlespam = SpamFilter.spamFilter(entity.getTitle(), sys.getSpamwords(), sys.getThreshold());
+
+		errors.state(request, !titlespam, "title", "authenticated.messagethread.create.error.titlespam");
+
 	}
 
 	@Override
 	public void create(final Request<Messagethread> request, final Messagethread entity) {
-		Date moment;
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
 
 		Userthread userThread = new Userthread();
 		Authenticated au = this.repository.findAuthenticatedById(request.getPrincipal().getActiveRoleId());

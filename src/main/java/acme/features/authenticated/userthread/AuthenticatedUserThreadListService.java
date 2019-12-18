@@ -22,14 +22,13 @@ public class AuthenticatedUserThreadListService implements AbstractListService<A
 	@Override
 	public boolean authorise(final Request<Userthread> request) {
 		assert request != null;
-		// Solo puedo listar los usuarios de un hilo si soy el dueño de ese hilo
 
-		int threadId = request.getModel().getInteger("id");
-		int meId = request.getPrincipal().getActiveRoleId();
-		Userthread Userthread = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, meId);
-		Boolean res = Userthread.getCreator();
+		int idThread = request.getModel().getInteger("id");
+		int authenticatedId = request.getPrincipal().getActiveRoleId();
 
-		return res;
+		Integer count = this.repository.countUserThreadByAuIdAndThreadId(authenticatedId, idThread);
+
+		return count == 1;
 
 	}
 
@@ -38,6 +37,12 @@ public class AuthenticatedUserThreadListService implements AbstractListService<A
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		int threadId = request.getModel().getInteger("id");
+		int id = request.getPrincipal().getActiveRoleId();
+		boolean res = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id).getCreator();
+
+		model.setAttribute("creator", res);
 
 		request.unbind(entity, model, "authenticated.userAccount.username");
 

@@ -6,7 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.messagethread.Userthread;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -22,11 +21,10 @@ public class AuthenticatedAuthenticatedListService implements AbstractListServic
 	@Override
 	public boolean authorise(final Request<Authenticated> request) {
 		assert request != null;
-
 		int threadId = request.getModel().getInteger("threadId");
 		int meId = request.getPrincipal().getActiveRoleId();
-		Userthread userThread = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, meId);
-		Boolean res = userThread.getCreator();
+
+		Boolean res = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, meId).getCreator();
 
 		return res;
 	}
