@@ -43,23 +43,27 @@ public class Application extends DomainEntity {
 	@Past
 	private Date				creationMoment;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Past
-	private Date				updateMoment;
+	private Date				lastModification;
 
 	@NotNull
 	private ApplicationStatus	status;
 
 	@NotBlank
-	@Column(length = 512)
+	@Column(length = 1024)
 	private String				statement;
+
 	@NotBlank
-	@Column(length = 512)
+	@Column(length = 1024)
 	private String				skills;
+
 	@NotBlank
-	@Column(length = 512)
+	@Column(length = 1024)
 	private String				qualifications;
+
+	@Column(length = 1024)
+	private String				justification;
 
 	//Relationships ---------------------------------------------
 

@@ -13,3 +13,4 @@ worker.job.list.label.deadLine = Dead-line
 worker.job.list.label.title = Title
 
 worker.job.form.button.applications = Apply
+worker.job.form.button.applicationsV2 = Apply(Already with an accepted application)

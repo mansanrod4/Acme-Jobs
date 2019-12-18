@@ -1,11 +1,13 @@
-worker.application.form.label.referenceNumber = Referencia
-worker.application.form.label.creationMoment = Momento de creación
-worker.application.form.label.status = Estado
-worker.application.form.label.statement = Declaración
-worker.application.form.label.skills = Habilidades
-worker.application.form.label.qualifications = Cualificaciones
-worker.application.form.label.worker = Trabajador
-worker.application.form.label.job = Trabajo
+worker.application.form.label.referenceNumber = Referencia:
+worker.application.form.label.creationMoment = Momento de creación:
+worker.application.form.label.status = Estado:
+worker.application.form.label.statement = Declaración:
+worker.application.form.label.skills = Habilidades:
+worker.application.form.label.qualifications = Cualificaciones:
+worker.application.form.label.worker = Trabajador:
+worker.application.form.label.job = Empleo:
+worker.application.form.label.updateMoment = Última modificación:
+worker.application.form.label.justification = Justificación del empleador:
 
 worker.application.list.label.referenceNumber = Referencia
 worker.application.list.label.creationMoment = Momento de creación
@@ -17,12 +19,15 @@ worker.application.form.label.button.return = Volver
 worker.application.form.button.create = Guardar
 worker.application.form.button.delete = Eliminar
 
-worker.application.form.label.title.JobInformation = Trabajo
-worker.application.form.label.jobTitle = Título
-worker.application.form.label.jobReference = Referencia
+worker.application.form.label.jobTitle = Título:
+worker.application.form.label.jobReference = Referencia:
+worker.application.form.label.jobDeadline = Fecha de expiración del empleo:
 
-worker.application.form.label.title.ApplicationInformation = Aplicación
+worker.application.form.label.title.JobInformation = Información del empleo
+worker.application.form.label.title.ApplicationInformation = Información de la aplicación
 
-worker.application.form.label.updateMoment = Última modificación
+worker.application.error.duplicated = Ésta referencia ya está siendo utilizada
+worker.application.error.isSpam = Esta pieza de texto es considerada como SPAM, debes modificarla
+worker.application.error.alreadyApplied = No puedes aplicar en un empleo si ya tienes una aplicación ACEPTADA en el mismo
 
 worker.application.form.button.update = Actualizar

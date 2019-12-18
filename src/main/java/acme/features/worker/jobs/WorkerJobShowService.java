@@ -4,6 +4,8 @@ package acme.features.worker.jobs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.applications.Application;
+import acme.entities.applications.ApplicationStatus;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
@@ -33,6 +35,17 @@ public class WorkerJobShowService implements AbstractShowService<Worker, Job> {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+
+		//Si el worker no tiene apply acepted en este job
+		Worker worker = this.repository.findWorkerById(request.getPrincipal().getActiveRoleId());
+		Integer jobId = request.getModel().getInteger("id");
+
+		for (Application a : this.repository.findManyByWorkerId(worker.getId())) {
+			Integer aJobId = a.getJob().getId();
+			if (aJobId.equals(jobId) && a.getStatus().equals(ApplicationStatus.ACCEPTED)) {
+				model.setAttribute("noAppliesAcceptedYet", true);
+			}
+		}
 
 		request.unbind(entity, model, "reference", "title", "deadLine");
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");

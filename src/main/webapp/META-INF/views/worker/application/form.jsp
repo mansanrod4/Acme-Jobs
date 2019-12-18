@@ -5,19 +5,22 @@
 
 <acme:form readonly = "false">
 
+	<jstl:if test="${command != 'create'}">
+		<jstl:set var= "readOnly" value = "true"/>
+	</jstl:if>
+
 	<h2>
 		<acme:message code="worker.application.form.label.title.JobInformation"/>
 	</h2>
 	
 	<acme:form-textbox code="worker.application.form.label.jobTitle" path="jobTitle" readonly = "true"/>
 	<acme:form-textbox code="worker.application.form.label.jobReference" path="jobReference" readonly = "true"/>
+	<acme:form-moment code="worker.application.form.label.jobDeadline" path="jobDeadline" readonly = "true"/>
+	
 	<h2>
 		<acme:message code="worker.application.form.label.title.ApplicationInformation"/>
 	</h2>
 
-	<jstl:if test="${command != 'create'}">
-			<jstl:set var= "readOnly" value = "true"/>
-	</jstl:if>
 	<jstl:if test="${command != 'create' }">
 		<acme:form-moment 
 		code="worker.application.form.label.creationMoment" 
@@ -25,31 +28,23 @@
 		readonly="true"/>
 	</jstl:if>
 	
-	<jstl:if test="${command != 'update'}">
-		<acme:form-moment 
-		code="worker.application.form.label.updateMoment" 
-		path="updateMoment" 
-		readonly="true"/>
+	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber" placeholder="'EEEE-JJJJ:WWWW'" readonly ="${readOnly}"/>
+	<acme:form-textarea code="worker.application.form.label.statement" path="statement" readonly ="${readOnly}"/>
+	<acme:form-textarea code="worker.application.form.label.skills" path="skills" readonly ="${readOnly}"/>
+	<acme:form-textarea code="worker.application.form.label.qualifications" path="qualifications" readonly ="${readOnly}"/>
+	
+	<jstl:if test="${command != 'create'}">
+		<acme:form-textbox code="worker.application.form.label.status" path="status" readonly= "true"/>
 	</jstl:if>
 	
-	<acme:form-textbox code="worker.application.form.label.referenceNumber" path="referenceNumber" readonly= "readOnly"/>
-	<acme:form-textbox code="worker.application.form.label.status" path="status" readonly= "readOnly"/>
-	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>
-	<acme:form-textarea code="worker.application.form.label.skills" path="skills"/>
-	<acme:form-textarea code="worker.application.form.label.qualifications" path="qualifications"/>
-	
+	<jstl:if test="${isAccepterOrRejected && command != 'create'}">
+		<acme:form-textarea code="worker.application.form.label.justification" path="justification" readonly= "true"/>
+	</jstl:if>
+		
 	<acme:form-submit test="${command == 'create'}"
  		code="worker.application.form.button.create"
-		action="/worker/application/create?job_id=${id}"
+		action="/worker/application/create?job_id=${job_id}"
 		/> 
-				 
-	<acme:form-submit test="${command == 'show' || command == 'update'}"		
-		code="worker.application.form.button.update"
-		action="/worker/application/update"/>
-		
-	<acme:form-submit test="${command == 'show' || command == 'delete' || command == 'update'}"
-		code="worker.application.form.button.delete"
-		action="/worker/application/delete"/>
 		
 	<acme:form-return code="worker.application.form.label.button.return"/>
 </acme:form>

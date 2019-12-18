@@ -99,7 +99,7 @@ master.menu.employer.jobs.create = Create Job
 
 master.menu.worker = Worker
 master.menu.worker.applications.list = My applications
-master.menu.worker.job.list = Jobs
+master.menu.worker.job.list = Published jobs
 
 # master.menu.sponsor ##########################################################
 

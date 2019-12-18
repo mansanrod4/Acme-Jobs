@@ -30,6 +30,9 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 	@Query("Select j from Job j where j.id = ?1")
 	Job findJobById(int id);
 
+	@Query("Select a from Application a where a.referenceNumber = ?1")
+	Application findOneApplicationByTicker(String ticker);
+
 	@Query("Select s from Sysconfig s")
 	Sysconfig findSysconfig();
 

@@ -6,6 +6,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamFilter;
 import acme.entities.applications.Application;
 import acme.entities.applications.ApplicationStatus;
 import acme.entities.jobs.Job;
@@ -28,16 +29,23 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	@Override
 	public boolean authorise(final Request<Application> request) {
 		assert request != null;
-		boolean res = false;
 
+		boolean isActive = false;
+
+		//EL TRABAJO
 		Integer jobId = request.getModel().getInteger("job_id");
 		Job job = this.repository.findJobById(jobId);
 
-		if (job.isFinalMode()) {
-			res = true;
+		//LA FECHA ACTUAL
+		Date actualMoment;
+		actualMoment = new Date(System.currentTimeMillis() - 1);
+
+		//Solo se puede crear si está publicado y el deadline activo
+		if (job.isFinalMode() && job.getDeadLine().after(actualMoment)) {
+			isActive = true;
 		}
 
-		return res;
+		return isActive;
 	}
 
 	@Override
@@ -49,9 +57,9 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		Date creationMoment;
 		creationMoment = new Date(System.currentTimeMillis() - 1);
 		entity.setCreationMoment(creationMoment);
-		entity.setUpdateMoment(creationMoment);
+		entity.setLastModification(creationMoment);
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "creationMoment", "lastModification", "status");
 	}
 
 	@Override
@@ -62,11 +70,13 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		Integer jobId = request.getModel().getInteger("job_id");
 		model.setAttribute("job_id", jobId);
+
 		if (request.isMethod(HttpMethod.GET)) {
 			model.setAttribute("jobTitle", entity.getJob().getTitle());
 			model.setAttribute("jobReference", entity.getJob().getReference());
+			model.setAttribute("jobDeadline", entity.getJob().getDeadLine());
 		} else {
-			request.transfer(model, "jobTitle", "jobReference");
+			request.transfer(model, "jobTitle", "jobReference", "jobDeadline");
 		}
 		request.unbind(entity, model, "referenceNumber", "status", "statement", "skills", "qualifications");
 
@@ -74,20 +84,15 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 	@Override
 	public Application instantiate(final Request<Application> request) {
-		Application result;
-		Worker worker;
-		Principal principal;
-		result = new Application();
-
-		principal = request.getPrincipal();
-		worker = this.repository.findWorkerById(principal.getActiveRoleId());
+		Application result = new Application();
+		Principal principal = request.getPrincipal();
+		Worker worker = this.repository.findWorkerById(principal.getActiveRoleId());
 
 		Integer jobId = request.getModel().getInteger("job_id");
 		Job job = this.repository.findJobById(jobId);
 
 		result.setWorker(worker);
 		result.setJob(job);
-
 		result.setStatus(ApplicationStatus.PENDING);
 
 		return result;
@@ -99,28 +104,47 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert errors != null;
 
-		//		boolean isSpam;
-		//
-		//		// SPAM FILTER
-		//		Double threshold = this.repository.findSysconfig().getThreshold();
-		//		String spamWords = this.repository.findSysconfig().getSpamwords();
-		//
-		//		//Spam - statement
-		//		if (!errors.hasErrors("statement")) {
-		//			isSpam = SpamFilter.spamFilter(request.getModel().getString("statement"), spamWords, threshold);
-		//			errors.state(request, !isSpam, "statement", "employer.duty.error.isSpam");
-		//		}
-		//
-		//		//Spam - skills
-		//		if (!errors.hasErrors("skills")) {
-		//			isSpam = SpamFilter.spamFilter(request.getModel().getString("skills"), spamWords, threshold);
-		//			errors.state(request, !isSpam, "skills", "employer.duty.error.isSpam");
-		//		}
-		//		//Spam - qualifications
-		//		if (!errors.hasErrors("qualifications")) {
-		//			isSpam = SpamFilter.spamFilter(request.getModel().getString("qualifications"), spamWords, threshold);
-		//			errors.state(request, !isSpam, "qualifications", "employer.duty.error.isSpam");
-		//		}
+		boolean isSpam, isDuplicated, hasPendingApply = false;
+
+		//Validaciones
+
+		//Referencia única
+		isDuplicated = this.repository.findOneApplicationByTicker(entity.getReferenceNumber()) != null;
+		errors.state(request, !isDuplicated, "referenceNumber", "worker.application.error.duplicated");
+
+		//No puedes aplicar a un job si ya tienes una aplicacion aceptada en ese job
+		Worker worker = this.repository.findWorkerById(request.getPrincipal().getActiveRoleId());
+		Integer jobId = request.getModel().getInteger("job_id");
+
+		for (Application a : this.repository.findManyByWorkerId(worker.getId())) {
+			Integer aJobId = a.getJob().getId();
+			if (aJobId.equals(jobId) && a.getStatus().equals(ApplicationStatus.ACCEPTED)) {
+				hasPendingApply = true;
+			}
+		}
+		errors.state(request, !hasPendingApply, "jobDeadline", "worker.application.error.alreadyApplied");
+
+		// SPAM FILTER
+		Double threshold = this.repository.findSysconfig().getThreshold();
+		String spamWords = this.repository.findSysconfig().getSpamwords();
+
+		//Spam - statement
+		if (!errors.hasErrors("statement")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("statement"), spamWords, threshold);
+			errors.state(request, !isSpam, "statement", "worker.application.error.isSpam");
+		}
+
+		//Spam - skills
+		if (!errors.hasErrors("skills")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("skills"), spamWords, threshold);
+			errors.state(request, !isSpam, "skills", "worker.application.error.isSpam");
+		}
+
+		//Spam - qualifications
+		if (!errors.hasErrors("qualifications")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("qualifications"), spamWords, threshold);
+			errors.state(request, !isSpam, "qualifications", "worker.application.error.isSpam");
+		}
 
 	}
 
@@ -128,6 +152,17 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	public void create(final Request<Application> request, final Application entity) {
 		assert request != null;
 		assert entity != null;
+
+		//Si ya tienes una aplicacion PENDING en este job, borra la que tenias y añade la nueva
+		Worker worker = this.repository.findWorkerById(request.getPrincipal().getActiveRoleId());
+		Integer jobId = request.getModel().getInteger("job_id");
+
+		for (Application a : this.repository.findManyByWorkerId(worker.getId())) {
+			Integer aJobId = a.getJob().getId();
+			if (aJobId.equals(jobId) && a.getStatus().equals(ApplicationStatus.PENDING)) {
+				this.repository.delete(a);
+			}
+		}
 
 		this.repository.save(entity);
 

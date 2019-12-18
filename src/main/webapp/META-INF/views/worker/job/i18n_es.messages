@@ -12,5 +12,6 @@ worker.job.list.label.reference = Referencia
 worker.job.list.label.deadLine = Expira:
 worker.job.list.label.title = Título
 
-worker.job.form.button.applications = Solicitar
+worker.job.form.button.applications = Aplicar
 worker.application.form.button.create = Crear
+worker.job.form.button.applicationsV2 = Aplicar(Ya tienes una aplicación aceptada)
