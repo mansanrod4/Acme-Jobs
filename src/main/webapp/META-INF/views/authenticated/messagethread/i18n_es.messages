@@ -22,3 +22,4 @@ authenticated.messagethread.form.button.message = Mensajes
 authenticated.messagethread.form.button.create = Crear Hilo de mensajes
 authenticated.messagethread.form.button.delete = Borrar
 authenticated.messagethread.form.button.update = Actualizar
+authenticated.messagethread.form.button.users= Usuarios

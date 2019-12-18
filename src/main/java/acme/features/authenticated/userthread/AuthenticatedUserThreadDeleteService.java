@@ -27,6 +27,7 @@ public class AuthenticatedUserThreadDeleteService implements AbstractDeleteServi
 		int id = request.getPrincipal().getActiveRoleId();
 
 		boolean res = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id).getCreator();
+
 		return res;
 	}
 
@@ -68,9 +69,10 @@ public class AuthenticatedUserThreadDeleteService implements AbstractDeleteServi
 		assert errors != null;
 
 		int threadId = request.getModel().getInteger("id");
-		Userthread Userthread = this.repository.findOneUserThreadById(threadId);
-		int authenticatedId = Userthread.getAuthenticated().getId();
+
+		int authenticatedId = this.repository.findOneUserThreadById(threadId).getAuthenticated().getId();
 		int id = request.getPrincipal().getActiveRoleId();
+
 		boolean sameUser = id == authenticatedId;
 		errors.state(request, !sameUser, "authenticated.userAccount.username", "authenticated.userthread.delete.creator");
 
