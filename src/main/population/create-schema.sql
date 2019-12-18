@@ -27,12 +27,13 @@
        `id` integer not null,
         `version` integer not null,
         `creation_moment` datetime(6),
-        `qualifications` varchar(512),
+        `justification` varchar(1024),
+        `last_modification` datetime(6),
+        `qualifications` varchar(1024),
         `reference_number` varchar(255),
-        `skills` varchar(512),
-        `statement` varchar(512),
+        `skills` varchar(1024),
+        `statement` varchar(1024),
         `status` integer,
-        `update_moment` datetime(6),
         `job_id` integer not null,
         `worker_id` integer not null,
         primary key (`id`)
@@ -41,7 +42,7 @@
     create table `audit` (
        `id` integer not null,
         `version` integer not null,
-        `body` varchar(512),
+        `body` varchar(1024),
         `moment` datetime(6),
         `status` integer,
         `title` varchar(255),
@@ -56,6 +57,14 @@
         `user_account_id` integer,
         `firm` varchar(255),
         `statement` varchar(1024),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `auditor_rol_request` (
+       `id` integer not null,
+        `version` integer not null,
+        `approved` bit not null,
+        `user_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -92,7 +101,6 @@
         `slogan` varchar(255),
         `targeturl` varchar(255),
         `sponsor_id` integer not null,
-        `account_holder` varchar(255),
         `credit_card_number` varchar(255),
         `cvv` varchar(255),
         `expiration_date` varchar(255),
@@ -175,7 +183,6 @@
         `tags` varchar(255),
         `title` varchar(255),
         `author_id` integer not null,
-        `thread_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -184,13 +191,12 @@
         `version` integer not null,
         `moment` datetime(6),
         `title` varchar(255),
-        `author_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
 
-    create table `messagethread_authenticated` (
+    create table `messagethread_message` (
        `messagethread_id` integer not null,
-        `users_id` integer not null
+        `messages_id` integer not null
     ) engine=InnoDB;
 
     create table `non_commercial_banner` (
@@ -243,7 +249,6 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
-        `account_holder` varchar(255),
         `credit_card_number` varchar(255),
         `cvv` varchar(255),
         `expiration_date` varchar(255),
@@ -271,6 +276,15 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `userthread` (
+       `id` integer not null,
+        `version` integer not null,
+        `creator` bit,
+        `authenticated_id` integer not null,
+        `thread_id` integer not null,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `worker` (
        `id` integer not null,
         `version` integer not null,
@@ -287,6 +301,10 @@
     insert into `hibernate_sequence` values ( 1 );
 create index IDXnhikaa2dj3la6o2o7e9vo01y0 on `announcement` (`moment`);
 create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status`);
+create index IDX1qe6h389w3v57lxb8b5w5llql on `auditor_rol_request` (`approved`);
+
+    alter table `auditor_rol_request` 
+       add constraint UK_b9gvggyngpcfiv0t6xnkfa1lt unique (`user_id`);
 create index IDX3o72alr4ryyvjly6hxvavkqwx on `company_record` (`rating`);
 create index IDX2psiob2l625wbcjcq6rac7jxd on `company_record` (`sector`);
 create index IDX1slmmcr1g0wv9jbgun6rny0oy on `investor` (`sector`);
@@ -295,6 +313,9 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
 
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
+
+    alter table `messagethread_message` 
+       add constraint UK_onjw1avx2wwkebc469bjmn2kt unique (`messages_id`);
 
     alter table `offer` 
        add constraint UK_iex7e8fs0fh89yxpcnm1orjkm unique (`ticker`);
@@ -340,6 +361,11 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `auditor_rol_request` 
+       add constraint `FKte3wl47eegqj91ujx5w5g4vl` 
+       foreign key (`user_id`) 
+       references `user_account` (`id`);
+
     alter table `authenticated` 
        add constraint FK_h52w0f3wjoi68b63wv9vwon57 
        foreign key (`user_account_id`) 
@@ -375,23 +401,13 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
        foreign key (`author_id`) 
        references `authenticated` (`id`);
 
-    alter table `message` 
-       add constraint `FK9yv547yagiwkor2pefs0aa2ly` 
-       foreign key (`thread_id`) 
-       references `messagethread` (`id`);
+    alter table `messagethread_message` 
+       add constraint `FK4v12fabi148oatb5ldiqhq6k5` 
+       foreign key (`messages_id`) 
+       references `message` (`id`);
 
-    alter table `messagethread` 
-       add constraint `FKh3qs9vxci6t518j2o235cb0sm` 
-       foreign key (`author_id`) 
-       references `authenticated` (`id`);
-
-    alter table `messagethread_authenticated` 
-       add constraint `FK44e36gtyrt8m7vf5xnecbvlih` 
-       foreign key (`users_id`) 
-       references `authenticated` (`id`);
-
-    alter table `messagethread_authenticated` 
-       add constraint `FKp3akaw4gqb3fiiuixlcnpg7bp` 
+    alter table `messagethread_message` 
+       add constraint `FKu9f1tx0chqv0svcgpexg0hbn` 
        foreign key (`messagethread_id`) 
        references `messagethread` (`id`);
 
@@ -410,6 +426,16 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
 
+    alter table `userthread` 
+       add constraint `FKg6g6iilyp0nbcmtyuhh9iveor` 
+       foreign key (`authenticated_id`) 
+       references `authenticated` (`id`);
+
+    alter table `userthread` 
+       add constraint `FKmctquc72kciwec2m7b0mte2t2` 
+       foreign key (`thread_id`) 
+       references `messagethread` (`id`);
+       
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 

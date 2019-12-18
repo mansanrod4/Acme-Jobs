@@ -27,6 +27,10 @@
        drop 
        foreign key FK_clqcq9lyspxdxcp6o4f3vkelj;
 
+    alter table `auditor_rol_request` 
+       drop 
+       foreign key `FKte3wl47eegqj91ujx5w5g4vl`;
+
     alter table `authenticated` 
        drop 
        foreign key FK_h52w0f3wjoi68b63wv9vwon57;
@@ -55,21 +59,13 @@
        drop 
        foreign key `FKe1edpykjs39o98sfkjafa0dtn`;
 
-    alter table `message` 
+    alter table `messagethread_message` 
        drop 
-       foreign key `FK9yv547yagiwkor2pefs0aa2ly`;
+       foreign key `FK4v12fabi148oatb5ldiqhq6k5`;
 
-    alter table `messagethread` 
+    alter table `messagethread_message` 
        drop 
-       foreign key `FKh3qs9vxci6t518j2o235cb0sm`;
-
-    alter table `messagethread_authenticated` 
-       drop 
-       foreign key `FK44e36gtyrt8m7vf5xnecbvlih`;
-
-    alter table `messagethread_authenticated` 
-       drop 
-       foreign key `FKp3akaw4gqb3fiiuixlcnpg7bp`;
+       foreign key `FKu9f1tx0chqv0svcgpexg0hbn`;
 
     alter table `non_commercial_banner` 
        drop 
@@ -83,6 +79,14 @@
        drop 
        foreign key FK_20xk0ev32hlg96kqynl6laie2;
 
+    alter table `userthread` 
+       drop 
+       foreign key `FKg6g6iilyp0nbcmtyuhh9iveor`;
+
+    alter table `userthread` 
+       drop 
+       foreign key `FKmctquc72kciwec2m7b0mte2t2`;
+       
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
@@ -98,6 +102,8 @@
     drop table if exists `audit`;
 
     drop table if exists `auditor`;
+
+    drop table if exists `auditor_rol_request`;
 
     drop table if exists `authenticated`;
 
@@ -121,7 +127,7 @@
 
     drop table if exists `messagethread`;
 
-    drop table if exists `messagethread_authenticated`;
+    drop table if exists `messagethread_message`;
 
     drop table if exists `non_commercial_banner`;
 
@@ -136,6 +142,8 @@
     drop table if exists `sysconfig`;
 
     drop table if exists `user_account`;
+
+    drop table if exists `userthread`;
 
     drop table if exists `worker`;
 

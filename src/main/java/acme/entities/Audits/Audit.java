@@ -40,7 +40,7 @@ public class Audit extends DomainEntity {
 	private Date				moment;
 
 	@NotBlank
-	@Column(length = 512)
+	@Column(length = 1024)
 	private String				body;
 
 	@NotNull

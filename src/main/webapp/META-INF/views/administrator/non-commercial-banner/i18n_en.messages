@@ -9,12 +9,12 @@
 # they accept any liabilities with respect to them.
 
 administrator.non-commercial-banner.form.label.picture = Picture(url):
-administrator.non-commercial-banner.form.label.slogan = Slogan(url):
+administrator.non-commercial-banner.form.label.slogan = Slogan:
 administrator.non-commercial-banner.form.label.targetURL = Enlace:
 administrator.non-commercial-banner.form.label.jingle = Jingle:
 
 administrator.non-commercial-banner.form.button.return = Return
-administrator.non-commercial-banner.form.button.create = Create banner
+administrator.non-commercial-banner.form.button.create = Create
 administrator.non-commercial-banner.form.button.delete = Delete
 administrator.non-commercial-banner.form.button.update = Update
 

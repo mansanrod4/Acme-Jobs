@@ -12,6 +12,7 @@ authenticated.message.list.label.title = Título
 authenticated.message.list.label.moment = Fecha Creación
 authenticated.message.list.label.tags = Tags
 authenticated.message.list.label.author= Autor
+authenticated.message.list.button.return = Volver
 
 
 authenticated.message.form.label.title = Título
@@ -21,3 +22,10 @@ authenticated.message.form.label.body = Cuerpo
 authenticated.message.form.label.author= Autor
 
 authenticated.message.form.button.return = Volver
+authenticated.message.list.button.post= Crear Mensaje
+authenticated.message.form.button.create = Create Mensaje
+authenticated.message.create.error.must-confirm= Por favor, confirma la creación del mensaje
+authenticated.message.create.error.titlespam =  El título tiene palabras spam
+authenticated.message.create.error.bodyspam =  El cuerpo tienen palabras spam
+authenticated.message.create.error.tagspam =  Los tags tiene palabras spam
+authenticated.message.form.checkbox= Confirmar

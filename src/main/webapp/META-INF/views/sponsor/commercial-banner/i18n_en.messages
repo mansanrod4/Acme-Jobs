@@ -1,14 +1,20 @@
 sponsor.commercial-banner.form.label.picture = Picture(url):
-sponsor.commercial-banner.form.label.slogan = Slogan(url):
+sponsor.commercial-banner.form.label.slogan = Slogan:
 sponsor.commercial-banner.form.label.targetURL = URL:
-sponsor.commercial-banner.form.label.accountHolder = Account holder:
 sponsor.commercial-banner.form.label.creditCardNumber: Credit card number:
+sponsor.commercial-banner.form.label.creditCardHolder: Credit card holder:
+sponsor.commercial-banner.form.label.brand = Brand:
 sponsor.commercial-banner.form.label.expirationDate = Expiration date:
 sponsor.commercial-banner.form.label.cvv = CVV:
-sponsor.comercial-banner.error.creditCard = Credit Card expired
+
+sponsor.commercial-banner.error.creditCard = Credit Card expired
+sponsor.commercial-banner.error.hasNotCreditCard = ¡You have not a credit card registered in your account! Please, add a credit card in your sponsor account data
+sponsor.commercial-banner.error.cvv = CVV doesn't follow the pattern, “9” denotes an arbitrary digit
+sponsor.commercial-banner.error.expirationDate = Expiration date doesn't follow the pattern, “MM” denotes the month and “YY” denotes the year
+sponsor.commercial-banner.error.isSpam = This piece of test is considere SPAM, you must modify it
 
 sponsor.commercial-banner.form.button.return = Return
-sponsor.commercial-banner.form.button.create = Create banner
+sponsor.commercial-banner.form.button.create = Create
 sponsor.commercial-banner.form.button.delete = Delete
 sponsor.commercial-banner.form.button.update = Update
 

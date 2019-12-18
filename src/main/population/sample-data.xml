@@ -172,10 +172,6 @@
 	
 	<bean name="sponsor1Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 1, Inc." />
-		<property name="accountHolder" value="Pedro Manuel Cobos Ramos" />
-		<property name="creditCardNumber" value="4628900597961379" />
-		<property name="expirationDate" value="11/20" />
-		<property name="cvv" value="511" />
 		<property name="userAccount"  ref="sponsor1UserAccount" />
 	</bean>
 	
@@ -206,10 +202,6 @@
 	
 	<bean name="sponsor2Sponsor" class="acme.entities.roles.Sponsor">
 		<property name="orgName" value="Sponsor 2, Inc." />
-		<property name="accountHolder"><null/></property>
-		<property name="creditCardNumber"><null/></property>
-		<property name="expirationDate"><null/></property>
-		<property name="cvv"><null/></property>
 		<property name="userAccount"  ref="sponsor2UserAccount" />
 	</bean>
 	
@@ -359,9 +351,10 @@
 
 	<bean id="commercialBanner01" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture.com"/>
-		<property name="slogan" value="http://www.slogan.com"/>
+		<property name="slogan" value="Esto es un slogan"/>
 		<property name="targetURL" value="http://www.targetURL.com"/>
-		<property name="accountHolder" value="Alfredo Diaz Perez"/>
+		<property name="marca" value="VISA"/>
+		<property name="creditCardHolder" value="Jose Luis López"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -370,9 +363,10 @@
 	
 	<bean id="commercialBanner02" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture2.com"/>
-		<property name="slogan" value="http://www.slogan2.com"/>
+		<property name="slogan" value="Esto es un slogan 2"/>
 		<property name="targetURL" value="http://www.targetURL2.com"/>
-		<property name="accountHolder" value="Alfredo Diaz Perez"/>
+		<property name="marca" value="MASTERCARD"/>
+		<property name="creditCardHolder" value="Luis Melero López"/>
 		<property name="creditCardNumber" value="5390700823285988"/>
 		<property name="expirationDate" value="12/20"/> 
 		<property name="cvv" value="123"/>
@@ -381,9 +375,10 @@
 	
 	<bean id="commercialBanner03" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture3.com"/>
-		<property name="slogan" value="http://www.slogan3.com"/>
+		<property name="slogan" value="Esto es un slogan 3"/>
 		<property name="targetURL" value="http://www.targetURL3.com"/>
-		<property name="accountHolder" value="Lydia Fajardo Iglesias"/>
+		<property name="marca" value="AMERICAN_EXPRESS"/>
+		<property name="creditCardHolder" value="Ana Fernández"/>
 		<property name="creditCardNumber" value="4196875127569862"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>
@@ -392,10 +387,11 @@
 	
 	<bean id="commercialBanner04" class="acme.entities.banners.CommercialBanner">
 		<property name="picture" value="http://www.picture4.com"/>
-		<property name="slogan" value="http://www.slogan4.com"/>
+		<property name="slogan" value="Esto es un slogan 4"/>
 		<property name="targetURL" value="http://www.targetURL4.com"/>
-		<property name="accountHolder" value="Lydia Fajardo Iglesias"/>
-		<property name="creditCardNumber" value="4196875127569862"/>
+		<property name="marca" value="DINERS_CLUB"/>
+		<property name="creditCardHolder" value="José Fernández"/>
+		<property name="creditCardNumber" value="30285110695591"/>
 		<property name="expirationDate" value="02/27"/> 
 		<property name="cvv" value="607"/>
 		<property name="sponsor" ref="sponsor2Sponsor"/>
@@ -405,7 +401,7 @@
 
 	<bean id="nonCommercialBanner01" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.picture.com"/>
-		<property name="slogan" value="http://www.slogan.com"/>
+		<property name="slogan" value="Esto es un slogan"/>
 		<property name="targetURL" value="http://www.targetURL.com"/>
 		<property name="jingle" value="http://www.jingle.com"/>
 		<property name="sponsor" ref="sponsor1Sponsor"/>
@@ -413,7 +409,7 @@
 	
 	<bean id="nonCommercialBanner02" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.picture2.com"/>
-		<property name="slogan" value="http://www.slogan2.com"/>
+		<property name="slogan" value="Esto es un slogan 2"/>
 		<property name="targetURL" value="http://www.targetURL2.com"/>
 		<property name="jingle" value="http://www.jingle2.com"/>
 		<property name="sponsor" ref="sponsor1Sponsor"/>
@@ -421,7 +417,7 @@
 	
 	<bean id="nonCommercialBanner03" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.picture3.com"/>
-		<property name="slogan" value="http://www.slogan3.com"/>
+		<property name="slogan" value="Esto es un slogan 3"/>
 		<property name="targetURL" value="http://www.targetURL3.com"/>
 		<property name="jingle" value="http://www.jingle3.com"/>
 		<property name="sponsor" ref="sponsor2Sponsor"/>
@@ -429,7 +425,7 @@
 	
 	<bean id="nonCommercialBanner04" class="acme.entities.banners.NonCommercialBanner">
 		<property name="picture" value="http://www.pictureWithNoJingle.com"/>
-		<property name="slogan" value="http://www.sloganWithNoJingle.com"/>
+		<property name="slogan" value="Esto es un slogan 4"/>
 		<property name="targetURL" value="http://www.targetURLWithNoJingle.com"/>
 		<property name="jingle"><null/></property>
 		<property name="sponsor" ref="sponsor2Sponsor"/>
@@ -690,8 +686,8 @@
 
 	<bean name="application1" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="EEEE-JJJJ:WWWW" />
-		<property name="creationMoment" value="2019/11/10 16:30" />
-		<property name="updateMoment" value="2019/11/10 16:30" />
+		<property name="creationMoment" value="2019/12/12 16:30" />
+		<property name="lastModification" value="2019/12/12 16:30" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
@@ -701,10 +697,11 @@
 	</bean>	
 	
 	<bean name="application2" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="AAAAA-KKKJJ:WRRW" />
-		<property name="creationMoment" value="2019/10/10 16:30" />
-		<property name="updateMoment" value="2019/10/11 16:30" />
-		<property name="status" value="REJECTED" />
+
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
+		<property name="creationMoment" value="2019/12/12 16:30" />
+		<property name="lastModification" value="2019/12/12 16:30" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application3 cualifications" />
@@ -713,10 +710,11 @@
 	</bean>
 	
 	<bean name="application3" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="E234-JJJJ:WW1W" />
-		<property name="creationMoment" value="2019/10/11 16:30" />
-		<property name="updateMoment" value="2019/10/12 16:30" />
-		<property name="status" value="ACCEPTED" />
+
+		<property name="referenceNumber" value="EMP1-JOB2:WOR1" />
+		<property name="creationMoment" value="2019/12/15 16:30" />
+		<property name="lastModification" value="2019/12/15 16:30" />
+		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application3 cualifications" />
@@ -725,15 +723,53 @@
 	</bean>
 	
 	<bean name="application4" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="E567-JJJJ:WW1W" />
-		<property name="creationMoment" value="2019/10/11 16:30" />
-		<property name="updateMoment" value="2019/10/11 16:30" />
-		<property name="status" value="REJECTED" />
+
+		<property name="referenceNumber" value="EMP1-JOB2:WOR2" />
+		<property name="creationMoment" value="2019/12/12 16:30" />
+		<property name="lastModification" value="2019/12/12 16:30" />
+		<property name="status" value="ACCEPTED" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
 		<property name="qualifications" value="application4 cualifications" />
 		<property name="worker" ref="worker2Worker" />
 		<property name="job" ref="job2" />
+	</bean>
+	
+	<bean name="application5" class="acme.entities.applications.Application">
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2-004" />
+		<property name="creationMoment" value="2019/12/11 16:30" />
+		<property name="lastModification" value="2019/12/11 16:30" />
+		<property name="status" value="REJECTED" />
+		<property name="justification" value="justification" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application5 cualifications" />
+		<property name="worker" ref="worker2Worker" />
+		<property name="job" ref="job1" />
+	</bean>
+	
+	<bean name="application6" class="acme.entities.applications.Application">
+		<property name="referenceNumber" value="EMP1-JOB3:WOR1-005" />
+		<property name="creationMoment" value="2019/12/02 16:30" />
+		<property name="lastModification" value="2019/12/02 16:30" />
+		<property name="status" value="PENDING" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application6 cualifications" />
+		<property name="worker" ref="worker1Worker" />
+		<property name="job" ref="job3" />
+	</bean>
+	
+	<bean name="application7" class="acme.entities.applications.Application">
+		<property name="referenceNumber" value="EMP1-JOB3:WOR1-006" />
+		<property name="creationMoment" value="2019/12/17 16:30" />
+		<property name="lastModification" value="2019/12/17 16:30" />
+		<property name="status" value="ACCEPTED" />
+		<property name="statement" value="statement" />
+		<property name="skills" value="application skills" />
+		<property name="qualifications" value="application6 cualifications" />
+		<property name="worker" ref="worker1Worker" />
+		<property name="job" ref="job3" />
 	</bean>
     
  	<!-- Audit Record Beans -->
@@ -779,37 +815,67 @@
 	<bean name="messagethread1" class="acme.entities.messagethread.Messagethread">
 		<property name="title" value="Hola Mundo!" />
 		<property name="moment" value="2019/06/10 10:35"/>
-		<property name="author" ref="userAuthenticated"/>
-		<property name= "users">
+		<property name="messages">
 			<list>
-				<ref bean="userAuthenticated" />
-				<ref bean="auditor2Authenticated" />
+				<ref bean="message1" />
+				<ref bean="message2" />
 			</list>
-			</property>
+		</property>
+	
+	</bean>
+	<bean id="userThread1" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread1"/>
+		<property name="authenticated" ref="userAuthenticated"/>
+		<property name="creator" value = "true"/>
+	</bean>
+	<bean id="userThread2" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread1"/>
+		<property name="authenticated" ref="auditor2Authenticated"/>
+		<property name="creator" value ="false"/>
 	</bean>
 	
 	<bean name="messagethread2" class="acme.entities.messagethread.Messagethread">
 		<property name="title" value="Hola!" />
 		<property name="moment" value="2019/10/10 14:30"/>
-		<property name="author" ref="userAuthenticated"/>
-		<property name= "users">
+		
+		<property name="messages">
 			<list>
-				<ref bean="userAuthenticated" />
-				<ref bean="employer1Authenticated" />
+				<ref bean="message3" />
+				<ref bean="message4" />
 			</list>
-			</property>
+		</property>
+	</bean>
+	<bean id="userThread3" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread2"/>
+		<property name="authenticated" ref="userAuthenticated"/>
+		<property name="creator" value = "true"/>
+	</bean>
+	<bean id="userThread4" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread2"/>
+		<property name="authenticated" ref="employer1Authenticated"/>
+		<property name="creator" value = "false"/>
 	</bean>
 	
 	<bean name="messagethread3" class="acme.entities.messagethread.Messagethread">
 		<property name="title" value="Madrid?" />
 		<property name="moment" value="2019/11/20 11:30"/>
-		<property name="author" ref="employer1Authenticated"/>
-		<property name= "users">
+
+		<property name="messages">
 			<list>
-				<ref bean="userAuthenticated" />
-				<ref bean="employer1Authenticated" />
+				<ref bean="message5" />
+				<ref bean="message6" />
 			</list>
-			</property>
+		</property>
+	</bean>
+	<bean id="userThread5" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread3"/>
+		<property name="authenticated" ref="employer1Authenticated"/>
+		<property name="creator" value = "true"/>
+	</bean>
+	<bean id="userThread6" class="acme.entities.messagethread.Userthread">
+		<property name="thread" ref="messagethread3"/>
+		<property name="authenticated" ref="userAuthenticated"/>
+		<property name="creator" value = "false"/>
 	</bean>
 	
 	<bean id="message1" class="acme.entities.message.Message">
@@ -817,7 +883,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="holaMundo"/>
 		<property name="body" value="Hola Mundo! primer mensaje del sistema"/>
-		<property name="thread" ref="messagethread1"/>
 		<property name="author" ref="userAuthenticated"/>
 	</bean>
 	
@@ -826,7 +891,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="hola"/>
 		<property name="body" value="¿Qué es esto?"/>
-		<property name="thread" ref="messagethread1"/>
 		<property name="author" ref="auditor2Authenticated"/>
 	</bean>
 	
@@ -835,7 +899,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="hola,saludo"/>
 		<property name="body" value="Hola! soy nuevo aqui, ¿esto funciona bien?"/>
-		<property name="thread" ref="messagethread2"/>
 		<property name="author" ref="userAuthenticated"/>
 	</bean>
 	
@@ -844,7 +907,6 @@
 		<property name="title" value="Hola!"/>
 		<property name="tags" value="hola"/>
 		<property name="body" value="Hola! soy employer1, funciona muy bien"/>
-		<property name="thread" ref="messagethread2"/>
 		<property name="author" ref="employer1Authenticated"/>
 	</bean>
 	
@@ -853,7 +915,6 @@
 		<property name="title" value="Madrid"/>
 		<property name="tags" value="Madrid,piso,compañero"/>
 		<property name="body" value="Buenas soy employer1 y vivo en un piso en madrid, estoy bucando un compañero de piso"/>
-		<property name="thread" ref="messagethread3"/>
 		<property name="author" ref="employer1Authenticated"/>
 	</bean>
 	
@@ -862,7 +923,6 @@
 		<property name="title" value="Hola"/>
 		<property name="tags" value="Madrid,piso,compañero"/>
 		<property name="body" value="Hola, voy a preguntar y te digo"/>
-		<property name="thread" ref="messagethread3"/>
 		<property name="author" ref="userAuthenticated"/>
 	</bean>
 		

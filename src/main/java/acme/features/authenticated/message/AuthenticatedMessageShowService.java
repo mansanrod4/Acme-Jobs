@@ -20,7 +20,12 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 	@Override
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
-		return true;
+
+		Integer threadId = this.repository.findThreadIdByMessageId(request.getModel().getInteger("id"));
+		int authenticatedId = request.getPrincipal().getActiveRoleId();
+		Integer count = this.repository.countUserThreadByAuIdAndThreadId(authenticatedId, threadId);
+
+		return count == 1;
 	}
 
 	@Override

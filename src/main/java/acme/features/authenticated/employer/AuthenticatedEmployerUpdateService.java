@@ -35,7 +35,7 @@ public class AuthenticatedEmployerUpdateService implements AbstractUpdateService
 	private AuthenticatedEmployerRepository repository;
 
 
-	// AbstractUpdateService<Authenticated, Consumer> interface -----------------
+	// AbstractUpdateService<Authenticated, Employer> interface -----------------
 
 	@Override
 	public boolean authorise(final Request<Employer> request) {

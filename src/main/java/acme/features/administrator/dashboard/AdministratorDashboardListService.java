@@ -1,8 +1,12 @@
 
 package acme.features.administrator.dashboard;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,6 +68,37 @@ public class AdministratorDashboardListService implements AbstractListService<Ad
 		Double[] numberOfCompaniesGroupedBySector = this.repository.numberOfCompaniesGroupedBySector();
 		Double[] numberOfInvestorsGroupedBySector = this.repository.numberOfInvestorsGroupedBySector();
 
+		ArrayList<LocalDate> lastFourWeeks = new ArrayList<LocalDate>();
+		Calendar currCalendar = Calendar.getInstance();
+
+		for (int i = 0; i < 27; i++) {
+			// Añade el día actual si no está ya presente
+			if (!lastFourWeeks.contains(currCalendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate())) {
+				lastFourWeeks.add(currCalendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+			}
+			// Restamos un día, lo convertimos a LocalDate para solo mostrar la fecha y lo añadimos al ArrayList
+			currCalendar.add(Calendar.DAY_OF_YEAR, -1);
+			LocalDate dateMinusDays = currCalendar.getTime().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+			lastFourWeeks.add(dateMinusDays);
+		}
+
+		ArrayList<Double> countCompaniesStatusPending = new ArrayList<Double>();
+		ArrayList<Double> countCompaniesStatusAccepted = new ArrayList<Double>();
+		ArrayList<Double> countCompaniesStatusRejected = new ArrayList<Double>();
+
+		for (LocalDate indexDay : lastFourWeeks) {
+
+			Date indexDate = Date.from(indexDay.atStartOfDay(ZoneId.systemDefault()).toInstant());
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(indexDate);
+			cal.add(Calendar.DAY_OF_YEAR, 1);
+			Date indexDatePlusOne = cal.getTime();
+
+			countCompaniesStatusPending.add(this.repository.getCompaniesStatusPending(indexDatePlusOne, indexDate));
+			countCompaniesStatusAccepted.add(this.repository.getCompaniesStatusAccepted(indexDatePlusOne, indexDate));
+			countCompaniesStatusRejected.add(this.repository.getCompaniesStatusRejected(indexDatePlusOne, indexDate));
+		}
+
 		ArrayList<String> investorsSectors = new ArrayList<String>();
 		ArrayList<String> companiesSectors = new ArrayList<String>();
 
@@ -81,6 +116,10 @@ public class AdministratorDashboardListService implements AbstractListService<Ad
 
 		entity.setCompaniesSectors(companiesSectors);
 		entity.setInvestorsSectors(investorsSectors);
+		entity.setLastFourWeeks(lastFourWeeks);
+		entity.setCompaniesStatusPending(countCompaniesStatusPending);
+		entity.setCompaniesStatusAccepted(countCompaniesStatusAccepted);
+		entity.setCompaniesStatusRejected(countCompaniesStatusRejected);
 
 		Double avgNumberOfJobsPerEmployer = this.repository.averageNumberOfJobsPerEmployer();
 		Double avgNumberOfApplicationsPerEmployer = this.repository.averageNumberOfApplicationsPerEmployer();
@@ -117,7 +156,7 @@ public class AdministratorDashboardListService implements AbstractListService<Ad
 
 		request.unbind(entity, model, "totalAnnouncements", "totalCompanyRecords", "totalInvestorRecords", "maxRewardsRequests", "minRewardsRequests", "avgRewardsRequests", "stdRewardsRequests", "maxRewardsOffers", "minRewardsOffers", "avgRewardsOffers",
 			"stdRewardsOffers", "avgNumberOfJobsPerEmployer", "avgNumberOfApplicationsPerEmployer", "avgNumberOfApplicationsPerWorker", "ratioOfDraftedJobs", "ratioOfPublishedJobs", "ratioOfPendingApplications", "ratioOfAcceptedApplications",
-			"ratioOfRejectedApplications", "numberOfCompaniesGroupedBySector", "numberOfInvestorsGroupedBySector", "investorsSectors", "companiesSectors");
+			"ratioOfRejectedApplications", "numberOfCompaniesGroupedBySector", "numberOfInvestorsGroupedBySector", "investorsSectors", "companiesSectors", "companiesStatusPending", "companiesStatusAccepted", "companiesStatusRejected", "lastFourWeeks");
 	}
 
 }

@@ -47,7 +47,10 @@ public class AuthenticatedThreadListMineService implements AbstractListService<A
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		model.setAttribute("authorName", entity.getAuthor().getUserAccount().getUsername());
+
+		String author = this.repository.findAuthorByThreadId(entity.getId()).getUserAccount().getUsername();
+
+		model.setAttribute("authorName", author);
 		request.unbind(entity, model, "title", "moment");
 	}
 

@@ -1,0 +1,22 @@
+employer.application.form.label.referenceNumber = Reference:
+employer.application.form.label.creationMoment = Creation moment:
+employer.application.form.label.status = Status:
+employer.application.form.label.statement = Statement:
+employer.application.form.label.skills = Skills:
+employer.application.form.label.qualifications = Qualifications:
+employer.application.form.label.worker = Worker:
+employer.application.form.label.job = Job Reference:
+employer.application.form.label.justification = Justification:
+
+employer.application.list.label.jobReference = Job reference
+employer.application.list.label.referenceNumber = Reference
+employer.application.list.label.creationMoment = Creation moment
+employer.application.list.label.statement = Statement
+employer.application.list.label.status = Status
+employer.application.list.label.job = Job
+
+employer.application.form.label.button.return = Return
+employer.job.form.button.accept = Accept
+employer.job.form.button.reject = Reject
+
+employer.application.error.justification = Rejected applications must have a mandatory justification

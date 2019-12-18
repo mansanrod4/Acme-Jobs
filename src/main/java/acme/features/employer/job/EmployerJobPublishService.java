@@ -9,6 +9,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamFilter;
 import acme.entities.jobs.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -31,7 +32,18 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
 
-		return true;
+		boolean isFinalMode;
+
+		//A JOB CAN BE MODIFIED AS LONG AS IT'S NOT SAVED IN FINAL MODE
+		isFinalMode = this.repository.findOneJobById(request.getModel().getInteger("id")).isFinalMode();
+
+		//Solo el empleado que creó el job puede publicarlo
+
+		Integer jobId = request.getModel().getInteger("id");
+		Integer employerId = this.repository.findOneJobById(jobId).getEmployer().getId();
+		boolean thisEmployer = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return !isFinalMode && thisEmployer;
 	}
 
 	@Override
@@ -69,7 +81,8 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		boolean hasDescriptor, isOneWeekLater;
+		Integer jobId = request.getModel().getInteger("id");
+		boolean hasDescriptor, isOneWeekLater, duties100, hasNoDuties, isEuroZone = false, isSpam, isDuplicated;
 
 		//DEADLINE MAYOR A UNA SEMANA DESDE AHORA
 		if (!errors.hasErrors("deadLine")) {									//Si no hay errores:
@@ -87,14 +100,44 @@ public class EmployerJobPublishService implements AbstractUpdateService<Employer
 		hasDescriptor = request.getModel().getString("description").isEmpty();
 		errors.state(request, !hasDescriptor, "description", "employer.job.error.hasDescriptor");
 
-		//TODO: La suma de los porcentajes de los duties debe ser del 100%
+		//No se puede publicar si no tiene duties (DESCRIPTOR) -Solo al Publicar-
+		hasNoDuties = this.repository.findManyDutiesByJob(jobId).isEmpty();
+		errors.state(request, !hasNoDuties, "description", "employer.job.error.noDuties");
 
-		//TODO: La entidad no se considera SPAM
+		//La suma de los porcentajes de los duties debe ser del 100% -Solo al Publicar-
+		if (this.repository.sumPercentageDuty(jobId) != null) {
+			duties100 = this.repository.sumPercentageDuty(jobId).equals(100.00);
+			errors.state(request, duties100, "description", "employer.job.error.dutiesOver100");
+		}
 
-		//TODO: Salario en euros?
+		//Salario en euros
+		if (!errors.hasErrors("salary")) {
+			String eur2 = "€", eur = "EUR", currency = request.getModel().getAttribute("salary").toString();
+			if (currency.contains(eur) || currency.contains(eur2)) {
+				isEuroZone = true;
+			}
+			errors.state(request, isEuroZone, "salary", "employer.job.error.money-no-euro");
+		}
 
-		//TODO: Ticker duplicado?
+		//Ticker duplicado
+		isDuplicated = this.repository.findOneJobByTicker(entity.getReference()) != null;
+		errors.state(request, !isDuplicated, "reference", "employer.job.error.duplicated");
 
+		// SPAM FILTER
+		Double threshold = this.repository.findSysconfig().getThreshold();
+		String spamWords = this.repository.findSysconfig().getSpamwords();
+
+		//Spam - Description
+		if (!errors.hasErrors("description")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("description"), spamWords, threshold);
+			errors.state(request, !isSpam, "description", "employer.duty.error.isSpam");
+		}
+
+		//Spam - Title
+		if (!errors.hasErrors("title")) {
+			isSpam = SpamFilter.spamFilter(request.getModel().getString("title"), spamWords, threshold);
+			errors.state(request, !isSpam, "title", "employer.duty.error.isSpam");
+		}
 	}
 
 	@Override

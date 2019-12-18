@@ -30,7 +30,7 @@
 	</h2>
 	
 	<div>
-		<canvas id="canvas"></canvas>
+		<canvas id="canvas" width="600" height="400"></canvas>
 	</div>
 	
 	<script type="text/javascript">
@@ -52,12 +52,15 @@
 			};
 			
 			var options = {
+					responsive: true,
+				    maintainAspectRatio: false,
 					scales : {
 							yAxes : [
 								{
 									ticks : {
 										suggestedMin : 0.0,
-										suggestedMax : 5.0
+										suggestedMax : 3.0,
+										stepSize: 1
 									}
 								}
 							]
@@ -85,7 +88,7 @@
 	</h2>
 	
 	<div>
-		<canvas id="canvasInvestor"></canvas>
+		<canvas id="canvasInvestor" width="600" height="400"></canvas>
 	</div>
 	
 	<script type="text/javascript">
@@ -106,12 +109,15 @@
 			};
 			
 			var options = {
+					responsive: true,
+				    maintainAspectRatio: false,
 					scales : {
 							yAxes : [
 								{
 									ticks : {
 										suggestedMin : 0.0,
-										suggestedMax : 5.0
+										suggestedMax : 3.0,
+										stepSize: 1
 									}
 								}
 							]
@@ -139,7 +145,7 @@
 	</h2>
 	
 	<div>
-		<canvas id="canvas2"></canvas>
+		<canvas id="canvas2" width="200" height="400"></canvas>
 	</div>
 	
 	<script type="text/javascript">
@@ -161,6 +167,8 @@
 			};
 			
 			var options = {
+					responsive: true,
+				    maintainAspectRatio: false,
 					scales : {
 							yAxes : [
 								{
@@ -194,7 +202,7 @@
 	</h2>
 	
 	<div>
-		<canvas id="canvas3"></canvas>
+		<canvas id="canvas3" width="200" height="400"></canvas>
 	</div>
 	
 	<script type="text/javascript">
@@ -217,6 +225,8 @@
 			};
 			
 			var options = {
+					responsive: true,
+				    maintainAspectRatio: false,
 					scales : {
 							yAxes : [
 								{
@@ -245,6 +255,87 @@
 			});
 	</script>
 	
-	<acme:form-return code="administrator.dashboard.form.button.return" />	
-</acme:form>
+	<div>
+		<h2>
+			<acme:message code="administrator.dashboard.form.label.title.Applications"/>
+		</h2>
+		<p>
+			<acme:message code="administrator.dashboard.form.label.title.Applications.subtext"/>
+		</p>
+	</div>
+	
+	<div>
+		<canvas id="ApplicationStatusChart" width="600" height="400"></canvas>
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+		var ApplicationStatusChart = document.getElementById("ApplicationStatusChart");
 
+		var pendingData = {
+ 			label: "Pending",
+  			data: [<jstl:forEach var = "item" items="${companiesStatusPending}"> 
+						<jstl:out value="${item}"/>,
+					</jstl:forEach>],
+  		    backgroundColor: "#dfe3e6",
+  		   	borderWidth: 1
+		};
+
+		var acceptedData = {
+  			label: "Accepted",
+  			data: [<jstl:forEach var = "item" items="${companiesStatusAccepted}"> 
+						<jstl:out value="${item}"/>,
+				   </jstl:forEach>],
+  			backgroundColor: "#0fe600",
+  			borderWidth: 1
+		};
+		
+		var rejectedData = {
+	 			label: "Rejected",
+	  			data: [<jstl:forEach var = "item" items="${companiesStatusRejected}"> 
+							<jstl:out value="${item}"/>,
+						</jstl:forEach>],
+	  		    backgroundColor: "#e62e00",
+	  		   	borderWidth: 1
+			};
+
+		var Data = {
+  			labels: [<jstl:forEach var = "item" items="${lastFourWeeks}"> 
+						"${item}",
+					</jstl:forEach>],
+  			datasets: [pendingData, acceptedData, rejectedData]
+		};
+
+		var chartOptions = {
+				responsive: true,
+			    maintainAspectRatio: false,
+  			scales: {
+    			xAxes: [{
+      				barPercentage: 1,
+      				categoryPercentage: 1
+    			}],
+   			 	yAxes: [{
+   			 				ticks : {
+								suggestedMin : 0.0,
+								suggestedMax : 4.0,
+								stepSize: 1,
+								sampleSize : 3
+								
+							}
+						}
+   			 			]
+  					}
+			};
+
+		var barChart = new Chart(ApplicationStatusChart, {
+  			type: 'bar',
+  			data: Data,
+  			options: chartOptions
+		  });
+		});
+	</script>
+	
+	<acme:form-return code="administrator.dashboard.form.button.return" />	
+	
+</acme:form>

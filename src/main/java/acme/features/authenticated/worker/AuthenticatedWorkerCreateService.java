@@ -35,7 +35,7 @@ public class AuthenticatedWorkerCreateService implements AbstractCreateService<A
 	@Autowired
 	private AuthenticatedWorkerRepository repository;
 
-	// AbstractCreateService<Authenticated, Consumer> ---------------------------
+	// AbstractCreateService<Authenticated, Worker> ---------------------------
 
 
 	@Override

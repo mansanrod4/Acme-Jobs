@@ -26,7 +26,13 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
 
-		return true;
+		//Para que otro employer no pueda editar el duty
+		Duty duty = this.repository.findOneDutyById(request.getModel().getInteger("id"));
+		Integer employerId = duty.getJob().getEmployer().getId();
+
+		boolean result = employerId.equals(request.getPrincipal().getActiveRoleId());
+
+		return result;
 	}
 
 	@Override
@@ -35,10 +41,18 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		assert entity != null;
 		assert model != null;
 
+		//Solo se puede editar el duty si el job no esta publicado
+		if (entity.getJob().isFinalMode() == false) {
+			model.setAttribute("isNotFinalMode", false);
+		} else {
+			model.setAttribute("isNotFinalMode", true);
+		}
+
 		if (request.isMethod(HttpMethod.GET)) {
 			model.setAttribute("jobTitle", entity.getJob().getTitle());
 			model.setAttribute("jobReference", entity.getJob().getReference());
 			model.setAttribute("jobEmployer", entity.getJob().getEmployer().getUserAccount().getUsername());
+			model.setAttribute("jobEmployerId", entity.getJob().getEmployer().getId()); //Para el authorise del editar duty
 		} else {
 			request.transfer(model, "jobTitle", "jobReference", "jobEmployer");
 		}
