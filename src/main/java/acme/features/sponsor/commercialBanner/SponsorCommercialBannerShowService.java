@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.banners.CommercialBanner;
+import acme.entities.banners.CreditCardBrand;
 import acme.entities.roles.Sponsor;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
@@ -47,7 +49,22 @@ public class SponsorCommercialBannerShowService implements AbstractShowService<S
 
 		model.setAttribute("readOnly", true);
 
-		request.unbind(entity, model, "picture", "slogan", "targetURL", "creditCardNumber", "expirationDate", "cvv");
+		if (request.isMethod(HttpMethod.GET)) {
+			if (entity.getMarca().equals(CreditCardBrand.AMERICAN_EXPRESS)) {
+				model.setAttribute("marcaString", "American Express");
+			} else if (entity.getMarca().equals(CreditCardBrand.DINERS_CLUB)) {
+				model.setAttribute("marcaString", "Diners Club");
+			} else if (entity.getMarca().equals(CreditCardBrand.MASTERCARD)) {
+				model.setAttribute("marcaString", "MasterCard");
+			} else if (entity.getMarca().equals(CreditCardBrand.VISA)) {
+				model.setAttribute("marcaString", "VISA");
+			}
+
+		} else {
+			request.transfer(model, "marcaString");
+		}
+
+		request.unbind(entity, model, "picture", "slogan", "targetURL", "marca", "creditCardHolder", "creditCardNumber", "expirationDate", "cvv");
 	}
 
 	@Override

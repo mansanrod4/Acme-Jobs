@@ -20,12 +20,18 @@ public class SponsorCommercialBannerDeleteService implements AbstractDeleteServi
 	SponsorCommercialBannerRepository repository;
 
 
-	//AbstractUpdateService<Sponsor, CommercialBanner> interface
+	//AbstractDeleteService<Sponsor, CommercialBanner> interface
 
 	@Override
 	public boolean authorise(final Request<CommercialBanner> request) {
 		assert request != null;
-		return true;
+
+		//Solo el sponsor que creó el banner puede borrarlo
+		Integer bannerId = request.getModel().getInteger("id");
+		Integer sponsorId = this.repository.findOneCommercialBannerById(bannerId).getSponsor().getId();
+		boolean thisSponsor = sponsorId.equals(request.getPrincipal().getActiveRoleId());
+
+		return thisSponsor;
 	}
 
 	@Override

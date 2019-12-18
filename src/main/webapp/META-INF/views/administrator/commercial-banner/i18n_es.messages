@@ -14,6 +14,9 @@ administrator.commercial-banner.form.label.targetURL = Enlace:
 administrator.commercial-banner.form.label.creditCardNumber: Número de la tarjeta:
 administrator.commercial-banner.form.label.expirationDate = Fecha de expiración:
 administrator.commercial-banner.form.label.cvv = CVV:
+administrator.commercial-banner.form.label.creditCardHolder = Dueño de la tarjeta:
+administrator.commercial-banner.form.label.creditCardMarca = Marca
+
 administrator.comercial-banner.error.creditCard = Tarjeta caducada
 
 administrator.commercial-banner.form.button.return = Volver

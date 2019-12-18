@@ -14,6 +14,10 @@ administrator.commercial-banner.form.label.targetURL = Enlace:
 administrator.commercial-banner.form.label.creditCardNumber: Credit card number:
 administrator.commercial-banner.form.label.expirationDate = Expiration date:
 administrator.commercial-banner.form.label.cvv = CVV:
+administrator.commercial-banner.form.label.creditCardHolder = Credit card holder:
+administrator.commercial-banner.form.label.creditCardMarca = Brand
+
+
 administrator.comercial-banner.error.creditCard = Credit Card expired
 
 administrator.commercial-banner.form.button.return = Return
