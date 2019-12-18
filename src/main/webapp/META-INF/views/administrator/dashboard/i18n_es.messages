@@ -31,6 +31,6 @@ administrator.dashboard.form.label.title.sectorJobStatus = RATIO DEL ESTADO DE L
 administrator.dashboard.form.label.title.sectorApplicationStatus = RATIO DEL ESTADO DE LAS APLICACIONES
 administrator.dashboard.form.label.title.statistics = ESTADÍSTICAS PRINCIPALES
 administrator.dashboard.form.label.title.Applications = ESTADISTICAS DE SOLICITUDES
-administrator.dashboard.form.label.title.Applications.subtext = En los últimos 30 días
+administrator.dashboard.form.label.title.Applications.subtext = En las últimas cuatro semanas
 
 administrator.dashboard.form.button.return = Volver

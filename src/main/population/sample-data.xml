@@ -698,8 +698,8 @@
 	
 	<bean name="application2" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="EMP1-JOB1:WOR2-001" />
-		<property name="creationMoment" value="2019/11/25 16:30" />
-		<property name="lastModification" value="2019/11/25 16:30" />
+		<property name="creationMoment" value="2019/12/12 16:30" />
+		<property name="lastModification" value="2019/12/12 16:30" />
 		<property name="status" value="PENDING" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
@@ -722,8 +722,8 @@
 	
 	<bean name="application4" class="acme.entities.applications.Application">
 		<property name="referenceNumber" value="EMP1-JOB2:WOR2-003" />
-		<property name="creationMoment" value="2019/11/28 16:30" />
-		<property name="lastModification" value="2019/11/28 16:30" />
+		<property name="creationMoment" value="2019/12/12 16:30" />
+		<property name="lastModification" value="2019/12/12 16:30" />
 		<property name="status" value="ACCEPTED" />
 		<property name="statement" value="statement" />
 		<property name="skills" value="application skills" />
