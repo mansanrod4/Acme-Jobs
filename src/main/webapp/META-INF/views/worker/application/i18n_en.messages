@@ -1,11 +1,14 @@
-worker.application.form.label.referenceNumber = Reference
-worker.application.form.label.creationMoment = Creation moment
-worker.application.form.label.status = Status
-worker.application.form.label.statement = Statement
-worker.application.form.label.skills = Skills
-worker.application.form.label.qualifications = Qualifications
-worker.application.form.label.worker = Worker
-worker.application.form.label.job = Job
+worker.application.form.label.referenceNumber = Reference:
+worker.application.form.label.creationMoment = Creation moment:
+worker.application.form.label.status = Status:
+worker.application.form.label.statement = Statement:
+worker.application.form.label.skills = Skills:
+worker.application.form.label.qualifications = Qualifications:
+worker.application.form.label.worker = Worker:
+worker.application.form.label.job = Job:
+worker.application.form.label.updateMoment = Update moment:
+worker.application.form.label.justification = Employer justification:
+
 
 worker.application.list.label.referenceNumber = Reference
 worker.application.list.label.creationMoment = Creation moment
@@ -14,3 +17,18 @@ worker.application.list.label.status = Status
 worker.application.list.label.job = Job
 
 worker.application.form.label.button.return = Return
+worker.application.form.button.create = Save
+worker.application.form.button.delete = Delete
+
+worker.application.form.label.jobTitle = Title:
+worker.application.form.label.jobReference = Job reference:
+worker.application.form.label.jobDeadline = Job deadline:
+
+worker.application.form.label.title.JobInformation = Job Information
+worker.application.form.label.title.ApplicationInformation = Application information
+
+worker.application.error.duplicated = This reference number is already taken
+worker.application.error.isSpam = This piece of test is considered SPAM, you must modify it
+worker.application.error.alreadyApplied = You can't apply for a job if u already have an ACCEPTED application in that job
+
+worker.application.form.button.update = Update

@@ -17,5 +17,6 @@
 		action="/authenticated/duty/list?job_id=${id}" 
 		method="get"/>
 	
+	
 	<acme:form-return code="authenticated.job.form.button.return"/>
 </acme:form>

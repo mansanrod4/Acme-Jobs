@@ -685,7 +685,7 @@
 	<!-- Application beans -->
 
 	<bean name="application1" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB1:WOR1-000" />
+		<property name="referenceNumber" value="EEEE-JJJJ:WWWW" />
 		<property name="creationMoment" value="2019/12/12 16:30" />
 		<property name="lastModification" value="2019/12/12 16:30" />
 		<property name="status" value="PENDING" />
@@ -697,7 +697,8 @@
 	</bean>	
 	
 	<bean name="application2" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB1:WOR2-001" />
+
+		<property name="referenceNumber" value="EMP1-JOB1:WOR2" />
 		<property name="creationMoment" value="2019/12/12 16:30" />
 		<property name="lastModification" value="2019/12/12 16:30" />
 		<property name="status" value="PENDING" />
@@ -709,7 +710,8 @@
 	</bean>
 	
 	<bean name="application3" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB2:WOR1-002" />
+
+		<property name="referenceNumber" value="EMP1-JOB2:WOR1" />
 		<property name="creationMoment" value="2019/12/15 16:30" />
 		<property name="lastModification" value="2019/12/15 16:30" />
 		<property name="status" value="PENDING" />
@@ -721,7 +723,8 @@
 	</bean>
 	
 	<bean name="application4" class="acme.entities.applications.Application">
-		<property name="referenceNumber" value="EMP1-JOB2:WOR2-003" />
+
+		<property name="referenceNumber" value="EMP1-JOB2:WOR2" />
 		<property name="creationMoment" value="2019/12/12 16:30" />
 		<property name="lastModification" value="2019/12/12 16:30" />
 		<property name="status" value="ACCEPTED" />

@@ -435,7 +435,7 @@ create index IDXt84ibbldao4ngscmvo7ja0es on `job` (`final_mode`);
        add constraint `FKmctquc72kciwec2m7b0mte2t2` 
        foreign key (`thread_id`) 
        references `messagethread` (`id`);
-
+       
     alter table `worker` 
        add constraint FK_l5q1f33vs2drypmbdhpdgwfv3 
        foreign key (`user_account_id`) 

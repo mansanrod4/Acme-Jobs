@@ -100,6 +100,7 @@ master.menu.employer.applications.list = Mis Aplicaciones
 
 master.menu.worker = Trabajador
 master.menu.worker.applications.list = Mis solicitudes
+master.menu.worker.job.list = Empleos publicados
 
 # master.menu.sponsor ##########################################################
 
