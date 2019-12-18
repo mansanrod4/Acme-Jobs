@@ -15,6 +15,7 @@ authenticated.messagethread.list.label.author = Autor
 authenticated.messagethread.form.label.title = Título
 authenticated.messagethread.form.label.moment = Fecha Creación
 authenticated.messagethread.form.label.author = Autor
+authenticated.messagethread.create.error.titlespam = El título contiene palabras spam
 
 authenticated.messagethread.form.button.return = Volver
 authenticated.messagethread.form.button.message = Mensajes

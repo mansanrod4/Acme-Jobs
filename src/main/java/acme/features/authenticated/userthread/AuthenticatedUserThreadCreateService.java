@@ -22,11 +22,11 @@ public class AuthenticatedUserThreadCreateService implements AbstractCreateServi
 	@Override
 	public boolean authorise(final Request<Userthread> request) {
 		assert request != null;
-		// Solo meter un usuario si es su hilo
 		int threadId = request.getModel().getInteger("threadId");
 		int id = request.getPrincipal().getActiveRoleId();
-		Userthread Userthread = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id);
-		boolean res = Userthread.getCreator();
+
+		boolean res = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id).getCreator();
+
 		return res;
 	}
 

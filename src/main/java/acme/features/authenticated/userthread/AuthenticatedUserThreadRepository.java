@@ -32,4 +32,7 @@ public interface AuthenticatedUserThreadRepository extends AbstractRepository {
 	@Query("select ut from Userthread ut where ut.thread.id=?1 and ut.authenticated.id =?2")
 	Userthread findOneByThreadIdAndAuthenticatedId(int threadId, int authenticatedId);
 
+	@Query("select count(ut) from Userthread ut where ut.authenticated.id = ?1 and ut.thread.id = ?2")
+	Integer countUserThreadByAuIdAndThreadId(int authenticatedId, int idThread);
+
 }

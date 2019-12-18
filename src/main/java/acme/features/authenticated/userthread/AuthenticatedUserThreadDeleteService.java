@@ -21,13 +21,12 @@ public class AuthenticatedUserThreadDeleteService implements AbstractDeleteServi
 	@Override
 	public boolean authorise(final Request<Userthread> request) {
 		assert request != null;
-		// solo podra borrar si es su hilo
+
 		int UserthreadId = request.getModel().getInteger("id");
-		Userthread Userthread = this.repository.findOneUserThreadById(UserthreadId);
-		int threadId = Userthread.getThread().getId();
+		int threadId = this.repository.findOneUserThreadById(UserthreadId).getThread().getId();
 		int id = request.getPrincipal().getActiveRoleId();
-		Userthread Userthread2 = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id);
-		boolean res = Userthread2.getCreator();
+
+		boolean res = this.repository.findOneByThreadIdAndAuthenticatedId(threadId, id).getCreator();
 		return res;
 	}
 

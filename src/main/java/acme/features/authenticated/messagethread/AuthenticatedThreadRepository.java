@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.messagethread.Messagethread;
 import acme.entities.messagethread.Userthread;
+import acme.entities.sysconfig.Sysconfig;
 import acme.framework.entities.Authenticated;
 import acme.framework.repositories.AbstractRepository;
 
@@ -20,9 +21,6 @@ public interface AuthenticatedThreadRepository extends AbstractRepository {
 	@Query("select ut.thread from Userthread ut where ut.authenticated.id = ?1")
 	Collection<Messagethread> findManyByAuthenticatedId(int id);
 
-	@Query("select count(ut) from Userthread ut where ut.authenticated.id = ?1 and ut.thread.id = ?2")
-	Integer countNumberUserThreadByAuthenticatedIdAndThreadId(int autId, int threadId);
-
 	@Query("select a from Authenticated a where a.id = ?1")
 	Authenticated findAuthenticatedById(int id);
 
@@ -31,5 +29,8 @@ public interface AuthenticatedThreadRepository extends AbstractRepository {
 
 	@Query("select ut.authenticated from Userthread ut where ut.thread.id=?1 and ut.creator= true")
 	Authenticated findAuthorByThreadId(int threadId);
+
+	@Query("select s from Sysconfig s")
+	Sysconfig findspam();
 
 }
